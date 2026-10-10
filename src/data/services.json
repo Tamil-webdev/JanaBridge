@@ -1,0 +1,746 @@
+[
+  {
+    "id": "aadhaar-service",
+    "name": "Aadhaar Services & Updates (UIDAI)",
+    "tamilName": "ஆதார் சேவைகள் & முகவரி புதுப்பித்தல் (UIDAI)",
+    "hindiName": "आधार सेवाएं एवं विवरण अद्यतन (UIDAI)",
+    "category": "identity-certificates",
+    "department": "Unique Identification Authority of India (UIDAI)",
+    "tamilDepartment": "இந்திய தனித்துவ அடையாள ஆணையம் (UIDAI)",
+    "hindiDepartment": "भारतीय विशिष्ट पहचान प्राधिकरण (UIDAI)",
+    "description": "Book appointments, download e-Aadhaar, update demographic details (address, name, date of birth) and verify biometric status.",
+    "tamilDescription": "முன்பதிவு செய்தல், இ-ஆதார் பதிவிறக்கம், முகவரி, பெயர், பிறந்த தேதி புதுப்பித்தல் மற்றும் பயோமெட்ரிக் நிலையைச் சரிபார்த்தல்.",
+    "hindiDescription": "अपॉइंटमेंट बुक करें, ई-आधार डाउनलोड करें, जनसांख्यिकीय विवरण (पता, नाम, जन्म तिथि) अपडेट करें और बायोमेट्रिक स्थिति जांचें।",
+    "applicableStates": ["all"],
+    "isPopular": true,
+    "requiredDocuments": [
+      "Proof of Identity (POI)",
+      "Proof of Address (POA)",
+      "Mobile number registered with UIDAI for OTP authentication"
+    ],
+    "tamilRequiredDocuments": [
+      "அடையாளச் சான்று (POI)",
+      "முகவரிச் சான்று (POA)",
+      "OTP சரிபார்ப்பிற்காக UIDAI இல் பதிவு செய்யப்பட்ட மொபைல் எண்"
+    ],
+    "hindiRequiredDocuments": [
+      "पहचान का प्रमाण (POI)",
+      "पते का प्रमाण (POA)",
+      "ओटीपी प्रमाणीकरण के लिए यूआईडीएआई के साथ पंजीकृत मोबाइल नंबर"
+    ],
+    "applicationSteps": [
+      "Visit the official UIDAI myAadhaar portal (myaadhaar.uidai.gov.in).",
+      "Log in with your 12-digit Aadhaar number and OTP received on your mobile.",
+      "Select 'Address Update' or required service.",
+      "Upload valid proof of address in PDF/JPEG format.",
+      "Submit and pay nominal fee (₹50) to receive an Service Request Number (SRN) for tracking."
+    ],
+    "tamilApplicationSteps": [
+      "அதிகாரப்பூர்வ UIDAI myAadhaar போர்ட்டலுக்குச் செல்லவும் (myaadhaar.uidai.gov.in).",
+      "உங்கள் 12 இலக்க ஆதார் எண் மற்றும் மொபைலில் வரும் OTP ஐப் பயன்படுத்தி உள்நுழையவும்.",
+      "'முகவரி புதுப்பித்தல்' (Address Update) அல்லது தேவையான சேவையைத் தேர்ந்தெடுக்கவும்.",
+      "செல்லுபடியாகும் முகவரிச் சான்றை PDF அல்லது JPEG வடிவில் பதிவேற்றவும்.",
+      "₹50 கட்டணம் செலுத்தி விண்ணப்பக் கோரிக்கை எண்ணைப் (SRN) பெறவும்."
+    ],
+    "hindiApplicationSteps": [
+      "आधिकारिक यूआईडीएआई myAadhaar पोर्टल (myaadhaar.uidai.gov.in) पर जाएं।",
+      "अपने 12 अंकों के आधार नंबर और मोबाइल पर प्राप्त ओटीपी के साथ लॉग इन करें।",
+      "'पता अपडेट' या आवश्यक सेवा का चयन करें।",
+      "पीडीएफ/जेपीईजी प्रारूप में पते का वैध प्रमाण अपलोड करें।",
+      "ट्रैकिंग के लिए सेवा अनुरोध संख्या (SRN) प्राप्त करने हेतु ₹50 का शुल्क भुगतान करें।"
+    ],
+    "officialSourceUrl": "https://myaadhaar.uidai.gov.in",
+    "verificationStatus": "UIDAI Official Guidelines",
+    "isMock": false
+  },
+  {
+    "id": "pan-service",
+    "name": "PAN Card Application & Linking",
+    "tamilName": "பான் கார்டு விண்ணப்பம் & ஆதார் இணைப்பு",
+    "hindiName": "पैन कार्ड आवेदन एवं आधार लिंकिंग",
+    "category": "identity-certificates",
+    "department": "Income Tax Department",
+    "tamilDepartment": "வருமான வரித்துறை",
+    "hindiDepartment": "आयकर विभाग",
+    "description": "Apply for fresh PAN card, request reprint of lost PVC card, correct name or father's name, and check PAN-Aadhaar linkage status.",
+    "tamilDescription": "புதிய பான் கார்டு விண்ணப்பித்தல், திருத்தங்கள் செய்தல், தொலைந்த அட்டைக்கு மாற்று அட்டை பெறுதல் மற்றும் பான்-ஆதார் இணைப்பு நிலையைச் சரிபார்த்தல்.",
+    "hindiDescription": "नए पैन कार्ड के लिए आवेदन करें, सुधार कराएं, पुनर्मुद्रण का अनुरोध करें और पैन-आधार लिंकेज स्थिति की जांच करें।",
+    "applicableStates": ["all"],
+    "isPopular": true,
+    "requiredDocuments": [
+      "Aadhaar Card",
+      "Passport size photograph",
+      "Active mobile number and email ID"
+    ],
+    "tamilRequiredDocuments": [
+      "ஆதார் அட்டை",
+      "பாஸ்போர்ட் அளவு புகைப்படம்",
+      "செயலில் உள்ள மொபைல் எண் மற்றும் மின்னஞ்சல் முகவரி"
+    ],
+    "hindiRequiredDocuments": [
+      "आधार कार्ड",
+      "पासपोर्ट साइज फोटो",
+      "सक्रिय मोबाइल नंबर और ईमेल आईडी"
+    ],
+    "applicationSteps": [
+      "Access Protean (NSDL) or UTIITSL online portal.",
+      "Fill online application Form 49A.",
+      "Opt for paperless Aadhaar e-KYC.",
+      "Pay application processing fee online.",
+      "Obtain 15-digit acknowledgment number to monitor dispatch."
+    ],
+    "tamilApplicationSteps": [
+      "Protean (NSDL) அல்லது UTIITSL இணையதளத்தை அணுகவும்.",
+      "ஆன்லைன் படிவம் Form 49A ஐப் பூர்த்தி செய்யவும்.",
+      "காகிதமில்லா ஆதார் e-KYC முறையைத் தேர்ந்தெடுக்கவும்.",
+      "விண்ணப்பக் கட்டணத்தை ஆன்லைனில் செலுத்தவும்.",
+      "15 இலக்க ஒப்புகை எண்ணைப் பெற்று தபாலில் வரும் நிலையை கண்காணிக்கவும்."
+    ],
+    "hindiApplicationSteps": [
+      "प्रोटीन (NSDL) या यूटीआईआईटीएसएल (UTIITSL) पोर्टल पर जाएं।",
+      "ऑनलाइन आवेदन फॉर्म 49A भरें।",
+      "कागज रहित आधार ई-केवाईसी विकल्प चुनें।",
+      "ऑनलाइन आवेदन प्रक्रिया शुल्क का भुगतान करें।",
+      "स्थिति ट्रैक करने के लिए 15 अंकों की पावती संख्या प्राप्त करें।"
+    ],
+    "officialSourceUrl": "https://www.incometax.gov.in",
+    "verificationStatus": "ITD Official Verified",
+    "isMock": false
+  },
+  {
+    "id": "ration-card-service",
+    "name": "Smart Ration Card Services (TNPDS)",
+    "tamilName": "ஸ்மார்ட் குடும்ப அட்டை சேவைகள் (TNPDS)",
+    "hindiName": "स्मार्ट राशन कार्ड सेवाएं (TNPDS)",
+    "category": "identity-certificates",
+    "department": "Food and Civil Supplies Department, Tamil Nadu",
+    "tamilDepartment": "உணவு மற்றும் நுகர்வோர் பாதுகாப்புத்துறை, தமிழ்நாடு",
+    "hindiDepartment": "खाद्य एवं नागरिक आपूर्ति विभाग, तमिलनाडु",
+    "description": "Apply for new smart card, add or remove family member names, update residential address, and register gas cylinder count.",
+    "tamilDescription": "புதிய ஸ்மார்ட் குடும்ப அட்டைக்கு விண்ணப்பித்தல், குடும்ப உறுப்பினர் பெயர் சேர்த்தல்/நீக்குதல் மற்றும் முகவரி மாற்றம் செய்தல்.",
+    "hindiDescription": "नए स्मार्ट कार्ड के लिए आवेदन करें, परिवार के सदस्यों का नाम जोड़ें/हटाएं, पता बदलें और गैस सिलेंडर विवरण अपडेट करें।",
+    "applicableStates": ["tamil-nadu"],
+    "isPopular": true,
+    "requiredDocuments": [
+      "Aadhaar cards of all household members",
+      "Gas connection consumer receipt / Surrender certificate",
+      "Electricity bill or rental contract copy"
+    ],
+    "tamilRequiredDocuments": [
+      "குடும்ப உறுப்பினர்கள் அனைவரின் ஆதார் அட்டை",
+      "சமையல் எரிவாயு இணைப்பு ரசீது / ஒப்படைப்பு சான்றிதழ்",
+      "மின்கட்டண ரசீது அல்லது வாடகை ஒப்பந்த நகல்"
+    ],
+    "hindiRequiredDocuments": [
+      "परिवार के सभी सदस्यों के आधार कार्ड",
+      "गैस कनेक्शन उपभोक्ता रसीद / सरेंडर प्रमाणपत्र",
+      "बिजली बिल या किराये के अनुबंध की प्रति"
+    ],
+    "applicationSteps": [
+      "Navigate to tnpds.gov.in or install TNPDS mobile app.",
+      "Select 'Smart Card Application' or 'Correction of Details'.",
+      "Enter Aadhaar and address particulars with scanned proofs.",
+      "Track submission via reference token provided via SMS.",
+      "Collect card at Fair Price Shop / Taluk Supply Office."
+    ],
+    "tamilApplicationSteps": [
+      "tnpds.gov.in தளத்திற்குச் செல்லவும் அல்லது TNPDS செயலியைப் பயன்படுத்தவும்.",
+      "'புதிய மின்னணு அட்டை விண்ணப்பிக்க' அல்லது 'விவரங்களை மாற்றியமைக்க' என்பதைத் தேர்ந்தெடுக்கவும்.",
+      "ஆதார் மற்றும் முகவரி ஆவணங்களை பதிவேற்றவும்.",
+      "SMS மூலம் வரும் குறிப்பு எண்ணைப் பயன்படுத்தி நிலையை கண்காணிக்கவும்.",
+      "வட்டாட்சியர் அலுவலகம் அல்லது நியாயவிலைக் கடையில் புதிய அட்டையைப் பெற்றுக் கொள்ளவும்."
+    ],
+    "hindiApplicationSteps": [
+      "tnpds.gov.in पर जाएं या TNPDS मोबाइल ऐप खोलें।",
+      "'स्मार्ट कार्ड आवेदन' या 'विवरण में सुधार' चुनें।",
+      "स्कैन किए गए दस्तावेजों के साथ आधार और पते का विवरण दर्ज करें।",
+      "एसएमएस से प्राप्त संदर्भ संख्या से स्थिति ट्रैक करें।",
+      "उचित मूल्य की दुकान या तालुक आपूर्ति कार्यालय से कार्ड प्राप्त करें।"
+    ],
+    "officialSourceUrl": "https://www.tnpds.gov.in",
+    "verificationStatus": "Official Verified (TNPDS)",
+    "isMock": false
+  },
+  {
+    "id": "voter-id-service",
+    "name": "Voter ID Registration & Correction (ECI)",
+    "tamilName": "வாக்காளர் அடையாள அட்டை பதிவு & திருத்தம் (ECI)",
+    "hindiName": "मतदाता पहचान पत्र पंजीकरण एवं सुधार (ECI)",
+    "category": "identity-certificates",
+    "department": "Election Commission of India (ECI)",
+    "tamilDepartment": "இந்திய தேர்தல் ஆணையம் (ECI)",
+    "hindiDepartment": "भारत निर्वाचन आयोग (ECI)",
+    "description": "Register as new elector (Form 6), apply for shifting of residence/corrections (Form 8), and download digital e-EPIC.",
+    "tamilDescription": "புதிய வாக்காளர் பதிவு (படிவம் 6), முகவரி மாற்றம் மற்றும் திருத்தங்கள் (படிவம் 8) மற்றும் டிஜிட்டல் e-EPIC அட்டை பதிவிறக்கம்.",
+    "hindiDescription": "नए मतदाता के रूप में पंजीकरण (फॉर्म 6), पते में बदलाव/सुधार (फॉर्म 8) और डिजिटल ई-एपिक डाउनलोड करें।",
+    "applicableStates": ["all"],
+    "isPopular": true,
+    "requiredDocuments": [
+      "Passport photo",
+      "Age proof (10th mark sheet / birth certificate / Aadhaar)",
+      "Residence proof (utility bill / bank passbook)"
+    ],
+    "tamilRequiredDocuments": [
+      "பாஸ்போர்ட் அளவு புகைப்படம்",
+      "வயதுச் சான்று (10-ஆம் வகுப்பு மதிப்பெண் பட்டியல் / பிறப்புச் சான்றிதழ் / ஆதார்)",
+      "முகவரிச் சான்று (மின்கட்டண ரசீது / வங்கிக் கணக்குப் புத்தகம்)"
+    ],
+    "hindiRequiredDocuments": [
+      "पासपोर्ट साइज फोटो",
+      "आयु प्रमाण (10वीं की अंकतालिका / जन्म प्रमाण पत्र / आधार)",
+      "निवास प्रमाण (उपयोगिता बिल / बैंक पासबुक)"
+    ],
+    "applicationSteps": [
+      "Visit Voters' Services Portal (voters.eci.gov.in).",
+      "Register an account and choose Form 6 for fresh registration.",
+      "Fill constituency, assembly segment, and residential address.",
+      "Booth Level Officer (BLO) will conduct doorstep field verification.",
+      "Download e-EPIC or receive EPIC card via speed post."
+    ],
+    "tamilApplicationSteps": [
+      "வாக்காளர் சேவை போர்ட்டலுக்குச் செல்லவும் (voters.eci.gov.in).",
+      "புதிய பதிவுக்கு படிவம் 6-ஐத் (Form 6) தேர்ந்தெடுக்கவும்.",
+      "தொகுதி மற்றும் வசிப்பிட முகவரி விவரங்களைப் பூர்த்தி செய்யவும்.",
+      "வாக்குச்சாவடி நிலை அலுவலர் (BLO) நேரில் வந்து சரிபார்ப்பார்.",
+      "டிஜிட்டல் e-EPIC பதிவிறக்கம் செய்யவும் அல்லது அஞ்சல் வழியே வாக்காளர் அட்டையைப் பெறவும்."
+    ],
+    "hindiApplicationSteps": [
+      "मतदाता सेवा पोर्टल (voters.eci.gov.in) पर जाएं।",
+      "खाता पंजीकृत करें और नए पंजीकरण के लिए फॉर्म 6 चुनें।",
+      "विधानसभा क्षेत्र और आवासीय पते का विवरण भरें।",
+      "बूथ स्तर के अधिकारी (BLO) द्वारा क्षेत्रीय सत्यापन किया जाएगा।",
+      "ई-एपिक डाउनलोड करें या स्पीड पोस्ट द्वारा वोटर कार्ड प्राप्त करें।"
+    ],
+    "officialSourceUrl": "https://voters.eci.gov.in",
+    "verificationStatus": "ECI Guidelines Verified",
+    "isMock": false
+  },
+  {
+    "id": "income-certificate-service",
+    "name": "Income Certificate Online Issuance",
+    "tamilName": "வருமானச் சான்றிதழ் ஆன்லைன் விண்ணப்பம்",
+    "hindiName": "आय प्रमाण पत्र ऑनलाइन आवेदन",
+    "category": "edistrict-revenue",
+    "department": "Revenue & Disaster Management Department",
+    "tamilDepartment": "வருவாய் மற்றும் பேரிடர் மேலாண்மைத் துறை",
+    "hindiDepartment": "राजस्व एवं आपदा प्रबंधन विभाग",
+    "description": "Apply for authentic revenue income certificate required for college scholarships, welfare pensions, and subsidised government loans.",
+    "tamilDescription": "கல்வி உதவித்தொகை, அரசு நலத்திட்டங்கள் மற்றும் மானியக் கடன்களுக்குத் தேவையான அதிகாரப்பூர்வ வருமானச் சான்றிதழ் பெறுதல்.",
+    "hindiDescription": "कॉलेज छात्रवृत्ति, कल्याणकारी पेंशन और रियायती ऋण के लिए आवश्यक आधिकारिक आय प्रमाण पत्र हेतु आवेदन करें।",
+    "applicableStates": ["tamil-nadu"],
+    "isPopular": true,
+    "requiredDocuments": [
+      "Aadhaar card",
+      "Salary certificate / VAO income declaration",
+      "Ration Card copy",
+      "Bank passbook statement"
+    ],
+    "tamilRequiredDocuments": [
+      "ஆதார் அட்டை",
+      "சம்பளச் சான்றிதழ் அல்லது VAO வருமான உறுதிமொழிப் படிவம்",
+      "குடும்ப அட்டை நகல்",
+      "வங்கி கணக்கு அறிக்கை"
+    ],
+    "hindiRequiredDocuments": [
+      "आधार कार्ड",
+      "वेतन प्रमाण पत्र / वीएओ आय घोषणा",
+      "राशन कार्ड की प्रति",
+      "बैंक पासबुक स्टेटमेंट"
+    ],
+    "applicationSteps": [
+      "Sign in to tnesevai.tn.gov.in using CAN credential.",
+      "Choose Revenue Department -> Income Certificate.",
+      "Verify household annual earnings from agriculture, salary, and trade.",
+      "Upload documents and submit fee (₹60).",
+      "VAO and Revenue Inspector endorse; Tahsildar issues digital certificate."
+    ],
+    "tamilApplicationSteps": [
+      "CAN எண்ணைப் பயன்படுத்தி tnesevai.tn.gov.in தளத்தில் உள்நுழையவும்.",
+      "வருவாய்த்துறை -> வருமானச் சான்றிதழ் என்பதைத் தேர்ந்தெடுக்கவும்.",
+      "குடும்பத்தின் அனைத்து வழிகளிலுமான ஆண்டு வருமான விவரங்களை உள்ளிடவும்.",
+      "ஆவணங்களைப் பதிவேற்றி ₹60 கட்டணத்தைச் செலுத்தவும்.",
+      "VAO மற்றும் வருவாய் ஆய்வாளர் ஆய்வுக்குப் பின் வட்டாட்சியரால் டிஜிட்டல் சான்றிதழ் வழங்கப்படும்."
+    ],
+    "hindiApplicationSteps": [
+      "CAN नंबर का उपयोग करके tnesevai.tn.gov.in पर साइन इन करें।",
+      "राजस्व विभाग -> आय प्रमाण पत्र चुनें।",
+      "कृषि, वेतन और व्यवसाय से परिवार की वार्षिक आय दर्ज करें।",
+      "दस्तावेज अपलोड करें और ₹60 शुल्क का भुगतान करें।",
+      "वीएओ और राजस्व निरीक्षक के सत्यापन के बाद तहसीलदार डिजिटल प्रमाण पत्र जारी करते हैं।"
+    ],
+    "officialSourceUrl": "https://tnesevai.tn.gov.in",
+    "verificationStatus": "e-Sevai Official Verified",
+    "isMock": false
+  },
+  {
+    "id": "community-certificate-service",
+    "name": "Community / Caste Certificate Issuance",
+    "tamilName": "சாதிச் சான்றிதழ் விண்ணப்பம் & வழங்கல்",
+    "hindiName": "जाति प्रमाण पत्र जारी करना",
+    "category": "edistrict-revenue",
+    "department": "Revenue Department",
+    "tamilDepartment": "வருவாய்த்துறை",
+    "hindiDepartment": "राजस्व विभाग",
+    "description": "Official certification for SC, ST, MBC, and BC citizens for academic reservation and government employment quotas.",
+    "tamilDescription": "கல்வி இடஒதுக்கீடு மற்றும் அரசு வேலைவாய்ப்புகளுக்குத் தேவையான அதிகாரப்பூர்வ சாதிச் சான்றிதழ் பெறுதல்.",
+    "hindiDescription": "शैक्षणिक आरक्षण और सरकारी नौकरियों के लिए एससी, एसटी, ओबीसी नागरिकों हेतु आधिकारिक जाति प्रमाण पत्र।",
+    "applicableStates": ["tamil-nadu"],
+    "isPopular": true,
+    "requiredDocuments": [
+      "Father or Mother Community Certificate",
+      "School Transfer Certificate (TC)",
+      "Aadhaar Card",
+      "Smart Ration Card"
+    ],
+    "tamilRequiredDocuments": [
+      "தந்தை அல்லது தாயின் சாதிச் சான்றிதழ்",
+      "பள்ளி மாற்றுச் சான்றிதழ் (TC)",
+      "ஆதார் அட்டை",
+      "ஸ்மார்ட் குடும்ப அட்டை"
+    ],
+    "hindiRequiredDocuments": [
+      "माता या पिता का जाति प्रमाण पत्र",
+      "स्कूल ट्रांसफर सर्टिफिकेट (TC)",
+      "आधार कार्ड",
+      "स्मार्ट राशन कार्ड"
+    ],
+    "applicationSteps": [
+      "Log into State e-District portal or local e-Sevai Kendra.",
+      "Select Community Certificate module under Revenue Services.",
+      "Attach family caste lineage evidence and school TC.",
+      "Submit and receive application token.",
+      "Download QR-verified digital certificate upon Zonal Tahsildar sign-off."
+    ],
+    "tamilApplicationSteps": [
+      "இ-சேவை மையம் அல்லது tnesevai.tn.gov.in போர்ட்டலில் உள்நுழையவும்.",
+      "வருவாய்த் துறையின் கீழ் 'சாதிச் சான்றிதழ்' என்பதைத் தேர்ந்தெடுக்கவும்.",
+      "பெற்றோரின் சாதிச் சான்றிதழ் மற்றும் பள்ளி TC ஆகியவற்றை இணைக்கவும்.",
+      "விண்ணப்பத்தைச் சமர்ப்பித்து குறிப்பு எண்ணைப் பெறவும்.",
+      "வட்டாட்சியர் ஒப்புதலுக்குப் பின் QR குறியீட்டுடன் கூடிய சான்றிதழைப் பதிவிறக்கவும்."
+    ],
+    "hindiApplicationSteps": [
+      "राज्य ई-डिस्ट्रिक्ट पोर्टल या स्थानीय ई-सेवा केंद्र पर जाएं।",
+      "राजस्व सेवाओं के तहत जाति प्रमाण पत्र मॉड्यूल चुनें।",
+      "परिवार का जाति प्रमाण और स्कूल टीसी संलग्न करें।",
+      "आवेदन जमा करें और ट्रैकिंग टोकन प्राप्त करें।",
+      "क्षेत्रीय तहसीलदार की मंजूरी के बाद क्यूआर-सत्यापित डिजिटल प्रमाण पत्र डाउनलोड करें।"
+    ],
+    "officialSourceUrl": "https://tnesevai.tn.gov.in",
+    "verificationStatus": "Official Verified",
+    "isMock": false
+  },
+  {
+    "id": "residence-certificate-service",
+    "name": "Nativity & Residence Certificate",
+    "tamilName": "பிறப்பிட & இருப்பிடச் சான்றிதழ்",
+    "hindiName": "मूल निवास एवं अधिवास प्रमाण पत्र",
+    "category": "edistrict-revenue",
+    "department": "Revenue Department",
+    "tamilDepartment": "வருவாய்த்துறை",
+    "hindiDepartment": "राजस्व विभाग",
+    "description": "Proof of continuous habitation in Tamil Nadu for college single-window admissions and government exams.",
+    "tamilDescription": "கல்லூரி சேர்க்கை மற்றும் அரசுத் தேர்வுகளுக்கு தமிழ்நாட்டில் தொடர்ந்து வசிப்பதற்கான அதிகாரப்பூர்வ குடியிருப்புச் சான்றிதழ்.",
+    "hindiDescription": "कॉलेज प्रवेश और राज्य प्रतियोगी परीक्षाओं के लिए तमिलनाडु में निरंतर निवास का आधिकारिक प्रमाण पत्र।",
+    "applicableStates": ["tamil-nadu"],
+    "isPopular": true,
+    "requiredDocuments": [
+      "School study certificates from Class 6 to 12 in Tamil Nadu",
+      "Aadhaar card",
+      "Parent residence proof / voter ID"
+    ],
+    "tamilRequiredDocuments": [
+      "6 முதல் 12-ஆம் வகுப்பு வரை தமிழ்நாட்டில் படித்ததற்கான பள்ளி படிப்புச் சான்றிதழ்",
+      "ஆதார் அட்டை",
+      "பெற்றோரின் இருப்பிடச் சான்று / வாக்காளர் அடையாள அட்டை"
+    ],
+    "hindiRequiredDocuments": [
+      "तमिलनाडु में कक्षा 6 से 12 तक के अध्ययन प्रमाण पत्र",
+      "आधार कार्ड",
+      "माता-पिता का निवास प्रमाण / वोटर आईडी"
+    ],
+    "applicationSteps": [
+      "Submit online application via e-Sevai portal.",
+      "Upload five-year continuous schooling / residential records.",
+      "Village Administrative Officer inspects domicile validity.",
+      "Tahsildar approves digitally signed certificate."
+    ],
+    "tamilApplicationSteps": [
+      "இ-சேவை போர்டல் மூலம் ஆன்லைனில் விண்ணப்பிக்கவும்.",
+      "தொடர்ந்து தமிழ்நாட்டில் வசித்ததற்கான ஆவணங்களைப் பதிவேற்றவும்.",
+      "கிராம நிர்வாக அலுவலர் (VAO) இருப்பிடத்தை நேரில் ஆய்வு செய்வார்.",
+      "வட்டாட்சியர் ஒப்புதல் அளித்தவுடன் டிஜிட்டல் சான்றிதழைப் பதிவிறக்கம் செய்யலாம்."
+    ],
+    "hindiApplicationSteps": [
+      "ई-सेवा पोर्टल के माध्यम से ऑनलाइन आवेदन जमा करें।",
+      "लगातार स्कूली शिक्षा/आवासीय रिकॉर्ड अपलोड करें।",
+      "ग्राम प्रशासनिक अधिकारी निवास की सत्यता की जांच करते हैं।",
+      "तहसीलदार डिजिटल रूप से हस्ताक्षरित प्रमाण पत्र स्वीकृत करते हैं।"
+    ],
+    "officialSourceUrl": "https://edistricts.tn.gov.in",
+    "verificationStatus": "Official Verified",
+    "isMock": false
+  },
+  {
+    "id": "birth-certificate-service",
+    "name": "Birth & Death Certificate Verification",
+    "tamilName": "பிறப்பு & இறப்பு சான்றிதழ் தேடல் மற்றும் பதிவிறக்கம்",
+    "hindiName": "जन्म एवं मृत्यु प्रमाण पत्र सत्यापन एवं डाउनलोड",
+    "category": "edistrict-revenue",
+    "department": "Directorate of Public Health and Preventive Medicine / Municipal Admin",
+    "tamilDepartment": "பொது சுகாதாரம் மற்றும் நோய் தடுப்பு மருந்து இயக்ககம் / நகராட்சி நிர்வாகம்",
+    "hindiDepartment": "जन स्वास्थ्य एवं निवारक चिकित्सा निदेशालय / नगर पालिका प्रशासन",
+    "description": "Search, verify, and download digitally signed birth and death certificates registered across all hospitals and municipalities in Tamil Nadu.",
+    "tamilDescription": "தமிழ்நாடு முழுவதும் மருத்துவமனைகள் மற்றும் நகராட்சிகளில் பதிவு செய்யப்பட்ட பிறப்பு மற்றும் இறப்பு சான்றிதழ்களைத் தேடி இலவசமாக பதிவிறக்கம் செய்யலாம்.",
+    "hindiDescription": "तमिलनाडु के सभी अस्पतालों और नगर पालिकाओं में पंजीकृत जन्म और मृत्यु प्रमाण पत्र खोजें, सत्यापित करें और मुफ्त डाउनलोड करें।",
+    "applicableStates": ["tamil-nadu"],
+    "isPopular": true,
+    "requiredDocuments": [
+      "Hospital discharge slip / Birth intimation report",
+      "Parents' Aadhaar cards",
+      "Date of birth and hospital name"
+    ],
+    "tamilRequiredDocuments": [
+      "மருத்துவமனை டிஸ்சார்ஜ் சீட்டு / பிறப்பு தகவல் அறிக்கை",
+      "பெற்றோரின் ஆதார் அட்டைகள்",
+      "பிறந்த தேதி மற்றும் மருத்துவமனை பெயர்"
+    ],
+    "hindiRequiredDocuments": [
+      "अस्पताल डिस्चार्ज स्लिप / जन्म सूचना रिपोर्ट",
+      "माता-पिता के आधार कार्ड",
+      "जन्म तिथि और अस्पताल का नाम"
+    ],
+    "applicationSteps": [
+      "Visit crsorgi.gov.in or state portal (e.g., Chennai Corporation / TN Town Panchayat portal).",
+      "Select child gender, district, hospital, and date of event.",
+      "Verify registered record and click 'Download Digital Certificate'.",
+      "No fee is charged for downloading registered birth certificates."
+    ],
+    "tamilApplicationSteps": [
+      "crstn.org அல்லது crsorgi.gov.in இணையதளத்திற்குச் செல்லவும்.",
+      "குழந்தையின் பாலினம், மாவட்டம், மருத்துவமனை மற்றும் பிறந்த தேதியைத் தேர்ந்தெடுக்கவும்.",
+      "பதிவு செய்யப்பட்ட விவரங்களைச் சரிபார்த்து 'பதிவிறக்கு' என்பதைக் கிளிக் செய்யவும்.",
+      "பதிவு செய்யப்பட்ட சான்றிதழ்களைப் பதிவிறக்க எவ்வித கட்டணமும் இல்லை."
+    ],
+    "hindiApplicationSteps": [
+      "crstn.org या crsorgi.gov.in पोर्टल पर जाएं।",
+      "बच्चे का लिंग, जिला, अस्पताल और जन्म तिथि चुनें।",
+      "पंजीकृत रिकॉर्ड की पुष्टि करें और 'डिजिटल प्रमाणपत्र डाउनलोड करें' पर क्लिक करें।",
+      "पंजीकृत जन्म प्रमाण पत्र डाउनलोड करने के लिए कोई शुल्क नहीं लिया जाता है।"
+    ],
+    "officialSourceUrl": "https://www.crstn.org",
+    "verificationStatus": "Official Verified (CRS TN)",
+    "isMock": false
+  },
+  {
+    "id": "patta-chitta-service",
+    "name": "AnyTime Anywhere Patta / Chitta View & Mutation",
+    "tamilName": "எந்நேரமும் எங்கும் பட்டா / சிட்டா பார்வையிடல் & பெயர் மாற்றம்",
+    "hindiName": "पट्टा / चिट्टा अवलोकन एवं नामांतरण",
+    "category": "edistrict-revenue",
+    "department": "Survey and Settlement Department, Govt of Tamil Nadu",
+    "tamilDepartment": "நில அளவை மற்றும் நிலவரி திட்டத்துறை, தமிழ்நாடு அரசு",
+    "hindiDepartment": "सर्वेक्षण एवं बंदोबस्त विभाग, तमिलनाडु सरकार",
+    "description": "Instant online view of agricultural and residential land records, FMB sketches, and online submission for Patta transfer (Tamil Nilam).",
+    "tamilDescription": "விவசாய மற்றும் வீட்டு நிலப் பட்டா, சிட்டா, FMB வரைபடங்களை உடனடியாக இலவசமாகப் பார்த்தல் மற்றும் தமிழ் நிலம் வழியே பட்டா பெயர் மாற்றம் செய்தல்.",
+    "hindiDescription": "कृषि और आवासीय भूमि रिकॉर्ड, एफएमबी स्केच का तुरंत ऑनलाइन अवलोकन और तमिल निलम पोर्टल के माध्यम से पट्टा ट्रांसफर।",
+    "applicableStates": ["tamil-nadu"],
+    "isPopular": true,
+    "requiredDocuments": [
+      "Survey number & Sub-division number OR Patta number",
+      "Registered Sale Deed (for transfer application)",
+      "Encumbrance certificate (EC)"
+    ],
+    "tamilRequiredDocuments": [
+      "சர்வே எண் & உட்பிரிவு எண் அல்லது பட்டா எண்",
+      "பதிவு செய்யப்பட்ட கிரையப் பத்திரம் (பெயர் மாற்ற விண்ணப்பத்திற்கு)",
+      "வில்லங்கச் சான்றிதழ் (EC)"
+    ],
+    "hindiRequiredDocuments": [
+      "खसरा/सर्वे नंबर और उप-विभाजन नंबर या पट्टा नंबर",
+      "पंजीकृत बिक्री विलेख (नामांतरण आवेदन के लिए)",
+      "भारमुक्तता प्रमाण पत्र (EC)"
+    ],
+    "applicationSteps": [
+      "Visit eservices.tn.gov.in.",
+      "Select 'View Patta & FMB / Chitta / TSLR Extract'.",
+      "Enter District, Taluk, Village, and Survey details.",
+      "Instant free download of watermarked government record extract.",
+      "For transfer, apply on Tamil Nilam portal with registered deed."
+    ],
+    "tamilApplicationSteps": [
+      "eservices.tn.gov.in இணையதளத்திற்குச் செல்லவும்.",
+      "'பட்டா / சிட்டா / FMB விவரங்களை பார்வையிட' என்பதைத் தேர்ந்தெடுக்கவும்.",
+      "மாவட்டம், வட்டம், கிராமம் மற்றும் சர்வே எண்ணை உள்ளிடவும்.",
+      "அரசு முத்திரையிடப்பட்ட பட்டா நகலை இலவசமாக உடனடியாகப் பதிவிறக்கம் செய்யலாம்.",
+      "பெயர் மாற்றத்திற்கு தமிழ் நிலம் இணையதளத்தில் பதிவு பத்திரத்துடன் விண்ணப்பிக்கவும்."
+    ],
+    "hindiApplicationSteps": [
+      "eservices.tn.gov.in पोर्टल पर जाएं।",
+      "'पट्टा एवं एफएमबी / चिट्टा उद्धरण देखें' चुनें।",
+      "जिला, तालुक, ग्राम और सर्वे नंबर दर्ज करें।",
+      "वॉटरमार्क वाला सरकारी रिकॉर्ड तुरंत मुफ्त डाउनलोड करें।",
+      "पट्टा ट्रांसफर के लिए पंजीकृत दस्तावेज के साथ तमिल निलम पर आवेदन करें।"
+    ],
+    "officialSourceUrl": "https://eservices.tn.gov.in",
+    "verificationStatus": "Official Verified (Tamil Nilam)",
+    "isMock": false
+  },
+  {
+    "id": "digilocker-service",
+    "name": "DigiLocker Digital Document Wallet",
+    "tamilName": "டிஜிலாக்கர் மின்னணு ஆவணப் பெட்டகம்",
+    "hindiName": "डिजिलॉकर डिजिटल दस्तावेज़ वॉलेट",
+    "category": "identity-certificates",
+    "department": "Ministry of Electronics and Information Technology (MeitY)",
+    "tamilDepartment": "மின்னணு மற்றும் தகவல் தொழில்நுட்ப அமைச்சகம் (MeitY)",
+    "hindiDepartment": "इलेक्ट्रॉनिक्स और सूचना प्रौद्योगिकी मंत्रालय (MeitY)",
+    "description": "Access authentic digital copies of your driving licence, vehicle RC, marksheet, Aadhaar, insurance policy, and ration card on your smartphone.",
+    "tamilDescription": "ஓட்டுநர் உரிமம், வாகன RC, மதிப்பெண் சான்றிதழ், ஆதார் மற்றும் குடும்ப அட்டையின் அசல் டிஜிட்டல் நகல்களை மொபைலில் பாதுகாப்பாக சேமித்து அணுகலாம்.",
+    "hindiDescription": "ड्राइविंग लाइसेंस, वाहन आरसी, अंकतालिका, आधार और राशन कार्ड की प्रामाणिक डिजिटल प्रतियां अपने स्मार्टफोन पर प्राप्त करें।",
+    "applicableStates": ["all"],
+    "isPopular": true,
+    "requiredDocuments": [
+      "Aadhaar Number",
+      "Mobile number linked to Aadhaar"
+    ],
+    "tamilRequiredDocuments": [
+      "ஆதார் எண்",
+      "ஆதாருடன் இணைக்கப்பட்ட செல்போன் எண்"
+    ],
+    "hindiRequiredDocuments": [
+      "आधार नंबर",
+      "आधार से लिंक मोबाइल नंबर"
+    ],
+    "applicationSteps": [
+      "Visit digilocker.gov.in or install DigiLocker app.",
+      "Sign up with Aadhaar number and set 6-digit security PIN.",
+      "Search issuer department (e.g. TN DGE, MoRTH, CBSE).",
+      "Enter document registration parameters to pull authentic documents.",
+      "Documents in DigiLocker are legally valid at par with physical originals under IT Act 2000."
+    ],
+    "tamilApplicationSteps": [
+      "digilocker.gov.in அல்லது மொபைல் செயலியை நிறுவவும்.",
+      "ஆதார் எண்ணை உள்ளிட்டு 6 இலக்க பாதுகாப்பு பின்னை அமைக்கவும்.",
+      "சான்றிதழ் வழங்கும் துறையைத் தேர்ந்தெடுக்கவும் (எ.கா: பள்ளிக்கல்வி, போக்குவரத்துத் துறை).",
+      "பதிவு எண்ணை உள்ளிட்டு சான்றிதழ்களை டிஜிட்டல் முறையில் இணைக்கவும்.",
+      "தகவல் தொழில்நுட்பச் சட்டம் 2000-ன் படி டிஜிலாக்கர் ஆவணங்கள் அசல் ஆவணங்களுக்கு இணையான சட்டப்பூர்வ செல்லுபடியாகும் தன்மை கொண்டவை."
+    ],
+    "hindiApplicationSteps": [
+      "digilocker.gov.in पर जाएं या डिजिलॉकर ऐप इंस्टॉल करें।",
+      "आधार नंबर से साइन अप करें और 6 अंकों का सुरक्षा पिन सेट करें।",
+      "जारीकर्ता विभाग खोजें (जैसे परिवहन, शिक्षा बोर्ड)।",
+      "दस्तावेज़ संख्या दर्ज करके प्रामाणिक दस्तावेज़ प्राप्त करें।",
+      "आईटी अधिनियम 2000 के तहत डिजिलॉकर में उपलब्ध दस्तावेज मूल दस्तावेजों के समान कानूनी रूप से मान्य हैं।"
+    ],
+    "officialSourceUrl": "https://www.digilocker.gov.in",
+    "verificationStatus": "MeitY Official Architecture Verified",
+    "isMock": false
+  },
+  {
+    "id": "sarathi-transport-service",
+    "name": "Sarathi Driving Licence & Learner's Licence (LLR)",
+    "tamilName": "சாரதி ஓட்டுநர் உரிமம் & பழகுநர் உரிமம் (LLR)",
+    "hindiName": "सारथी ड्राइविंग लाइसेंस एवं लर्नर लाइसेंस (LLR)",
+    "category": "transport-travel",
+    "department": "Ministry of Road Transport and Highways (MoRTH)",
+    "tamilDepartment": "சாலைப் போக்குவரத்து மற்றும் நெடுஞ்சாலைகள் அமைச்சகம் (MoRTH)",
+    "hindiDepartment": "सड़क परिवहन एवं राजमार्ग मंत्रालय (MoRTH)",
+    "description": "Apply for contact-less Learner Licence (LLR) online from home using Aadhaar authentication, renew driving licence, or add vehicle class.",
+    "tamilDescription": "வீட்டிலிருந்தபடியே ஆதார் மூலம் பழகுநர் உரிமத்திற்கு (LLR) விண்ணப்பித்தல், ஓட்டுநர் உரிமம் புதுப்பித்தல் மற்றும் புதிய வாகனப் பிரிவு சேர்த்தல்.",
+    "hindiDescription": "घर बैठे आधार प्रमाणीकरण के साथ संपर्क रहित लर्नर लाइसेंस (LLR) के लिए आवेदन करें, ड्राइविंग लाइसेंस का नवीनीकरण करें।",
+    "applicableStates": ["all"],
+    "isPopular": false,
+    "requiredDocuments": [
+      "Aadhaar card",
+      "Age proof & educational qualification proof",
+      "Medical fitness Form 1A (for commercial licence or age >40)"
+    ],
+    "tamilRequiredDocuments": [
+      "ஆதார் அட்டை",
+      "வயது மற்றும் கல்வித் தகுதிச் சான்று",
+      "மருத்துவ தகுதிப் படிவம் Form 1A (வணிக உரிமங்கள் அல்லது 40 வயதுக்கு மேற்பட்டோருக்கு)"
+    ],
+    "hindiRequiredDocuments": [
+      "आधार कार्ड",
+      "आयु और शैक्षणिक योग्यता का प्रमाण",
+      "मेडिकल फिटनेस फॉर्म 1A (वाणिज्यिक लाइसेंस या 40 वर्ष से अधिक आयु के लिए)"
+    ],
+    "applicationSteps": [
+      "Visit parivahan.gov.in -> Sarathi portal.",
+      "Choose State -> Apply for Learner's Licence.",
+      "Complete Aadhaar e-KYC and pass online traffic sign exam.",
+      "Download instant digital LLR and schedule driving test for permanent licence."
+    ],
+    "tamilApplicationSteps": [
+      "parivahan.gov.in தளத்திற்குச் சென்று சாரதி (Sarathi) பிரிவைத் தேர்ந்தெடுக்கவும்.",
+      "மாநிலத்தைத் தேர்வு செய்து -> 'Apply for Learner's Licence' கிளிக் செய்யவும்.",
+      "ஆதார் e-KYC முடித்து ஆன்லைன் போக்குவரத்து விதிமுறைத் தேர்வில் தேர்ச்சி பெறவும்.",
+      "உடனடி டிஜிட்டல் LLR-ஐப் பதிவிறக்கி நிரந்தர ஓட்டுநர் உரிமத்திற்கான தேர்வுக்குத் தேதி முன்பதிவு செய்யவும்."
+    ],
+    "hindiApplicationSteps": [
+      "parivahan.gov.in पर जाएं और सारथी पोर्टल चुनें।",
+      "राज्य चुनें -> 'Apply for Learner's Licence' पर क्लिक करें।",
+      "आधार ई-केवाईसी पूरा करें और ऑनलाइन ट्रैफिक नियम परीक्षा पास करें।",
+      "डिजिटल एलएलआर डाउनलोड करें और स्थायी लाइसेंस के लिए ड्राइविंग टेस्ट शेड्यूल करें।"
+    ],
+    "officialSourceUrl": "https://parivahan.gov.in",
+    "verificationStatus": "MoHTH Official Verified",
+    "isMock": false
+  },
+  {
+    "id": "tangedco-electricity-service",
+    "name": "TANGEDCO Electricity Bill Payment & New Connection",
+    "tamilName": "டான்ஜெட்கோ மின்கட்டணம் செலுத்துதல் & புதிய இணைப்பு",
+    "hindiName": "बिजली बिल भुगतान एवं नया कनेक्शन (TANGEDCO)",
+    "category": "utilities-bills",
+    "department": "Tamil Nadu Generation and Distribution Corporation (TANGEDCO)",
+    "tamilDepartment": "தமிழ்நாடு மின் உற்பத்தி மற்றும் பகிர்மானக் கழகம் (TANGEDCO)",
+    "hindiDepartment": "तमिलनाडु विद्युत उत्पादन एवं वितरण निगम (TANGEDCO)",
+    "description": "Pay low-tension consumer domestic power bills, check 100 free units subsidy status, and apply for low-tension new service connections.",
+    "tamilDescription": "வீட்டு மின் கட்டணங்களை ஆன்லைனில் செலுத்துதல், 100 யூனிட் இலவச மின்சார மானிய நிலையைச் சரிபார்த்தல் மற்றும் புதிய மின் இணைப்புக்கு விண்ணப்பித்தல்.",
+    "hindiDescription": "घरेलू बिजली बिलों का भुगतान करें, 100 मुफ्त यूनिट सब्सिडी स्थिति जांचें और नए बिजली कनेक्शन के लिए आवेदन करें।",
+    "applicableStates": ["tamil-nadu"],
+    "isPopular": false,
+    "requiredDocuments": [
+      "Consumer Service Number with Region Code",
+      "Proof of ownership or tenancy (for new connections)",
+      "Aadhaar card linked to service number"
+    ],
+    "tamilRequiredDocuments": [
+      "மண்டலக் குறியீட்டுடன் கூடிய மின் இணைப்பு நுகர்வோர் எண்",
+      "சொத்து உரிமை அல்லது வாடகை ஆவணம் (புதிய இணைப்புகளுக்கு)",
+      "மின் எண்ணுடன் இணைக்கப்பட்ட ஆதார் அட்டை"
+    ],
+    "hindiRequiredDocuments": [
+      "क्षेत्र कोड सहित उपभोक्ता सेवा संख्या",
+      "स्वामित्व या किरायेदारी का प्रमाण (नए कनेक्शन के लिए)",
+      "उपभोक्ता संख्या से लिंक आधार कार्ड"
+    ],
+    "applicationSteps": [
+      "Access tnebnet.org or TANGEDCO consumer portal.",
+      "Enter consumer service number and view current bi-monthly billing slab.",
+      "Pay securely using UPI, Netbanking, or debit card with immediate receipt.",
+      "Aadhaar linking allows availing 100 free domestic units automatically."
+    ],
+    "tamilApplicationSteps": [
+      "tnebnet.org அல்லது TANGEDCO போர்ட்டலுக்குச் செல்லவும்.",
+      "மின் நுகர்வோர் எண்ணை உள்ளிட்டு இருமாத கட்டண விவரங்களைப் பார்க்கவும்.",
+      "UPI அல்லது நெட் பேங்கிங் மூலம் பணம் செலுத்தி உடனடி ரசீதைப் பெறவும்.",
+      "ஆதார் எண் இணைக்கப்பட்டிருந்தால் 100 யூனிட் இலவச மின்சாரம் தானாகவே கழிக்கப்படும்."
+    ],
+    "hindiApplicationSteps": [
+      "tnebnet.org या TANGEDCO उपभोक्ता पोर्टल खोलें।",
+      "उपभोक्ता संख्या दर्ज करें और वर्तमान बिल विवरण देखें।",
+      "यूपीआई या नेटबैंकिंग द्वारा सुरक्षित भुगतान करें और तुरंत रसीद प्राप्त करें।",
+      "आधार लिंक होने पर 100 मुफ्त यूनिट सब्सिडी स्वतः लागू होती है।"
+    ],
+    "officialSourceUrl": "https://www.tnebnet.org",
+    "verificationStatus": "Official Verified (TANGEDCO)",
+    "isMock": false
+  },
+  {
+    "id": "tn-esevai-general",
+    "name": "TN e-Sevai Citizen Portal (TNeGA)",
+    "tamilName": "தமிழ்நாடு இ-சேவை குடிமக்கள் இணையதளம் (TNeGA)",
+    "hindiName": "तमिलनाडु ई-सेवा नागरिक पोर्टल (TNeGA)",
+    "category": "edistrict-revenue",
+    "department": "Tamil Nadu e-Governance Agency (TNeGA)",
+    "tamilDepartment": "தமிழ்நாடு மின்னாளுமை முகமை (TNeGA)",
+    "hindiDepartment": "तमिलनाडु ई-गवर्नेंस एजेंसी (TNeGA)",
+    "description": "Single-window citizen access for over 180+ G2C services including legal heir certificate, destitute widow certificate, and first-generation graduate certificate.",
+    "tamilDescription": "வாரிசுச் சான்றிதழ், ஆதரவற்ற விதவைச் சான்றிதழ், முதல் தலைமுறை பட்டதாரி சான்றிதழ் உள்ளிட்ட 180-க்கும் மேற்பட்ட அரசு சேவைகளுக்கான ஒரே தளம்.",
+    "hindiDescription": "वारिस प्रमाण पत्र, निराश्रित विधवा प्रमाण पत्र, प्रथम पीढ़ी स्नातक प्रमाण पत्र सहित 180+ सेवाओं के लिए एकल खिड़की पोर्टल।",
+    "applicableStates": ["tamil-nadu"],
+    "isPopular": true,
+    "requiredDocuments": [
+      "Citizen Access Number (CAN)",
+      "Aadhaar card",
+      "Active mobile number"
+    ],
+    "tamilRequiredDocuments": [
+      "குடிமக்கள் அணுகல் எண் (CAN எண்)",
+      "ஆதார் அட்டை",
+      "செயலில் உள்ள மொபைல் எண்"
+    ],
+    "hindiRequiredDocuments": [
+      "नागरिक पहुंच संख्या (CAN)",
+      "आधार कार्ड",
+      "सक्रिय मोबाइल नंबर"
+    ],
+    "applicationSteps": [
+      "Register at tnesevai.tn.gov.in with CAN creation.",
+      "Select desired department and submit online e-form.",
+      "Pay fee via online payment gateway.",
+      "Track status and download certificate from citizen dashboard."
+    ],
+    "tamilApplicationSteps": [
+      "tnesevai.tn.gov.in தளத்தில் CAN எண்ணை உருவாக்கி பதிவு செய்யவும்.",
+      "தேவையான துறையைத் தேர்ந்தெடுத்து மின்-படிவத்தைப் பூர்த்தி செய்யவும்.",
+      "ஆன்லைனில் கட்டணம் செலுத்தவும்.",
+      "விண்ணப்ப நிலையை கண்காணித்து சான்றிதழைப் பதிவிறக்கம் செய்து கொள்ளவும்."
+    ],
+    "hindiApplicationSteps": [
+      "tnesevai.tn.gov.in पर CAN बनाकर पंजीकरण करें।",
+      "वांछित विभाग का चयन करें और ऑनलाइन ई-फॉर्म भरें।",
+      "ऑनलाइन पेमेंट गेटवे के माध्यम से शुल्क का भुगतान करें।",
+      "स्थिति ट्रैक करें और नागरिक डैशबोर्ड से प्रमाण पत्र डाउनलोड करें।"
+    ],
+    "officialSourceUrl": "https://tnesevai.tn.gov.in",
+    "verificationStatus": "TNeGA Official Verified",
+    "isMock": false
+  },
+  {
+    "id": "lost-document-report",
+    "name": "Lost Document Report (TN Police Citizen Portal)",
+    "tamilName": "தொலைந்த ஆவண அறிக்கை (TN காவல் துறை இணையதளம்)",
+    "hindiName": "खोया हुआ दस्तावेज़ रिपोर्ट (TN पुलिस)",
+    "category": "police-legal",
+    "department": "Tamil Nadu Police Department",
+    "tamilDepartment": "தமிழ்நாடு காவல்துறை",
+    "hindiDepartment": "तमिलनाडु पुलिस विभाग",
+    "description": "Register non-cognizable missing report for lost educational certificates, driving licence, passport, or vehicle RC online without visiting police station.",
+    "tamilDescription": "சான்றிதழ்கள், ஓட்டுநர் உரிமம், பாஸ்போர்ட், வாகன RC போன்ற தொலைந்துபோன ஆவணங்களுக்கு காவல் நிலையம் செல்லாமல் ஆன்லைனில் LDR அறிக்கை பெறலாம்.",
+    "hindiDescription": "शैक्षणिक प्रमाण पत्र, ड्राइविंग लाइसेंस, पासपोर्ट या वाहन आरसी खोने पर पुलिस स्टेशन जाए बिना ऑनलाइन गैर-संज्ञेय रिपोर्ट दर्ज करें।",
+    "applicableStates": ["tamil-nadu"],
+    "isPopular": false,
+    "requiredDocuments": [
+      "Aadhaar card",
+      "Details of lost document (Certificate number, issuing institution)",
+      "Date and approximate place of loss"
+    ],
+    "tamilRequiredDocuments": [
+      "ஆதார் அட்டை",
+      "தொலைந்த ஆவணத்தின் விவரங்கள் (சான்றிதழ் எண், வழங்கிய நிறுவனம்)",
+      "தொலைந்த தேதி மற்றும் இடம்"
+    ],
+    "hindiRequiredDocuments": [
+      "आधार कार्ड",
+      "खोए हुए दस्तावेज़ का विवरण (प्रमाणपत्र संख्या, जारीकर्ता संस्थान)",
+      "खोने की तिथि और अनुमानित स्थान"
+    ],
+    "applicationSteps": [
+      "Visit eservices.tnpolice.gov.in.",
+      "Select 'Lost Document Report (LDR)'.",
+      "Enter complainant identity details and lost document attributes.",
+      "Submit to generate instant digitally signed Police LDR certificate.",
+      "Present LDR certificate to issuing authority for duplicate document."
+    ],
+    "tamilApplicationSteps": [
+      "eservices.tnpolice.gov.in இணையதளத்திற்குச் செல்லவும்.",
+      "'Lost Document Report (LDR)' என்பதைத் தேர்ந்தெடுக்கவும்.",
+      "புகார்தாரர் விவரங்கள் மற்றும் தொலைந்த ஆவண விவரங்களை உள்ளிடவும்.",
+      "சமர்ப்பித்து உடனடி டிஜிட்டல் கையொப்பமிட்ட காவல் துறை LDR சான்றிதழைப் பெறவும்.",
+      "மாற்று ஆவணம் (Duplicate) பெற இந்த LDR அறிக்கையை சம்பந்தப்பட்ட அலுவலகத்தில் சமர்ப்பிக்கவும்."
+    ],
+    "hindiApplicationSteps": [
+      "eservices.tnpolice.gov.in पर जाएं।",
+      "'खोया हुआ दस्तावेज़ रिपोर्ट (LDR)' चुनें।",
+      "शिकायतकर्ता का विवरण और खोए हुए दस्तावेज़ के गुण दर्ज करें।",
+      "तुरंत डिजिटल रूप से हस्ताक्षरित पुलिस LDR प्रमाण पत्र प्राप्त करें।",
+      "डुप्लिकेट दस्तावेज़ प्राप्त करने के लिए संबंधित प्राधिकरण को LDR प्रस्तुत करें।"
+    ],
+    "officialSourceUrl": "https://eservices.tnpolice.gov.in",
+    "verificationStatus": "TN Police Official Verified",
+    "isMock": false
+  }
+]

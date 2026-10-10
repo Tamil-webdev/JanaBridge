@@ -1,0 +1,42 @@
+[
+  {
+    "id": "conv-1",
+    "title": "Income Certificate Application Process",
+    "createdAt": "2025-02-12T10:15:00Z",
+    "updatedAt": "2025-02-12T10:18:00Z",
+    "messages": [
+      {
+        "id": "msg-1-1",
+        "sender": "user",
+        "timestamp": "2025-02-12T10:15:00Z",
+        "text": "How do I apply for an income certificate in Tamil Nadu?"
+      },
+      {
+        "id": "msg-1-2",
+        "sender": "assistant",
+        "timestamp": "2025-02-12T10:15:04Z",
+        "responseId": "resp-income-cert"
+      }
+    ]
+  },
+  {
+    "id": "conv-2",
+    "title": "Senior Citizens Schemes & Healthcare",
+    "createdAt": "2025-02-11T14:30:00Z",
+    "updatedAt": "2025-02-11T14:32:00Z",
+    "messages": [
+      {
+        "id": "msg-2-1",
+        "sender": "user",
+        "timestamp": "2025-02-11T14:30:00Z",
+        "text": "What schemes are available for senior citizens in Tamil Nadu?"
+      },
+      {
+        "id": "msg-2-2",
+        "sender": "assistant",
+        "timestamp": "2025-02-11T14:30:05Z",
+        "responseId": "resp-senior-citizens"
+      }
+    ]
+  }
+]
