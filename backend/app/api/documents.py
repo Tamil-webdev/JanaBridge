@@ -5,8 +5,22 @@ from typing import List
 from app.storage.database import get_db
 from app.schemas.documents import DocumentResponse, DocumentUploadResponse, DocumentListResponse, DocumentProcessResponse
 from app.services.document_service import DocumentService
+from app.rag.rag_pipeline import RAGPipeline
+from app.core.config import settings
 
 router = APIRouter()
+
+@router.post("/index")
+def index_documents():
+    rag = RAGPipeline(settings)
+    result = rag.index_documents()
+    return {
+        "status": "indexed",
+        "documents_found": result.documents_found,
+        "total_pages": result.total_pages,
+        "total_chunks": result.total_chunks,
+        "message": f"Successfully indexed {result.total_chunks} chunks from {result.documents_found} document(s)."
+    }
 
 @router.post("/", response_model=DocumentUploadResponse, status_code=status.HTTP_201_CREATED)
 async def upload_document(file: UploadFile = File(...), db: Session = Depends(get_db)):

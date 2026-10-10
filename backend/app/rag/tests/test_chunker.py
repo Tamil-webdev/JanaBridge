@@ -4,8 +4,8 @@ from __future__ import annotations
 
 import pytest
 
-from core_rag.chunker import Chunk, chunk_page, chunk_pages
-from core_rag.pdf_loader import PageText
+from app.rag.chunker import Chunk, chunk_page, chunk_pages
+from app.rag.pdf_loader import PageText
 
 
 @pytest.fixture()

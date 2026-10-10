@@ -6,8 +6,8 @@ using a configurable semantic distance threshold as an initial heuristic.
 
 from __future__ import annotations
 
-from core_rag.retriever import RetrievedChunk, check_relevance
-from core_rag.vector_store import VectorResult
+from app.rag.retriever import RetrievedChunk, check_relevance
+from app.rag.vector_store import VectorResult
 
 
 def _make_vr(distance: float, chunk_id: str = "c1") -> VectorResult:
@@ -73,7 +73,7 @@ class TestInsufficientEvidenceInPipeline:
     """
 
     def test_empty_index_returns_insufficient(self, test_settings) -> None:
-        from core_rag.rag_pipeline import RAGPipeline
+        from app.rag.rag_pipeline import RAGPipeline
 
         pipeline = RAGPipeline(test_settings)
         # Don't index anything — vector store is empty

@@ -1,27 +1,35 @@
 from sqlalchemy.orm import Session
 from app.schemas.chat import ChatRequest, ChatResponse, ChatCitation
 import logging
+from app.rag.rag_pipeline import RAGPipeline
+from app.core.config import settings
 
 logger = logging.getLogger(__name__)
 
-class ChatServiceStub:
-    """
-    Development stub for the ChatServiceInterface.
-    The core AI/RAG branch will implement the actual logic for this.
-    """
+class ChatService:
+    def __init__(self):
+        self.rag = RAGPipeline(settings)
 
-    @staticmethod
-    def answer_question(request: ChatRequest, db: Session) -> ChatResponse:
-        logger.info(f"[DEV STUB] Received chat request: {request.message}")
+    def answer_question(self, request: ChatRequest, db: Session) -> ChatResponse:
+        logger.info(f"Received chat request: {request.message}")
+        result = self.rag.query(request.message)
 
-        # Development stub response. We must NEVER return fabricated government answers or fake citations.
+        citations = []
+        for c in result.citations:
+            citations.append(ChatCitation(
+                citation_id=str(c["citation_id"]),
+                document_id=c.get("source_file", ""),
+                source_title=c.get("source_file", ""),
+                page=c.get("page_number", 0),
+                snippet=c.get("snippet", ""),
+            ))
+
         return ChatResponse(
-            status="answered",
-            answer="[DEVELOPMENT STUB] This is a stubbed response. The AI/RAG engine has not yet been integrated. No real government scheme information or citations are provided here.",
-            citations=[],
+            status=result.status,
+            answer=result.answer,
+            citations=citations,
             needs_clarification=False,
-            limitations=["This is a development stub, not a real AI response."]
+            limitations=[],
         )
 
-# For now, we point the service to the stub.
-chat_service = ChatServiceStub()
+chat_service = ChatService()

@@ -71,7 +71,7 @@ sys.modules['chromadb'] = mock_chromadb
 import fitz  # PyMuPDF
 import pytest
 
-from core_rag.config import Settings
+from app.rag.config import Settings
 
 
 @pytest.fixture()

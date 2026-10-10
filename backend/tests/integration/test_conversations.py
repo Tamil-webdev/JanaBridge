@@ -60,7 +60,7 @@ def test_message_flow():
     assert msg_res.status_code == 201
     msg_data = msg_res.json()
     assert msg_data["role"] == "assistant"
-    assert "DEVELOPMENT STUB" in msg_data["content"]
+    assert len(msg_data["content"]) > 0  # Real RAG response (may be insufficient_evidence)
 
     # Retrieve conversation history
     hist_res = client.get(f"/api/v1/conversations/{conv_id}")

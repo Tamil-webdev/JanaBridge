@@ -14,7 +14,7 @@ import fitz
 import httpx
 import pytest
 
-from core_rag.rag_pipeline import RAGPipeline
+from app.rag.rag_pipeline import RAGPipeline
 
 
 def _mock_embed_post(*args, **kwargs):
@@ -57,7 +57,7 @@ def _create_pdf(directory: Path, filename: str, text: str) -> Path:
 
 
 class TestReindexing:
-    @patch("core_rag.embedder.httpx.post", side_effect=_mock_embed_post)
+    @patch("app.rag.embedder.httpx.post", side_effect=_mock_embed_post)
     def test_reindex_updates_counts(self, mock_post, test_settings) -> None:
         """Re-indexing after adding a PDF should reflect the new document."""
         pipeline = RAGPipeline(test_settings)
@@ -79,7 +79,7 @@ class TestReindexing:
         assert result2.documents_found == 2
         assert result2.total_chunks > count1
 
-    @patch("core_rag.embedder.httpx.post", side_effect=_mock_embed_post)
+    @patch("app.rag.embedder.httpx.post", side_effect=_mock_embed_post)
     def test_reindex_after_deleting_pdf(self, mock_post, test_settings) -> None:
         """Re-indexing after deleting a PDF should remove its chunks."""
         pipeline = RAGPipeline(test_settings)
@@ -101,7 +101,7 @@ class TestReindexing:
         assert result2.documents_found == 1
         assert result2.total_chunks < result1.total_chunks
 
-    @patch("core_rag.embedder.httpx.post", side_effect=_mock_embed_post)
+    @patch("app.rag.embedder.httpx.post", side_effect=_mock_embed_post)
     def test_chromadb_and_bm25_consistent(self, mock_post, test_settings) -> None:
         """ChromaDB and BM25 must have the same number of entries."""
         pipeline = RAGPipeline(test_settings)
@@ -114,7 +114,7 @@ class TestReindexing:
         assert bm25_count == result.total_chunks
         assert chroma_count == bm25_count
 
-    @patch("core_rag.embedder.httpx.post", side_effect=_mock_embed_post)
+    @patch("app.rag.embedder.httpx.post", side_effect=_mock_embed_post)
     def test_bm25_persisted_and_loadable(self, mock_post, test_settings) -> None:
         """BM25 index should be saved and loadable across pipeline instances."""
         pipeline1 = RAGPipeline(test_settings)

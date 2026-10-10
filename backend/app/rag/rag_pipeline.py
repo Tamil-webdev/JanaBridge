@@ -17,14 +17,14 @@ import logging
 from dataclasses import dataclass
 from pathlib import Path
 
-from core_rag.config import Settings
-from core_rag.bm25_retriever import BM25Entry, BM25Index
-from core_rag.chunker import Chunk, chunk_pages
-from core_rag.embedder import embed_single, embed_texts
-from core_rag.generator import generate_answer
-from core_rag.pdf_loader import load_all_pdfs
-from core_rag.retriever import hybrid_retrieve
-from core_rag.vector_store import VectorStore
+from app.rag.config import Settings
+from app.rag.bm25_retriever import BM25Entry, BM25Index
+from app.rag.chunker import Chunk, chunk_pages
+from app.rag.embedder import embed_single, embed_texts
+from app.rag.generator import generate_answer
+from app.rag.pdf_loader import load_all_pdfs
+from app.rag.retriever import hybrid_retrieve
+from app.rag.vector_store import VectorStore
 
 logger = logging.getLogger(__name__)
 

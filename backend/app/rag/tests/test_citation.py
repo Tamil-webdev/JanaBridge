@@ -6,12 +6,12 @@ from model-generated filenames, pages, or snippets.
 
 from __future__ import annotations
 
-from core_rag.generator import (
+from app.rag.generator import (
     _build_evidence_block,
     _extract_citation_ids,
     validate_citations,
 )
-from core_rag.retriever import RetrievedChunk
+from app.rag.retriever import RetrievedChunk
 
 
 def _make_chunk(cid: str, source: str = "doc.pdf", page: int = 1, text: str = "sample") -> RetrievedChunk:

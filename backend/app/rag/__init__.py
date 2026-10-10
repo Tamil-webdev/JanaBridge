@@ -14,7 +14,7 @@ Public interface
 
 Quick start (Python)::
 
-    from core_rag import RAGPipeline, get_settings
+    from app.rag import RAGPipeline, get_settings
 
     settings = get_settings()
     pipeline = RAGPipeline(settings)
@@ -26,9 +26,9 @@ Quick start (Python)::
     answer = pipeline.query("What are the eligibility criteria?")
 """
 
-from core_rag.config import Settings, get_settings
+from app.rag.config import Settings, get_settings
 try:
-    from core_rag.rag_pipeline import RAGPipeline
+    from app.rag.rag_pipeline import RAGPipeline
 except ImportError:
     RAGPipeline = None  # Mocked or missing dependency
 

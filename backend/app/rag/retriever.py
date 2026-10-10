@@ -11,8 +11,8 @@ from __future__ import annotations
 import logging
 from dataclasses import dataclass
 
-from core_rag.bm25_retriever import BM25Index
-from core_rag.vector_store import VectorResult, VectorStore
+from app.rag.bm25_retriever import BM25Index
+from app.rag.vector_store import VectorResult, VectorStore
 
 logger = logging.getLogger(__name__)
 

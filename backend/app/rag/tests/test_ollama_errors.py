@@ -10,14 +10,14 @@ from unittest.mock import patch
 import httpx
 import pytest
 
-from core_rag.embedder import EmbeddingError, embed_single, embed_texts
-from core_rag.generator import GenerationError, generate_answer
-from core_rag.retriever import RetrievedChunk
+from app.rag.embedder import EmbeddingError, embed_single, embed_texts
+from app.rag.generator import GenerationError, generate_answer
+from app.rag.retriever import RetrievedChunk
 
 
 class TestEmbedderErrors:
     def test_connection_refused(self) -> None:
-        with patch("core_rag.embedder.httpx.post") as mock_post:
+        with patch("app.rag.embedder.httpx.post") as mock_post:
             mock_post.side_effect = httpx.ConnectError("Connection refused")
             with pytest.raises(EmbeddingError, match="Cannot connect"):
                 embed_texts(
@@ -27,7 +27,7 @@ class TestEmbedderErrors:
                 )
 
     def test_timeout(self) -> None:
-        with patch("core_rag.embedder.httpx.post") as mock_post:
+        with patch("app.rag.embedder.httpx.post") as mock_post:
             mock_post.side_effect = httpx.ReadTimeout("Timed out")
             with pytest.raises(EmbeddingError, match="timed out"):
                 embed_texts(
@@ -38,7 +38,7 @@ class TestEmbedderErrors:
                 )
 
     def test_model_not_found(self) -> None:
-        with patch("core_rag.embedder.httpx.post") as mock_post:
+        with patch("app.rag.embedder.httpx.post") as mock_post:
             mock_post.return_value = httpx.Response(
                 status_code=404,
                 text='{"error": "model not found"}',
@@ -60,7 +60,7 @@ class TestEmbedderErrors:
         assert result == []
 
     def test_successful_batch(self) -> None:
-        with patch("core_rag.embedder.httpx.post") as mock_post:
+        with patch("app.rag.embedder.httpx.post") as mock_post:
             mock_post.return_value = httpx.Response(
                 status_code=200,
                 json={"embeddings": [[0.1, 0.2], [0.3, 0.4]]},
@@ -75,7 +75,7 @@ class TestEmbedderErrors:
             assert result[0] == [0.1, 0.2]
 
     def test_mismatched_response_length(self) -> None:
-        with patch("core_rag.embedder.httpx.post") as mock_post:
+        with patch("app.rag.embedder.httpx.post") as mock_post:
             mock_post.return_value = httpx.Response(
                 status_code=200,
                 json={"embeddings": [[0.1]]},  # sent 2, got 1
@@ -101,7 +101,7 @@ class TestGeneratorErrors:
         )
 
     def test_connection_refused(self) -> None:
-        with patch("core_rag.generator.httpx.post") as mock_post:
+        with patch("app.rag.generator.httpx.post") as mock_post:
             mock_post.side_effect = httpx.ConnectError("refused")
             with pytest.raises(GenerationError, match="Cannot connect"):
                 generate_answer(
@@ -112,7 +112,7 @@ class TestGeneratorErrors:
                 )
 
     def test_timeout(self) -> None:
-        with patch("core_rag.generator.httpx.post") as mock_post:
+        with patch("app.rag.generator.httpx.post") as mock_post:
             mock_post.side_effect = httpx.ReadTimeout("timeout")
             with pytest.raises(GenerationError, match="timed out"):
                 generate_answer(
@@ -124,7 +124,7 @@ class TestGeneratorErrors:
                 )
 
     def test_http_error(self) -> None:
-        with patch("core_rag.generator.httpx.post") as mock_post:
+        with patch("app.rag.generator.httpx.post") as mock_post:
             mock_post.return_value = httpx.Response(
                 status_code=500,
                 text="Internal error",
@@ -139,7 +139,7 @@ class TestGeneratorErrors:
                 )
 
     def test_empty_response(self) -> None:
-        with patch("core_rag.generator.httpx.post") as mock_post:
+        with patch("app.rag.generator.httpx.post") as mock_post:
             mock_post.return_value = httpx.Response(
                 status_code=200,
                 json={"message": {"content": ""}},
@@ -154,7 +154,7 @@ class TestGeneratorErrors:
                 )
 
     def test_successful_generation_with_citations(self) -> None:
-        with patch("core_rag.generator.httpx.post") as mock_post:
+        with patch("app.rag.generator.httpx.post") as mock_post:
             mock_post.return_value = httpx.Response(
                 status_code=200,
                 json={

@@ -13,7 +13,7 @@ import hashlib
 import logging
 from dataclasses import dataclass
 
-from core_rag.pdf_loader import PageText
+from app.rag.pdf_loader import PageText
 
 logger = logging.getLogger(__name__)
 

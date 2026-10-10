@@ -14,7 +14,7 @@ import re
 
 import httpx
 
-from core_rag.retriever import RetrievedChunk
+from app.rag.retriever import RetrievedChunk
 
 logger = logging.getLogger(__name__)
 

@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from core_rag.retriever import reciprocal_rank_fusion
+from app.rag.retriever import reciprocal_rank_fusion
 
 
 class TestRRF:

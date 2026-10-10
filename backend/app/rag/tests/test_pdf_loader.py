@@ -7,7 +7,7 @@ from pathlib import Path
 import fitz
 import pytest
 
-from core_rag.pdf_loader import (
+from app.rag.pdf_loader import (
     PDFLoadError,
     PageText,
     discover_pdfs,
