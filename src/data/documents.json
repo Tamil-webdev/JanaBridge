@@ -1,0 +1,794 @@
+[
+  {
+    "id": "income-certificate",
+    "name": "Income Certificate",
+    "tamilName": "வருமானச் சான்றிதழ்",
+    "hindiName": "आय प्रमाण पत्र",
+    "category": "Revenue & Certificates",
+    "tamilCategory": "வருவாய் மற்றும் சான்றிதழ்கள்",
+    "hindiCategory": "राजस्व एवं प्रमाण पत्र",
+    "issuingAuthority": "Revenue Department (Tahsildar / e-Sevai)",
+    "tamilIssuingAuthority": "வருவாய்த்துறை (வட்டாட்சியர் / இ-சேவை)",
+    "hindiIssuingAuthority": "राजस्व विभाग (तहसीलदार / ई-सेवा)",
+    "purpose": "Certifies the annual family income of a citizen from all sources to establish eligibility for fee concessions, welfare schemes, and reserved quotas.",
+    "tamilPurpose": "கல்விக் கட்டண சலுகைகள், அரசு நலத்திட்டங்கள் மற்றும் இடஒதுக்கீட்டு சலுகைகளைப் பெறுவதற்காக குடும்பத்தின் அனைத்து வழிகளிலுமான ஆண்டு வருமானத்தை உறுதிப்படுத்தும் சான்றிதழ்.",
+    "hindiPurpose": "शुल्क रियायतों, कल्याणकारी योजनाओं और आरक्षित कोटे के लिए पात्रता स्थापित करने हेतु परिवार की वार्षिक आय को प्रमाणित करता है।",
+    "commonUseCases": [
+      "Application for post-matric and higher education scholarships",
+      "Fee concessions and tuition waivers in colleges and universities",
+      "Eligibility verification for subsidized housing schemes (PMAY)",
+      "Availing free healthcare coverage under CMCHIS and Ayushman Bharat",
+      "Poverty alleviation direct benefit transfer programs"
+    ],
+    "tamilCommonUseCases": [
+      "உயர்கல்வி மற்றும் கல்லூரி கல்வி உதவித்தொகைக்கு விண்ணப்பித்தல்",
+      "கல்லூரி மற்றும் பல்கலைக்கழகங்களில் கல்விக் கட்டண தள்ளுபடி பெறுதல்",
+      "பிரதமர் வீட்டு வசதித் திட்டத்திற்கு (PMAY) தகுதி சரிபார்த்தல்",
+      "முதலமைச்சரின் மருத்துவக் காப்பீடு மற்றும் ஆயுஷ்மான் பாரத் திட்டங்களில் பயன் பெறுதல்",
+      "அரசு நேரடி பண உதவி (DBT) திட்டங்களுக்கு தகுதி பெறுதல்"
+    ],
+    "hindiCommonUseCases": [
+      "पोस्ट-मैट्रिक और उच्च शिक्षा छात्रवृत्ति के लिए आवेदन",
+      "कॉलेजों और विश्वविद्यालयों में शिक्षण शुल्क छूट",
+      "सब्सिडी वाली आवास योजनाओं (पीएमएवाई) के लिए पात्रता सत्यापन",
+      "सीएमसीएचआईएस और आयुष्मान भारत के तहत मुफ्त स्वास्थ्य कवरेज",
+      "प्रत्यक्ष लाभ हस्तांतरण (डीबीटी) कल्याणकारी कार्यक्रम"
+    ],
+    "commonlyRequestedSupportingDocuments": [
+      "Applicant & family head Aadhaar Card copies",
+      "Salary certificate or Form 16 (for salaried persons)",
+      "Bank account passbook statement for the past 6 months",
+      "Agricultural land revenue receipts / Patta (for rural farmers)",
+      "Self-declaration affidavit of annual income",
+      "Ration Card / Smart Family Card copy",
+      "Passport size photograph"
+    ],
+    "tamilCommonlyRequestedSupportingDocuments": [
+      "விண்ணப்பதாரர் மற்றும் குடும்பத் தலைவரின் ஆதார் அட்டை நகல்கள்",
+      "மாத சம்பளம் பெறுபவர்களுக்கு சம்பளச் சான்றிதழ் அல்லது Form 16",
+      "கடந்த 6 மாத வங்கிக் கணக்கு அறிக்கை நகல்",
+      "விவசாயிகளுக்கு நில வரி ரசீது / பட்டா நகல்",
+      "ஆண்டு வருமானத்திற்கான சுய உறுதிமொழிப் படிவம்",
+      "ஸ்மார்ட் குடும்ப அட்டை நகல்",
+      "பாஸ்போர்ட் அளவு புகைப்படம்"
+    ],
+    "hindiCommonlyRequestedSupportingDocuments": [
+      "आवेदक और परिवार के मुखिया के आधार कार्ड की प्रति",
+      "वेतनभोगी व्यक्तियों के लिए वेतन प्रमाण पत्र या फॉर्म 16",
+      "पिछले 6 महीने का बैंक पासबुक स्टेटमेंट",
+      "किसानों के लिए कृषि भूमि राजस्व रसीद / पट्टा",
+      "वार्षिक आय का स्व-घोषणा हलफनामा",
+      "राशन कार्ड / स्मार्ट फैमिली कार्ड की प्रति",
+      "पासपोर्ट साइज फोटो"
+    ],
+    "applicationSteps": [
+      "Visit your nearest e-Sevai / CSC Center or the official State e-District portal (tnesevai.tn.gov.in).",
+      "Fill the Citizen Access Number (CAN) details or register a new CAN account with Aadhaar OTP.",
+      "Upload scanned copies of salary slips/affidavit, ration card, and photo.",
+      "Pay the nominal statutory processing fee (₹60 in Tamil Nadu e-Sevai).",
+      "Village Administrative Officer (VAO) conducts field verification and submits report to Revenue Inspector (RI).",
+      "Tahsildar / Zonal Deputy Tahsildar approves and digitally signs the certificate.",
+      "Download the digitally signed QR-coded certificate online or collect from the center within 7–15 working days."
+    ],
+    "tamilApplicationSteps": [
+      "அருகிலுள்ள இ-சேவை மையத்திற்குச் செல்லவும் அல்லது tnesevai.tn.gov.in இணையதளத்தை அணுகவும்.",
+      "CAN பதிவு எண் விவரங்களை உள்ளிடவும் அல்லது ஆதார் OTP மூலம் புதிய CAN கணக்கை உருவாக்கவும்.",
+      "வருமான உறுதிமொழி, குடும்ப அட்டை மற்றும் புகைப்படத்தைப் பதிவேற்றவும்.",
+      "அரசு நிர்ணயித்த செயலாக்கக் கட்டணத்தை (₹60) செலுத்தவும்.",
+      "கிராம நிர்வாக அலுவலர் (VAO) மற்றும் வருவாய் ஆய்வாளர் (RI) கள ஆய்வு செய்து அறிக்கை சமர்ப்பிப்பர்.",
+      "வட்டாட்சியர் சரிபார்த்து டிஜிட்டல் கையொப்பமிட்டு சான்றிதழை ஒப்புதல் செய்வார்.",
+      "7 முதல் 15 வேலை நாட்களுக்குள் QR குறியீட்டுடன் கூடிய சான்றிதழை ஆன்லைனில் பதிவிறக்கம் செய்யலாம்."
+    ],
+    "hindiApplicationSteps": [
+      "निकटतम ई-सेवा / सीएससी केंद्र पर जाएं या राज्य ई-डिस्ट्रिक्ट पोर्टल (tnesevai.tn.gov.in) खोलें।",
+      "नागरिक पहुंच संख्या (CAN) विवरण भरें या आधार ओटीपी के साथ नया खाता पंजीकृत करें।",
+      "वेतन पर्ची/हलफनामा, राशन कार्ड और फोटो की स्कैन कॉपी अपलोड करें।",
+      "निर्धारित प्रसंस्करण शुल्क (₹60) का भुगतान करें।",
+      "ग्राम प्रशासनिक अधिकारी (वीएओ) और राजस्व निरीक्षक (आरआई) सत्यापन रिपोर्ट प्रस्तुत करते हैं।",
+      "तहसीलदार प्रमाण पत्र को डिजिटल रूप से हस्ताक्षरित करते हैं।",
+      "7-15 कार्य दिवसों में क्यूआर कोड वाला प्रमाण पत्र डाउनलोड करें।"
+    ],
+    "validity": "Generally valid for 1 financial year from the date of issue.",
+    "tamilValidity": "வழங்கப்பட்ட தேதியிலிருந்து 1 நிதியாண்டிற்கு பொதுவாக செல்லுபடியாகும்.",
+    "hindiValidity": "जारी होने की तिथि से 1 वित्तीय वर्ष के लिए वैध।",
+    "relatedServices": ["income-certificate-service", "esevai-tn", "community-certificate-service"],
+    "relatedSchemes": ["post-matric-scholarship", "pudhumai-penn-scheme", "cmchis-tn", "pmay-urban"],
+    "officialSourceUrl": "https://tnesevai.tn.gov.in",
+    "verificationStatus": "Official Guidelines Verified (TN e-District)",
+    "lastVerifiedAt": "2025-01-15",
+    "isMock": false
+  },
+  {
+    "id": "community-certificate",
+    "name": "Community / Caste Certificate",
+    "tamilName": "சாதிச் சான்றிதழ்",
+    "hindiName": "जाति प्रमाण पत्र",
+    "category": "Revenue & Certificates",
+    "tamilCategory": "வருவாய் மற்றும் சான்றிதழ்கள்",
+    "hindiCategory": "राजस्व एवं प्रमाण पत्र",
+    "issuingAuthority": "Revenue Administration (Zonal Deputy Tahsildar / Tahsildar)",
+    "tamilIssuingAuthority": "வருவாய்த்துறை (மண்டல துணை வட்டாட்சியர் / வட்டாட்சியர்)",
+    "hindiIssuingAuthority": "राजस्व प्रशासन (क्षेत्रीय नायब तहसीलदार / तहसीलदार)",
+    "purpose": "Provides official proof of a citizen's belonging to a specified caste, Scheduled Caste (SC), Scheduled Tribe (ST), Most Backward Class (MBC), or Backward Class (BC).",
+    "tamilPurpose": "ஒரு குடிமகன் ஆதிதிராவிடர் (SC), பழங்குடியினர் (ST), மிகவும் பிற்படுத்தப்பட்டோர் (MBC) அல்லது பிற்படுத்தப்பட்டோர் (BC) பிரிவைச் சேர்ந்தவர் என்பதற்கான அதிகாரப்பூர்வ சட்டபூர்வ சான்று.",
+    "hindiPurpose": "अनुसूचित जाति (SC), अनुसूचित जनजाति (ST), अन्य पिछड़ा वर्ग (OBC) आदि समुदाय से संबंधित होने का आधिकारिक प्रमाण प्रदान करता है।",
+    "commonUseCases": [
+      "School, college, and university reservations in admissions",
+      "Public sector recruitment and civil services quota eligibility",
+      "Government student scholarship disbursement",
+      "Subsidized business loans under TAHDCO and NBCFDC"
+    ],
+    "tamilCommonUseCases": [
+      "பள்ளி, கல்லூரி மற்றும் பல்கலைக்கழக மாணவர் சேர்க்கை இடஒதுக்கீடு",
+      "அரசுப் பணிகள் மற்றும் போட்டித் தேர்வுகளுக்கான இடஒதுக்கீடு சலுகைகள்",
+      "அரசு கல்வி உதவித்தொகைகளைப் பெறுதல்",
+      "தாட்கோ (TAHDCO) போன்ற அமைப்புகளின் மானியக் கடன்கள் பெறுதல்"
+    ],
+    "hindiCommonUseCases": [
+      "स्कूल, कॉलेज और विश्वविद्यालयों में प्रवेश आरक्षण",
+      "सरकारी नौकरियों और प्रतियोगी परीक्षाओं में आरक्षण लाभ",
+      "सरकारी छात्रवृत्ति का वितरण",
+      "सब्सिडी वाले व्यावसायिक ऋण प्राप्त करना"
+    ],
+    "commonlyRequestedSupportingDocuments": [
+      "Parent's or sibling's community certificate copy",
+      "Applicant Transfer Certificate (TC) or School mark sheet showing community",
+      "Aadhaar Card of the applicant and father/mother",
+      "Ration card copy / proof of residence",
+      "Passport-sized photograph"
+    ],
+    "tamilCommonlyRequestedSupportingDocuments": [
+      "பெற்றோர் அல்லது உடன்பிறந்தோரின் சாதிச் சான்றிதழ் நகல்",
+      "விண்ணப்பதாரரின் பள்ளி மாற்றுச் சான்றிதழ் (TC)",
+      "விண்ணப்பதாரர் மற்றும் பெற்றோரின் ஆதார் அட்டை",
+      "குடும்ப அட்டை நகல் / முகவரிச் சான்று",
+      "பாஸ்போர்ட் அளவு புகைப்படம்"
+    ],
+    "hindiCommonlyRequestedSupportingDocuments": [
+      "माता-पिता या भाई-बहन के जाति प्रमाण पत्र की प्रति",
+      "आवेदक का स्कूल ट्रांसफर सर्टिफिकेट (TC) या अंकतालिका",
+      "आवेदक और माता-पिता का आधार कार्ड",
+      "राशन कार्ड की प्रति / निवास प्रमाण",
+      "पासपोर्ट साइज फोटो"
+    ],
+    "applicationSteps": [
+      "Log in to the State e-District portal or visit an e-Sevai / Common Service Center.",
+      "Provide CAN number and fill applicant details and parent community details.",
+      "Upload parent community certificate, applicant school TC, and address proof.",
+      "Submit application and note down the acknowledgment tracking number.",
+      "VAO and Revenue Inspector review ancestral village registry records.",
+      "Digital certificate approved and released within 15–30 days."
+    ],
+    "tamilApplicationSteps": [
+      "இ-சேவை போர்டல் அல்லது இ-சேவை மையத்திற்குச் செல்லவும்.",
+      "CAN எண்ணைப் பதிவு செய்து விண்ணப்பதாரர் மற்றும் பெற்றோர் சாதி விவரங்களை நிரப்பவும்.",
+      "பெற்றோர் சாதிச் சான்றிதழ், பள்ளி TC மற்றும் முகவரிச் சான்றுகளைப் பதிவேற்றவும்.",
+      "விண்ணப்பத்தைச் சமர்ப்பித்து கண்காணிப்பு ஒப்புகைச் சீட்டைப் பெறவும்.",
+      "கிராம நிர்வாக அலுவலர் மற்றும் வருவாய் ஆய்வாளர் பரம்பரை பதிவேடுகளை ஆய்வு செய்வர்.",
+      "15 முதல் 30 நாட்களுக்குள் டிஜிட்டல் சான்றிதழ் வழங்கப்படும்."
+    ],
+    "hindiApplicationSteps": [
+      "ई-डिस्ट्रिक्ट पोर्टल या नजदीकी ई-सेवा केंद्र पर जाएं।",
+      "CAN नंबर दर्ज करें और आवेदक तथा माता-पिता का जाति विवरण भरें।",
+      "माता-पिता का जाति प्रमाण, स्कूल टीसी और पता प्रमाण अपलोड करें।",
+      "आवेदन जमा करें और ट्रैकिंग नंबर नोट करें।",
+      "वीएओ और राजस्व निरीक्षक पैतृक रिकॉर्ड की समीक्षा करते हैं।",
+      "15-30 दिनों के भीतर डिजिटल प्रमाणपत्र स्वीकृत होकर उपलब्ध हो जाता है।"
+    ],
+    "validity": "Permanent / Lifetime validity (unless cancelled or revised).",
+    "tamilValidity": "வாழ்நாள் முழுவதும் செல்லுபடியாகும் நிரந்தர ஆவணம்.",
+    "hindiValidity": "स्थायी / आजीवन वैधता (जब तक कि रद्द या संशोधित न किया जाए)।",
+    "relatedServices": ["community-certificate-service", "esevai-tn"],
+    "relatedSchemes": ["post-matric-scholarship", "tahdco-loan-scheme"],
+    "officialSourceUrl": "https://tnesevai.tn.gov.in",
+    "verificationStatus": "Official Guidelines Verified",
+    "lastVerifiedAt": "2025-01-10",
+    "isMock": false
+  },
+  {
+    "id": "residence-certificate",
+    "name": "Residence / Nativity Certificate",
+    "tamilName": "இருப்பிடச் சான்றிதழ் / பிறப்பிடச் சான்றிதழ்",
+    "hindiName": "निवास / अधिवास प्रमाण पत्र",
+    "category": "Revenue & Certificates",
+    "tamilCategory": "வருவாய் மற்றும் சான்றிதழ்கள்",
+    "hindiCategory": "राजस्व एवं प्रमाण पत्र",
+    "issuingAuthority": "Tahsildar / Revenue Department",
+    "tamilIssuingAuthority": "வட்டாட்சியர் / வருவாய்த்துறை",
+    "hindiIssuingAuthority": "तहसीलदार / राजस्व विभाग",
+    "purpose": "Serves as legal proof that an individual resides in a specific state, taluk, or village continuously for a stipulated period.",
+    "tamilPurpose": "ஒரு நபர் குறிப்பிட்ட மாநிலம், வட்டம் அல்லது கிராமத்தில் குறிப்பிட்ட காலம் தொடர்ந்து வசிக்கிறார் என்பதற்கான சட்டப்பூர்வ சான்று.",
+    "hindiPurpose": "कानूनी प्रमाण कि कोई व्यक्ति एक निश्चित अवधि के लिए किसी विशेष राज्य या जिले में निवास करता है।",
+    "commonUseCases": [
+      "State quota medical and engineering counselling admissions (TNEA/TN Medical)",
+      "State government recruitment (TNPSC, District employment quotas)",
+      "Local welfare scheme priority"
+    ],
+    "tamilCommonUseCases": [
+      "மாநில அரசு பொறியியல் மற்றும் மருத்துவக் கலந்தாய்வு சேர்க்கை (TNEA / TN Medical)",
+      "மாநில அரசுப் பணியாளர் தேர்வு மற்றும் மாவட்ட வேலைவாய்ப்பு முன்னுரிமை (TNPSC)",
+      "உள்ளூர் அரசு நலத்திட்ட முன்னுரிமை"
+    ],
+    "hindiCommonUseCases": [
+      "राज्य कोटे के तहत मेडिकल और इंजीनियरिंग काउंसलिंग प्रवेश (TNEA आदि)",
+      "राज्य सरकार की भर्ती परीक्षाएं (TNPSC)",
+      "स्थानीय कल्याणकारी योजनाओं में प्राथमिकता"
+    ],
+    "commonlyRequestedSupportingDocuments": [
+      "Continuous 5-year school study certificates or utility bills",
+      "Aadhaar Card and Voter Identity Card",
+      "Ration Card or Rental Agreement / Property tax receipt",
+      "Applicant's birth certificate"
+    ],
+    "tamilCommonlyRequestedSupportingDocuments": [
+      "தொடர்ந்து 5 ஆண்டுகள் படித்ததற்கான பள்ளி சான்றிதழ்கள் அல்லது மின்கட்டண ரசீதுகள்",
+      "ஆதார் அட்டை மற்றும் வாக்காளர் அடையாள அட்டை",
+      "குடும்ப அட்டை அல்லது வாடகை ஒப்பந்தம் / சொத்து வரி ரசீது",
+      "விண்ணப்பதாரரின் பிறப்புச் சான்றிதழ்"
+    ],
+    "hindiCommonlyRequestedSupportingDocuments": [
+      "लगातार 5 साल के स्कूल अध्ययन प्रमाण पत्र या बिजली बिल",
+      "आधार कार्ड और वोटर पहचान पत्र",
+      "राशन कार्ड या किराया अनुबंध / संपत्ति कर रसीद",
+      "आवेदक का जन्म प्रमाण पत्र"
+    ],
+    "applicationSteps": [
+      "Apply through e-Sevai portal or taluk office helpdesk.",
+      "Attach residential address evidence spanning required years.",
+      "Undergo field inspection by VAO if residence is recent.",
+      "Download digitally signed certificate upon Tahsildar approval."
+    ],
+    "tamilApplicationSteps": [
+      "இ-சேவை போர்டல் மூலமாகவோ அல்லது வட்டாட்சியர் அலுவலக உதவி மையம் மூலமாகவோ விண்ணப்பிக்கவும்.",
+      "தேவையான ஆண்டுகளுக்கான வசிப்பிட ஆவணங்களை இணைக்கவும்.",
+      "கிராம நிர்வாக அலுவலர் (VAO) நேரில் ஆய்வு செய்வார்.",
+      "வட்டாட்சியர் ஒப்புதல் அளித்தவுடன் டிஜிட்டல் சான்றிதழைப் பதிவிறக்கம் செய்யலாம்."
+    ],
+    "hindiApplicationSteps": [
+      "ई-सेवा पोर्टल या तालुक कार्यालय हेल्पडेस्क के माध्यम से आवेदन करें।",
+      "आवश्यक वर्षों के निवास प्रमाण दस्तावेज संलग्न करें।",
+      "ग्राम प्रशासनिक अधिकारी द्वारा क्षेत्रीय सत्यापन।",
+      "तहसीलदार के अनुमोदन पर डिजिटल रूप से हस्ताक्षरित प्रमाण पत्र डाउनलोड करें।"
+    ],
+    "validity": "Generally valid for 6 months to 1 year depending on recruiting body.",
+    "tamilValidity": "தேர்வாணையம் மற்றும் தேவையைப் பொறுத்து பொதுவாக 6 மாதம் முதல் 1 ஆண்டு வரை செல்லுபடியாகும்.",
+    "hindiValidity": "सामान्यतः 6 महीने से 1 वर्ष के लिए मान्य।",
+    "relatedServices": ["residence-certificate-service", "esevai-tn"],
+    "relatedSchemes": ["tn-cm-breakfast", "pudhumai-penn-scheme"],
+    "officialSourceUrl": "https://edistricts.tn.gov.in",
+    "verificationStatus": "Official Guidelines Verified",
+    "lastVerifiedAt": "2025-01-12",
+    "isMock": false
+  },
+  {
+    "id": "aadhaar-card",
+    "name": "Aadhaar Card",
+    "tamilName": "ஆதார் அட்டை",
+    "hindiName": "आधार कार्ड",
+    "category": "Identity & Citizenship",
+    "tamilCategory": "அடையாளம் & குடியுரிமை",
+    "hindiCategory": "पहचान एवं नागरिकता",
+    "issuingAuthority": "Unique Identification Authority of India (UIDAI)",
+    "tamilIssuingAuthority": "இந்திய தனித்துவ அடையாள ஆணையம் (UIDAI)",
+    "hindiIssuingAuthority": "भारतीय विशिष्ट पहचान प्राधिकरण (UIDAI)",
+    "purpose": "12-digit biometric and demographic unique identity number serving as universal proof of identity and residence across India.",
+    "tamilPurpose": "இந்தியா முழுவதும் அடையாளம் மற்றும் முகவரிக்கான உலகளாவிய சான்றாக விளங்கும் 12 இலக்க தனித்துவ பயோமெட்ரிக் அடையாள அட்டை.",
+    "hindiPurpose": "12 अंकों की बायोमेट्रिक और जनसांख्यिकीय विशिष्ट पहचान संख्या जो पूरे भारत में सार्वभौमिक पहचान और निवास प्रमाण के रूप में कार्य करती है।",
+    "commonUseCases": [
+      "Direct Benefit Transfer (DBT) subsidy credit linking to bank accounts",
+      "Universal KYC for telecom, banking, EPFO, and passport verification",
+      "Filing income tax returns and authenticating government digital portals",
+      "Digital verification on DigiLocker and UMANG"
+    ],
+    "tamilCommonUseCases": [
+      "அரசு மானியங்கள் மற்றும் நலத்திட்டங்களை வங்கி கணக்கில் நேரடியாகப் பெறுதல் (DBT)",
+      "வங்கி கணக்கு, சிம் கார்டு, பாஸ்போர்ட் மற்றும் EPFO கணக்குகளுக்கான KYC சரிபார்ப்பு",
+      "வருமான வரி தாக்கல் செய்தல் மற்றும் அரசு இணையதளங்களில் உள்நுழைதல்",
+      "டிஜிலாக்கர் மற்றும் UMANG செயலிகளில் டிஜிட்டல் சரிபார்ப்பு"
+    ],
+    "hindiCommonUseCases": [
+      "बैंक खातों में प्रत्यक्ष लाभ हस्तांतरण (DBT) सब्सिडी लिंकिंग",
+      "दूरसंचार, बैंकिंग, ईपीएफओ और पासपोर्ट सत्यापन के लिए सार्वभौमिक केवाईसी",
+      "आयकर रिटर्न दाखिल करना और सरकारी पोर्टलों का प्रमाणीकरण",
+      "डिजिलॉकर और उमंग पर डिजिटल सत्यापन"
+    ],
+    "commonlyRequestedSupportingDocuments": [
+      "Proof of Identity (POI): Passport, PAN, Voter ID, Ration card with photo",
+      "Proof of Address (POA): Electricity bill, Water bill, Bank passbook",
+      "Proof of Date of Birth (DOB): Birth certificate, SSLC book/mark sheet"
+    ],
+    "tamilCommonlyRequestedSupportingDocuments": [
+      "அடையாளச் சான்று (POI): பாஸ்போர்ட், பான் கார்டு, வாக்காளர் அட்டை, குடும்ப அட்டை",
+      "முகவரிச் சான்று (POA): மின்கட்டண ரசீது, குடிநீர் ரசீது, வங்கிக் கணக்குப் புத்தகம்",
+      "பிறந்த தேதி சான்று (DOB): பிறப்புச் சான்றிதழ், 10-ஆம் வகுப்பு மதிப்பெண் சான்றிதழ்"
+    ],
+    "hindiCommonlyRequestedSupportingDocuments": [
+      "पहचान का प्रमाण (POI): पासपोर्ट, पैन कार्ड, वोटर आईडी, फोटोयुक्त राशन कार्ड",
+      "पते का प्रमाण (POA): बिजली बिल, पानी का बिल, बैंक पासबुक",
+      "जन्म तिथि का प्रमाण (DOB): जन्म प्रमाण पत्र, 10वीं की अंकतालिका"
+    ],
+    "applicationSteps": [
+      "Book an appointment online via myaadhaar.uidai.gov.in or visit an Aadhaar Seva Kendra.",
+      "Submit enrollment form with valid POI, POA, and DOB documents.",
+      "Provide biometric data: fingerprints of all 10 fingers, both iris scans, and facial photograph.",
+      "Collect the 28-digit Enrollment Acknowledgment Slip (EID).",
+      "Check status online; download e-Aadhaar PDF once generated using registered mobile OTP."
+    ],
+    "tamilApplicationSteps": [
+      "myaadhaar.uidai.gov.in மூலம் முன்பதிவு செய்யவும் அல்லது ஆதார் சேவை மையத்திற்குச் செல்லவும்.",
+      "பதிவுப் படிவத்துடன் அடையாள, முகவரி மற்றும் பிறந்த தேதி சான்றுகளைச் சமர்ப்பிக்கவும்.",
+      "பயோமெட்ரிக் கைரேகைகள், கருவிழி ஸ்கேன் மற்றும் முகப் புகைப்படத்தைப் பதிவு செய்யவும்.",
+      "28 இலக்க சேர்க்கை ஒப்புகைச் சீட்டைப் (EID) பெற்றுக் கொள்ளவும்.",
+      "மொபைல் OTP மூலம் e-ஆதார் PDF நகலைப் பதிவிறக்கம் செய்து கொள்ளலாம்."
+    ],
+    "hindiApplicationSteps": [
+      "myaadhaar.uidai.gov.in के माध्यम से अपॉइंटमेंट बुक करें या आधार सेवा केंद्र जाएं।",
+      "वैध दस्तावेजों के साथ नामांकन फॉर्म जमा करें।",
+      "उंगलियों के निशान, आईरिस स्कैन और चेहरे की फोटो सहित बायोमेट्रिक विवरण दें।",
+      "28 अंकों की नामांकन पावती पर्ची (EID) प्राप्त करें।",
+      "मोबाइल ओटीपी का उपयोग करके ई-आधार पीडीएफ डाउनलोड करें।"
+    ],
+    "validity": "Lifetime validity with periodic mandatory biometric updates (at age 5 and 15 for children).",
+    "tamilValidity": "வாழ்நாள் முழுவதும் செல்லுபடியாகும் (குழந்தைகளுக்கு 5 மற்றும் 15 வயதில் கட்டாய பயோமெட்ரிக் புதுப்பித்தல் அவசியம்).",
+    "hindiValidity": "आजीवन वैधता (बच्चों के लिए 5 और 15 वर्ष की आयु में अनिवार्य बायोमेट्रिक अपडेट)।",
+    "relatedServices": ["aadhaar-service", "pan-aadhaar-link", "digilocker-service"],
+    "relatedSchemes": ["pm-kisan", "magalir-urimai-thogai", "ayushman-bharat"],
+    "officialSourceUrl": "https://uidai.gov.in",
+    "verificationStatus": "UIDAI Official Architecture Verified",
+    "lastVerifiedAt": "2025-02-01",
+    "isMock": false
+  },
+  {
+    "id": "pan-card",
+    "name": "PAN Card (Permanent Account Number)",
+    "tamilName": "பான் கார்டு (நிரந்தர கணக்கு எண்)",
+    "hindiName": "पैन कार्ड (स्थायी खाता संख्या)",
+    "category": "Financial & Tax Identity",
+    "tamilCategory": "நிதி மற்றும் வரி அடையாளம்",
+    "hindiCategory": "वित्तीय एवं कर पहचान",
+    "issuingAuthority": "Income Tax Department (via Protean / UTIITSL)",
+    "tamilIssuingAuthority": "வருமான வரித்துறை (Protean / UTIITSL வழியாக)",
+    "hindiIssuingAuthority": "आयकर विभाग (प्रोटीन / यूटीआईआईटीएसएल के माध्यम से)",
+    "purpose": "10-character alphanumeric identifier mandatory for financial transactions, high-value purchases, and income tax filing.",
+    "tamilPurpose": "நிதிப் பரிவர்த்தனைகள், முதலீடுகள் மற்றும் வருமான வரித் தாக்கல் செய்வதற்குத் தேவையான 10 எழுத்துக்கள் கொண்ட தனித்துவ அடையாள எண்.",
+    "hindiPurpose": "वित्तीय लेनदेन, उच्च-मूल्य की खरीद और आयकर रिटर्न दाखिल करने के लिए अनिवार्य 10-अक्षरों का अल्फान्यूमेरिक पहचानकर्ता।",
+    "commonUseCases": [
+      "Opening bank savings and current accounts",
+      "Filing Income Tax Returns (ITR)",
+      "Buying or selling immovable property exceeding prescribed monetary limits",
+      "Investment in mutual funds, stocks, and fixed deposits"
+    ],
+    "tamilCommonUseCases": [
+      "வங்கி சேமிப்பு மற்றும் நடப்புக் கணக்குகள் தொடங்குதல்",
+      "வருமான வரி கணக்கு தாக்கல் செய்தல் (ITR)",
+      "அசையா சொத்துக்களை வாங்குதல் மற்றும் விற்பனை செய்தல்",
+      "மியூச்சுவல் ஃபண்ட், பங்குகள் மற்றும் நிலையான வைப்பு நிதிகளில் முதலீடு செய்தல்"
+    ],
+    "hindiCommonUseCases": [
+      "बैंक बचत और चालू खाते खोलना",
+      "आयकर रिटर्न (ITR) दाखिल करना",
+      "अचल संपत्ति की खरीद या बिक्री",
+      "म्यूचुअल फंड, शेयर और सावधि जमा (FD) में निवेश"
+    ],
+    "commonlyRequestedSupportingDocuments": [
+      "Identity Proof: Aadhaar Card / Passport / Voter Card",
+      "Address Proof: Aadhaar Card / Utility Bill / Bank Statement",
+      "Date of Birth Proof: Birth certificate / 10th mark sheet"
+    ],
+    "tamilCommonlyRequestedSupportingDocuments": [
+      "அடையாளச் சான்று: ஆதார் அட்டை / பாஸ்போர்ட் / வாக்காளர் அட்டை",
+      "முகவரிச் சான்று: ஆதார் அட்டை / மின்கட்டண ரசீது / வங்கி அறிக்கை",
+      "பிறந்த தேதி சான்று: பிறப்புச் சான்றிதழ் / 10-ஆம் வகுப்பு மதிப்பெண் அட்டை"
+    ],
+    "hindiCommonlyRequestedSupportingDocuments": [
+      "पहचान प्रमाण: आधार कार्ड / पासपोर्ट / वोटर कार्ड",
+      "पता प्रमाण: आधार कार्ड / उपयोगिता बिल / बैंक विवरण",
+      "जन्म तिथि प्रमाण: जन्म प्रमाण पत्र / 10वीं की अंकतालिका"
+    ],
+    "applicationSteps": [
+      "Visit Protean (formerly NSDL) e-Gov portal or UTIITSL website.",
+      "Select Form 49A for Indian citizens.",
+      "Choose Paperless e-KYC using Aadhaar OTP or submit physical documents.",
+      "Make online payment of ₹107 for physical card dispatch (or ₹72 for e-PAN only).",
+      "Instant e-PAN is delivered to email, physical PVC card posted within 15 days."
+    ],
+    "tamilApplicationSteps": [
+      "Protean (NSDL) அல்லது UTIITSL இணையதளத்தைப் பார்வையிடவும்.",
+      "இந்தியக் குடிமக்களுக்கான படிவம் 49A (Form 49A) ஐத் தேர்ந்தெடுக்கவும்.",
+      "ஆதார் OTP வழியே காகிதமில்லா e-KYC முறையைத் தேர்வு செய்யவும்.",
+      "ஆன்லைனில் கட்டணம் செலுத்தவும் (PVC அட்டைக்கு ₹107 / e-PAN மட்டும் ₹72).",
+      "உடனடி e-PAN மின்னஞ்சலுக்கு வரும்; அசல் பிளாஸ்டிக் அட்டை 15 நாட்களுக்குள் தபாலில் வந்து சேரும்."
+    ],
+    "hindiApplicationSteps": [
+      "प्रोटीन (पूर्व में एनएसडीएल) या यूटीआईआईटीएसएल वेबसाइट पर जाएं।",
+      "भारतीय नागरिकों के लिए फॉर्म 49A चुनें।",
+      "आधार ओटीपी के साथ पेपरलेस ई-केवाईसी चुनें।",
+      "ऑनलाइन भुगतान करें (भौतिक कार्ड के लिए ₹107)।",
+      "ई-पैन तुरंत ईमेल पर प्राप्त होता है, 15 दिनों में पीवीसी कार्ड डाक द्वारा भेजा जाता है।"
+    ],
+    "validity": "Lifetime validity.",
+    "tamilValidity": "வாழ்நாள் முழுவதும் செல்லுபடியாகும்.",
+    "hindiValidity": "आजीवन वैधता।",
+    "relatedServices": ["pan-service", "pan-aadhaar-link"],
+    "relatedSchemes": ["mudra-loan", "pm-svanidhi"],
+    "officialSourceUrl": "https://www.incometax.gov.in",
+    "verificationStatus": "ITD Guidelines Verified",
+    "lastVerifiedAt": "2025-01-20",
+    "isMock": false
+  },
+  {
+    "id": "patta-chitta",
+    "name": "Patta & Chitta Land Records",
+    "tamilName": "பட்டா & சிட்டா நில ஆவணங்கள்",
+    "hindiName": "पट्टा एवं चिट्टा (भूमि अभिलेख)",
+    "category": "Land & Revenue",
+    "tamilCategory": "நிலம் மற்றும் வருவாய்",
+    "hindiCategory": "भूमि एवं राजस्व",
+    "issuingAuthority": "Department of Survey and Settlement, Govt of Tamil Nadu",
+    "tamilIssuingAuthority": "நில அளவை மற்றும் நிலவரி திட்டத்துறை, தமிழ்நாடு அரசு",
+    "hindiIssuingAuthority": "सर्वेक्षण एवं बंदोबस्त विभाग, तमिलनाडु सरकार",
+    "purpose": "Patta certifies legal title and land ownership, containing survey number, owner name, and area. Chitta details wetland/dryland classification and agricultural revenue tax.",
+    "tamilPurpose": "பட்டா என்பது நிலத்தின் சட்டப்பூர்வ உரிமையை உறுதி செய்யும் ஆவணம்; சிட்டா என்பது நஞ்சை, புஞ்சை நில வகைப்பாடு மற்றும் நிலவரி விவரங்களைக் குறிக்கும் ஆவணம்.",
+    "hindiPurpose": "पट्टा भूमि के कानूनी स्वामित्व को प्रमाणित करता है; चिट्टा भूमि के प्रकार (सिंचित/असिंचित) और भू-राजस्व कर का विवरण देता है।",
+    "commonUseCases": [
+      "Buying or selling agricultural/residential land",
+      "Applying for agricultural bank loans (KCC) and crop subsidies",
+      "Claiming compensation under government infrastructure acquisition",
+      "Dispute resolution in Revenue Courts"
+    ],
+    "tamilCommonUseCases": [
+      "விவசாய அல்லது வீட்டு மனை நிலங்களை வாங்குதல் மற்றும் விற்றல்",
+      "கிசான் கிரெடிட் கார்டு (KCC) விவசாய வங்கிக் கடன்கள் மற்றும் பயிர் மானியங்கள் பெறுதல்",
+      "அரசு திட்டங்களுக்கான நிலக் கையகப்படுத்தல் இழப்பீடு கோருதல்",
+      "வருவாய் நீதிமன்றங்களில் நில உரிமை வழக்குகளுக்கு ஆதாரமாகப் பயன்படுத்துதல்"
+    ],
+    "hindiCommonUseCases": [
+      "कृषि या आवासीय भूमि की खरीद-बिक्री",
+      "किसान क्रेडिट कार्ड (KCC) ऋण और फसल सब्सिडी के लिए आवेदन",
+      "भूमि अधिग्रहण के तहत मुआवजे का दावा करना",
+      "राजस्व न्यायालयों में भूमि विवाद निपटान"
+    ],
+    "commonlyRequestedSupportingDocuments": [
+      "Sale deed / registered partition deed / settlement deed",
+      "Encumbrance Certificate (EC) for the property",
+      "Previous Patta copy or parent land document",
+      "Identity proof of landholder (Aadhaar Card)"
+    ],
+    "tamilCommonlyRequestedSupportingDocuments": [
+      "கிரையப் பத்திரம் / பாகப்பிரிவினை பத்திரம் / தான பத்திரம்",
+      "சொத்தின் வில்லங்கச் சான்றிதழ் (EC)",
+      "முந்தைய பட்டா நகல் அல்லது தாய் ஆவணம்",
+      "நில உரிமையாளரின் ஆதார் அட்டை"
+    ],
+    "hindiCommonlyRequestedSupportingDocuments": [
+      "बिक्री विलेख / पंजीकृत विभाजन विलेख / बंदोबस्त विलेख",
+      "संपत्ति का भारमुक्तता प्रमाण पत्र (EC)",
+      "पिछला पट्टा प्रति या मूल दस्तावेज",
+      "भूमिधारक का पहचान प्रमाण (आधार कार्ड)"
+    ],
+    "applicationSteps": [
+      "Open AnyTime Anywhere e-Services portal at eservices.tn.gov.in.",
+      "Select 'View Patta & FMB / Chitta / TSLR Extract'.",
+      "Select District, Taluk, Village, and input either Survey Number with Sub-division or Patta Number.",
+      "Enter captcha to view digitally signed web extract free of charge.",
+      "For Patta transfer/mutation, apply online via Tamil Nilam portal or taluk e-Sevai."
+    ],
+    "tamilApplicationSteps": [
+      "eservices.tn.gov.in இணையதளத்தைத் திறக்கவும்.",
+      "'பட்டா & FMB / சிட்டா / நகர நில அளவைப் பதிவேடு பார்வையிட' என்பதைத் தேர்ந்தெடுக்கவும்.",
+      "மாவட்டம், வட்டம், கிராமம் மற்றும் சர்வே எண் அல்லது பட்டா எண்ணை உள்ளிடவும்.",
+      "டிஜிட்டல் முத்திரையிடப்பட்ட பட்டா நகலை இலவசமாகப் பதிவிறக்கவும்.",
+      "பட்டா பெயர் மாற்றத்திற்கு 'தமிழ் நிலம்' இணையதளம் அல்லது இ-சேவை மையம் மூலம் விண்ணப்பிக்கவும்."
+    ],
+    "hindiApplicationSteps": [
+      "eservices.tn.gov.in पोर्टल खोलें।",
+      "'पट्टा एवं एफएमबी / चिट्टा उद्धरण देखें' का चयन करें।",
+      "जिला, तालुक, ग्राम और सर्वे नंबर या पट्टा नंबर दर्ज करें।",
+      "डिजिटल रूप से हस्ताक्षरित रिकॉर्ड मुफ्त में देखें और डाउनलोड करें।",
+      "पट्टा नामांतरण के लिए तमिल निलम पोर्टल या ई-सेवा के माध्यम से आवेदन करें।"
+    ],
+    "validity": "Continuous legal document; requires mutation transfer when ownership changes.",
+    "tamilValidity": "தொடர்ச்சியான சட்ட ஆவணம்; நில உரிமை மாறும் போது பெயர் மாற்றம் செய்யப்பட வேண்டும்.",
+    "hindiValidity": "निरंतर कानूनी दस्तावेज; स्वामित्व बदलने पर नामांतरण की आवश्यकता होती है।",
+    "relatedServices": ["patta-chitta-service", "encumbrance-certificate-service"],
+    "relatedSchemes": ["pm-kisan", "tn-kisan-input-subsidy"],
+    "officialSourceUrl": "https://eservices.tn.gov.in",
+    "verificationStatus": "Official Verified (TN Survey & Settlement)",
+    "lastVerifiedAt": "2025-01-25",
+    "isMock": false
+  },
+  {
+    "id": "class-10-marksheet",
+    "name": "Class X Marksheet & Certificate",
+    "tamilName": "10-ஆம் வகுப்பு மதிப்பெண் சான்றிதழ்",
+    "hindiName": "कक्षा 10वीं अंकतालिका एवं प्रमाण पत्र",
+    "category": "Educational Records",
+    "tamilCategory": "கல்வி ஆவணங்கள்",
+    "hindiCategory": "शैक्षणिक अभिलेख",
+    "issuingAuthority": "Directorate of Government Examinations (DGE TN / CBSE / CISCE)",
+    "tamilIssuingAuthority": "அரசுத் தேர்வுகள் இயக்ககம் (DGE TN / CBSE / CISCE)",
+    "hindiIssuingAuthority": "सरकारी परीक्षा निदेशालय (DGE TN / CBSE / CISCE)",
+    "purpose": "Foundational educational qualification certificate serving as primary proof of basic education and date of birth proof for all government bodies.",
+    "tamilPurpose": "அடிப்படை கல்வித் தகுதியை உறுதி செய்யவும், பிறந்த தேதிக்கான முதன்மை சட்டப்பூர்வ சான்றாகவும் விளங்கும் சான்றிதழ்.",
+    "hindiPurpose": "बुनियादी शिक्षा का प्राथमिक प्रमाण और सभी सरकारी निकायों के लिए जन्म तिथि का आधिकारिक प्रमाण।",
+    "commonUseCases": [
+      "Proof of Date of Birth for passport, driving licence, and PAN card",
+      "Admission to higher secondary (Class 11/12) and polytechnic diplomas",
+      "Minimum eligibility for Group 4 public employment exams (TNPSC Group IV)",
+      "DigiLocker issuance for digital paperless verification"
+    ],
+    "tamilCommonUseCases": [
+      "பாஸ்போர்ட், ஓட்டுநர் உரிமம் மற்றும் பான் கார்டுக்கான பிறந்த தேதி சான்று",
+      "11 மற்றும் 12-ஆம் வகுப்பு மற்றும் பாலிடெக்னிக் பட்டயப் படிப்புகளில் சேருதல்",
+      "TNPSC குரூப் 4 உள்ளிட்ட அரசு வேலைவாய்ப்புப் போட்டிகளுக்கான அடிப்படைத் தகுதி",
+      "டிஜிலாக்கர் மூலம் டிஜிட்டல் சரிபார்ப்பு பெறுதல்"
+    ],
+    "hindiCommonUseCases": [
+      "पासपोर्ट, ड्राइविंग लाइसेंस और पैन कार्ड के लिए जन्म तिथि प्रमाण",
+      "11वीं/12वीं और पॉलिटेक्निक डिप्लोमा में प्रवेश",
+      "ग्रुप 4 सरकारी नौकरियों (TNPSC Group IV) के लिए न्यूनतम पात्रता",
+      "डिजिलॉकर के माध्यम से डिजिटल सत्यापन"
+    ],
+    "commonlyRequestedSupportingDocuments": [
+      "School enrollment roll number and exam registration hall ticket",
+      "School identity card or transfer certificate"
+    ],
+    "tamilCommonlyRequestedSupportingDocuments": [
+      "பள்ளி பதிவு எண் மற்றும் தேர்வு நுழைவுச்சீட்டு (Hall Ticket)",
+      "பள்ளி அடையாள அட்டை அல்லது மாற்றுச் சான்றிதழ்"
+    ],
+    "hindiCommonlyRequestedSupportingDocuments": [
+      "स्कूल रोल नंबर और परीक्षा हॉल टिकट",
+      "स्कूल पहचान पत्र या ट्रांसफर सर्टिफिकेट"
+    ],
+    "applicationSteps": [
+      "Issued automatically through school upon board exam result announcement.",
+      "For duplicate copies or migration certificates, apply on dge.tn.gov.in.",
+      "For digital version, link DigiLocker using Roll Number and Passing Year."
+    ],
+    "tamilApplicationSteps": [
+      "பொதுத்தேர்வு முடிவுகள் வெளியான பிறகு பயின்ற பள்ளி மூலமாக நேரடியாக வழங்கப்படும்.",
+      "மாற்று நகல் (Duplicate) அல்லது இடப்பெயர்வு சான்றிதழுக்கு dge.tn.gov.in இணையதளத்தில் விண்ணப்பிக்கவும்.",
+      "டிஜிட்டல் நகலுக்கு, ரோல் நம்பர் மற்றும் தேர்ச்சி பெற்ற ஆண்டைப் பயன்படுத்தி டிஜிலாக்கரில் இணைத்துக் கொள்ளலாம்."
+    ],
+    "hindiApplicationSteps": [
+      "बोर्ड परीक्षा परिणाम घोषित होने पर स्कूल के माध्यम से सीधे जारी किया जाता है।",
+      "डुप्लीकेट कॉपी या माइग्रेशन सर्टिफिकेट के लिए dge.tn.gov.in पर आवेदन करें।",
+      "डिजिटल संस्करण के लिए रोल नंबर और उत्तीर्ण वर्ष का उपयोग करके डिजिलॉकर में जोड़ें।"
+    ],
+    "validity": "Permanent lifetime educational record.",
+    "tamilValidity": "வாழ்நாள் முழுவதும் செல்லுபடியாகும் நிரந்தரக் கல்வி ஆவணம்.",
+    "hindiValidity": "स्थायी आजीवन शैक्षणिक रिकॉर्ड।",
+    "relatedServices": ["digilocker-service", "esevai-tn"],
+    "relatedSchemes": ["post-matric-scholarship", "skill-india-training"],
+    "officialSourceUrl": "https://dge.tn.gov.in",
+    "verificationStatus": "Official Guidelines Verified",
+    "lastVerifiedAt": "2025-01-10",
+    "isMock": false
+  },
+  {
+    "id": "class-12-marksheet",
+    "name": "Class XII Marksheet & Migration Certificate",
+    "tamilName": "12-ஆம் வகுப்பு மதிப்பெண் சான்றிதழ்",
+    "hindiName": "कक्षा 12वीं अंकतालिका एवं माइग्रेशन प्रमाण पत्र",
+    "category": "Educational Records",
+    "tamilCategory": "கல்வி ஆவணங்கள்",
+    "hindiCategory": "शैक्षणिक अभिलेख",
+    "issuingAuthority": "State Board of School Examinations / CBSE / CISCE",
+    "tamilIssuingAuthority": "மாநில பள்ளிக் கல்வி தேர்வு வாரியம் / CBSE / CISCE",
+    "hindiIssuingAuthority": "राज्य स्कूल परीक्षा बोर्ड / CBSE / CISCE",
+    "purpose": "Qualifying record for college degree admissions, vocational certifications, and competitive entrance examinations like NEET, JEE, and CUET.",
+    "tamilPurpose": "கல்லூரி பட்டப்படிப்பு சேர்க்கை, நீட் (NEET), ஜேஇஇ (JEE) மற்றும் க்யூட் (CUET) போன்ற தேசிய நுழைவுத் தேர்வுகளுக்கான தகுதிச் சான்றிதழ்.",
+    "hindiPurpose": "कॉलेज डिग्री प्रवेश, व्यावसायिक प्रमाणन और नीट, जेईई और सीयूईटी जैसी प्रतियोगी प्रवेश परीक्षाओं के लिए पात्रता रिकॉर्ड।",
+    "commonUseCases": [
+      "Undergraduate college admissions (Arts, Science, Engineering, Medicine)",
+      "Government student incentive schemes (Pudhumai Penn, Moovalur Ramamirtham)",
+      "Higher education educational loan applications",
+      "Defence recruitment (NDA, Agniveer)"
+    ],
+    "tamilCommonUseCases": [
+      "இளங்கலை கல்லூரி சேர்க்கை (கலை, அறிவியல், பொறியியல், மருத்துவம்)",
+      "அரசு கல்வி உதவித்திட்டங்கள் (புதுமைப் பெண், தமிழ்ப் புதல்வன்)",
+      "உயர்கல்விக்கான வங்கிக் கடன் விண்ணப்பங்கள்",
+      "பாதுகாப்புப் படைத் தேர்வுகள் (NDA, அக்னிவீர்)"
+    ],
+    "hindiCommonUseCases": [
+      "स्नातक कॉलेज प्रवेश (कला, विज्ञान, इंजीनियरिंग, मेडिकल)",
+      "सरकारी छात्र प्रोत्साहन योजनाएं (पुधुमई पेन्न आदि)",
+      "उच्च शिक्षा शिक्षा ऋण आवेदन",
+      "रक्षा भर्ती (एनडीए, अग्निवीर)"
+    ],
+    "commonlyRequestedSupportingDocuments": [
+      "Exam Roll Number and School Leaving Certificate"
+    ],
+    "tamilCommonlyRequestedSupportingDocuments": [
+      "தேர்வு பதிவு எண் மற்றும் பள்ளி மாற்றுச் சான்றிதழ் (TC)"
+    ],
+    "hindiCommonlyRequestedSupportingDocuments": [
+      "परीक्षा रोल नंबर और स्कूल छोड़ने का प्रमाण पत्र (TC)"
+    ],
+    "applicationSteps": [
+      "Issued by higher secondary school post result publication.",
+      "Instant authenticated e-copy available via DigiLocker and National Academic Depository (NAD).",
+      "Attestation or apostille for overseas studies done through School Education Secretariat."
+    ],
+    "tamilApplicationSteps": [
+      "தேர்வு முடிவுகள் வெளியான பின் மேல்நிலைப் பள்ளி மூலமாக வழங்கப்படுகிறது.",
+      "டிஜிலாக்கர் மற்றும் தேசிய கல்வி களஞ்சியம் (NAD) மூலம் உடனடி டிஜிட்டல் நகலைப் பெறலாம்.",
+      "வெளிநாட்டுப் படிப்புகளுக்கான சான்றொப்பம் பள்ளிக் கல்வித்துறை தலைமைச் செயலகம் மூலம் செய்யப்படுகிறது."
+    ],
+    "hindiApplicationSteps": [
+      "परिणाम जारी होने के बाद स्कूल द्वारा प्रदान किया जाता है।",
+      "डिजिलॉकर और राष्ट्रीय शैक्षणिक डिपॉजिटरी (NAD) पर डिजिटल कॉपी उपलब्ध है।",
+      "विदेश में पढ़ाई के लिए सत्यापन स्कूल शिक्षा विभाग द्वारा किया जाता है।"
+    ],
+    "validity": "Permanent lifetime record.",
+    "tamilValidity": "வாழ்நாள் முழுவதும் செல்லுபடியாகும் நிரந்தர ஆவணம்.",
+    "hindiValidity": "स्थायी आजीवन रिकॉर्ड।",
+    "relatedServices": ["digilocker-service"],
+    "relatedSchemes": ["pudhumai-penn-scheme", "first-generation-graduate-tuition-concession"],
+    "officialSourceUrl": "https://dge.tn.gov.in",
+    "verificationStatus": "Official Guidelines Verified",
+    "lastVerifiedAt": "2025-01-10",
+    "isMock": false
+  },
+  {
+    "id": "smart-ration-card",
+    "name": "Smart Ration Card / Family Card",
+    "tamilName": "ஸ்மார்ட் குடும்ப அட்டை",
+    "hindiName": "स्मार्ट राशन कार्ड / परिवार कार्ड",
+    "category": "Food & Civil Supplies",
+    "tamilCategory": "உணவு மற்றும் நுகர்வோர் பாதுகாப்பு",
+    "hindiCategory": "खाद्य एवं नागरिक आपूर्ति",
+    "issuingAuthority": "Civil Supplies and Consumer Protection Department, Tamil Nadu",
+    "tamilIssuingAuthority": "உணவுப் பொருள் வழங்கல் மற்றும் நுகர்வோர் பாதுகாப்புத் துறை, தமிழ்நாடு",
+    "hindiIssuingAuthority": "नागरिक आपूर्ति एवं उपभोक्ता संरक्षण विभाग, तमिलनाडु",
+    "purpose": "Ensures targeted food grain delivery under Public Distribution System (PDS) and acts as the master family registry for state welfare schemes.",
+    "tamilPurpose": "பொது விநியோகத் திட்டத்தின் கீழ் அத்தியாவசியப் பொருட்களைப் பெறவும், தமிழக அரசின் அனைத்து நலத்திட்டங்களுக்கும் முதன்மை குடும்ப அடையாள அட்டையாகவும் பயன்படுகிறது.",
+    "hindiPurpose": "सार्वजनिक वितरण प्रणाली (PDS) के तहत खाद्यान्न वितरण सुनिश्चित करता है और राज्य कल्याणकारी योजनाओं के लिए प्राथमिक परिवार रजिस्टर के रूप में कार्य करता है।",
+    "commonUseCases": [
+      "Monthly free rice, subsidized pulses, cooking oil, and sugar from fair price shops",
+      "Kalaignar Magalir Urimai Thogai eligibility verification",
+      "Pongal festival monetary and gift hampers distribution",
+      "Family tree proof for government hospital welfare"
+    ],
+    "tamilCommonUseCases": [
+      "நியாயவிலைக் கடைகளில் மாதந்தோறும் இலவச அரிசி, மானிய பருப்பு, சமையல் எண்ணெய் மற்றும் சர்க்கரை பெறுதல்",
+      "கலைஞர் மகளிர் உரிமைத் திட்டத்தின் கீழ் மாத உதவித்தொகை பெறுவதற்கான தகுதிச் சான்று",
+      "பொங்கல் பரிசுத் தொகுப்பு மற்றும் ரொக்கப் பணம் பெறுதல்",
+      "அரசு மருத்துவமனைகளில் இலவச சிகிச்சை பெறுவதற்கான குடும்ப சான்று"
+    ],
+    "hindiCommonUseCases": [
+      "उचित मूल्य की दुकानों से मुफ्त चावल, दाल, तेल और चीनी प्राप्त करना",
+      "कलैग्नार महिला अधिकार योजना की पात्रता सत्यापन",
+      "पोंगल उत्सव उपहार और नकद सहायता प्राप्त करना",
+      "सरकारी अस्पताल कल्याण के लिए परिवार पहचान प्रमाण"
+    ],
+    "commonlyRequestedSupportingDocuments": [
+      "Aadhaar cards of all family members to be enrolled",
+      "Gas connection consumer slip (for cylinder count calibration)",
+      "Address proof (EB card, water bill, or tenancy agreement)",
+      "Marriage certificate (for newly married couple card split)",
+      "Child birth certificate (for inclusion)"
+    ],
+    "tamilCommonlyRequestedSupportingDocuments": [
+      "குடும்பத்தில் சேர்க்கப்பட வேண்டிய அனைத்து உறுப்பினர்களின் ஆதார் அட்டைகள்",
+      "சமையல் எரிவாயு சிலிண்டர் இணைப்பு ரசீது",
+      "முகவரிச் சான்று (மின்கட்டண அட்டை, வாடகை ஒப்பந்தம்)",
+      "திருமணச் சான்றிதழ் (புதிய தம்பதியர் அட்டை பிரிப்பதற்கு)",
+      "குழந்தையின் பிறப்புச் சான்றிதழ் (புதிய பெயர் சேர்ப்பதற்கு)"
+    ],
+    "hindiCommonlyRequestedSupportingDocuments": [
+      "नामांकित किए जाने वाले सभी परिवार के सदस्यों के आधार कार्ड",
+      "रसोई गैस कनेक्शन उपभोक्ता पर्ची",
+      "पते का प्रमाण (बिजली बिल, पानी बिल या किराया समझौता)",
+      "विवाह प्रमाण पत्र (नए विवाहित जोड़े के कार्ड विभाजन के लिए)",
+      "बच्चे का जन्म प्रमाण पत्र (नाम जोड़ने के लिए)"
+    ],
+    "applicationSteps": [
+      "Apply through TNPDS web portal (tnpds.gov.in) or mobile app.",
+      "Select 'Apply for New Smart Card' and upload family photos & Aadhaar copies.",
+      "Inspection by Supply Inspector / Taluk Supply Officer within 15 days.",
+      "Collect printed chip card from Taluk Supply Office or Fair Price Shop."
+    ],
+    "tamilApplicationSteps": [
+      "TNPDS இணையதளம் (tnpds.gov.in) அல்லது மொபைல் செயலி மூலம் விண்ணப்பிக்கவும்.",
+      "'புதிய மின்னணு அட்டை விண்ணப்பிக்க' என்பதைத் தேர்வு செய்து குடும்ப புகைப்படம் மற்றும் ஆதார் நகல்களைப் பதிவேற்றவும்.",
+      "15 நாட்களுக்குள் வட்ட வழங்கல் அலுவலரால் ஆய்வு செய்யப்படும்.",
+      "வட்டாட்சியர் அலுவலகம் அல்லது நியாயவிலைக் கடையில் புதிய அட்டையைப் பெற்றுக் கொள்ளலாம்."
+    ],
+    "hindiApplicationSteps": [
+      "TNPDS पोर्टल (tnpds.gov.in) या मोबाइल ऐप के माध्यम से आवेदन करें।",
+      "'नया स्मार्ट कार्ड आवेदन' चुनें और फोटो व आधार अपलोड करें।",
+      "15 दिनों के भीतर आपूर्ति निरीक्षक द्वारा सत्यापन।",
+      "तालुक आपूर्ति कार्यालय या राशन की दुकान से मुद्रित कार्ड प्राप्त करें।"
+    ],
+    "validity": "Valid continuously subject to annual KYC/Aadhaar biometric authentication.",
+    "tamilValidity": "ஆண்டுதோறும் ஆதார் பயோமெட்ரிக் சரிபார்ப்புக்கு உட்பட்டு தொடர்ச்சியாக செல்லுபடியாகும்.",
+    "hindiValidity": "वार्षिक ई-केवाईसी / बायोमेट्रिक प्रमाणीकरण के अधीन निरंतर मान्य।",
+    "relatedServices": ["ration-card-service", "esevai-tn"],
+    "relatedSchemes": ["magalir-urimai-thogai", "cmchis-tn", "pm-garib-kalyan-anna-yojana"],
+    "officialSourceUrl": "https://www.tnpds.gov.in",
+    "verificationStatus": "TNPDS Official Guidelines Verified",
+    "lastVerifiedAt": "2025-01-18",
+    "isMock": false
+  },
+  {
+    "id": "udid-card",
+    "name": "UDID Card (Unique Disability Identity Card)",
+    "tamilName": "மாற்றுத்திறனாளி தனித்துவ அடையாள அட்டை (UDID)",
+    "hindiName": "दिव्यांग विशिष्ट पहचान पत्र (UDID)",
+    "category": "Disability & Social Justice",
+    "tamilCategory": "மாற்றுத்திறனாளி மற்றும் சமூக நீதி",
+    "hindiCategory": "दिव्यांगता एवं सामाजिक न्याय",
+    "issuingAuthority": "Department of Empowerment of Persons with Disabilities, Govt of India",
+    "tamilIssuingAuthority": "மாற்றுத்திறனாளிகள் அதிகாரமளித்தல் துறை, இந்திய அரசு",
+    "hindiIssuingAuthority": "दिव्यांगजन सशक्तिकरण विभाग, भारत सरकार",
+    "purpose": "Single national photo identity card and medical certificate for persons with disabilities, tracking disability percentage across 21 benchmark categories.",
+    "tamilPurpose": "மாற்றுத்திறனாளிகளுக்கான அகில இந்திய ஒரே அடையாள அட்டை மற்றும் மருத்துவச் சான்றிதழ்; 21 வகையான மாற்றுத்திறன் சதவீதத்தைக் கண்காணிக்கும் தேசிய ஆவணம்.",
+    "hindiPurpose": "दिव्यांग व्यक्तियों के लिए एकल राष्ट्रीय फोटो पहचान पत्र और चिकित्सा प्रमाण पत्र, जो 21 श्रेणियों में दिव्यांगता प्रतिशत को ट्रैक करता है।",
+    "commonUseCases": [
+      "Free travel concession in state transport buses and railway concessions",
+      "Monthly maintenance allowance under Social Security Schemes",
+      "Free motorized tricycles, wheelchairs, and hearing aids distribution",
+      "5% reservation in higher educational institutions and 4% in government jobs"
+    ],
+    "tamilCommonUseCases": [
+      "அரசுப் பேருந்துகளில் இலவசப் பயணம் மற்றும் ரயில் கட்டணச் சலுகைகள்",
+      "சமூகப் பாதுகாப்புத் திட்டத்தின் கீழ் மாதாந்திர பராமரிப்பு உதவித்தொகை பெறுதல்",
+      "இலவச பேட்டரி சக்கர நாற்காலி, மூன்று சக்கர வண்டி, காதொலிக் கருவிகள் பெறுதல்",
+      "உயர்கல்வியில் 5% இடஒதுக்கீடு மற்றும் அரசு வேலைவாய்ப்புகளில் 4% இடஒதுக்கீடு"
+    ],
+    "hindiCommonUseCases": [
+      "राज्य परिवहन बसों में मुफ्त यात्रा और रेलवे में रियायत",
+      "सामाजिक सुरक्षा योजनाओं के तहत मासिक रखरखाव भत्ता",
+      "मुफ्त मोटराइज्ड ट्राइसाइकिल, व्हीलचेयर और श्रवण यंत्र का वितरण",
+      "उच्च शिक्षा में 5% आरक्षण और सरकारी नौकरियों में 4% आरक्षण"
+    ],
+    "commonlyRequestedSupportingDocuments": [
+      "Medical assessment certificate from Government Medical College / District Hospital",
+      "Recent passport-sized photo showing disability clearly",
+      "Aadhaar card copy",
+      "Proof of address"
+    ],
+    "tamilCommonlyRequestedSupportingDocuments": [
+      "அரசு மருத்துவக் கல்லூரி அல்லது மாவட்ட தலைமை மருத்துவமனையின் மருத்துவச் சான்றிதழ்",
+      "மாற்றுத்திறனைத் தெளிவாகக் காட்டும் சமீபத்திய பாஸ்போர்ட் அளவு புகைப்படம்",
+      "ஆதார் அட்டை நகல்",
+      "முகவரிச் சான்று நகல்"
+    ],
+    "hindiCommonlyRequestedSupportingDocuments": [
+      "सरकारी मेडिकल कॉलेज या जिला अस्पताल से चिकित्सा मूल्यांकन प्रमाण पत्र",
+      "दिव्यांगता को स्पष्ट दर्शाने वाली हालिया पासपोर्ट साइज फोटो",
+      "आधार कार्ड प्रति",
+      "पते का प्रमाण"
+    ],
+    "applicationSteps": [
+      "Register on swavlambancard.gov.in.",
+      "Upload disability certificate, photo, and signature.",
+      "CMO / Medical Superintendent verifies medical assessment.",
+      "Digital card issued online; embossed plastic card delivered by speed post."
+    ],
+    "tamilApplicationSteps": [
+      "swavlambancard.gov.in இணையதளத்தில் பதிவு செய்யவும்.",
+      "மாற்றுத்திறனாளி மருத்துவச் சான்றிதழ், புகைப்படம் மற்றும் கையொப்பத்தைப் பதிவேற்றவும்.",
+      "மாவட்ட தலைமை மருத்துவ அலுவலர் மருத்துவ அறிக்கையைச் சரிபார்ப்பார்.",
+      "டிஜிட்டல் அட்டை ஆன்லைனில் வழங்கப்படும்; பிளாஸ்டிக் அட்டை அஞ்சலில் வந்து சேரும்."
+    ],
+    "hindiApplicationSteps": [
+      "swavlambancard.gov.in पर पंजीकरण करें।",
+      "दिव्यांगता प्रमाण पत्र, फोटो और हस्ताक्षर अपलोड करें।",
+      "मुख्य चिकित्सा अधिकारी (CMO) द्वारा सत्यापन।",
+      "डिजिटल कार्ड ऑनलाइन जारी होता है; उभरा हुआ प्लास्टिक कार्ड स्पीड पोस्ट से भेजा जाता है।"
+    ],
+    "validity": "Permanent for permanent disability; 5-year renewal for temporary disability.",
+    "tamilValidity": "நிரந்தர குறைபாட்டிற்கு வாழ்நாள் முழுவதும்; தற்காலிக குறைபாட்டிற்கு 5 ஆண்டு புதுப்பித்தல் தேவை.",
+    "hindiValidity": "स्थायी दिव्यांगता के लिए आजीवन; अस्थायी दिव्यांगता के लिए 5 साल का नवीनीकरण।",
+    "relatedServices": ["udid-service", "esevai-tn"],
+    "relatedSchemes": ["differently-abled-maintenance-allowance", "sipda-scheme"],
+    "officialSourceUrl": "https://www.swavlambancard.gov.in",
+    "verificationStatus": "Official Verified (DEPwD)",
+    "lastVerifiedAt": "2025-01-22",
+    "isMock": false
+  }
+]

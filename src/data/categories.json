@@ -1,0 +1,230 @@
+{
+  "serviceCategories": [
+    {
+      "id": "all",
+      "name": "All Services",
+      "tamilName": "அனைத்து சேவைகளும்",
+      "hindiName": "सभी सेवाएं",
+      "icon": "Layers",
+      "description": "Browse all public services",
+      "tamilDescription": "அனைத்து அரசு சேவைகளையும் காண்க",
+      "hindiDescription": "सभी सार्वजनिक सेवाएं देखें"
+    },
+    {
+      "id": "identity-certificates",
+      "name": "Identity & Certificates",
+      "tamilName": "அடையாள அட்டை & சான்றிதழ்கள்",
+      "hindiName": "पहचान पत्र एवं प्रमाण पत्र",
+      "icon": "FileCheck",
+      "description": "Aadhaar, PAN, Birth, Caste, Income, and Community documents",
+      "tamilDescription": "ஆதார், பான், பிறப்பு, சாதி, வருமானம் மற்றும் இருப்பிட ஆவணங்கள்",
+      "hindiDescription": "आधार, पैन, जन्म, जाति, आय एवं मूल निवास प्रमाण पत्र",
+      "color": "blue"
+    },
+    {
+      "id": "health-wellness",
+      "name": "Health & Wellness",
+      "tamilName": "சுகாதாரம் & நல்வாழ்வு",
+      "hindiName": "स्वास्थ्य एवं कल्याण",
+      "icon": "HeartPulse",
+      "description": "Health cards, hospital schemes, medical aid, and vaccination records",
+      "tamilDescription": "மருத்துவக் காப்பீடு, மருத்துவமனை திட்டங்கள், சிகிச்சை உதவி",
+      "hindiDescription": "स्वास्थ्य कार्ड, अस्पताल योजनाएं, चिकित्सा सहायता",
+      "color": "emerald"
+    },
+    {
+      "id": "education-employment",
+      "name": "Education & Employment",
+      "tamilName": "கல்வி & வேலைவாய்ப்பு",
+      "hindiName": "शिक्षा एवं रोजगार",
+      "icon": "GraduationCap",
+      "description": "Scholarships, skill loans, job portal registrations, and marksheets",
+      "tamilDescription": "கல்வி உதவித்தொகை, திறன் கடன், வேலைவாய்ப்பு பதிவு",
+      "hindiDescription": "छात्रवृत्ति, कौशल ऋण, रोजगार पंजीकरण एवं अंकतालिका",
+      "color": "purple"
+    },
+    {
+      "id": "agriculture",
+      "name": "Agriculture & Farming",
+      "tamilName": "விவசாயம் & பண்ணை",
+      "hindiName": "कृषि एवं किसानी",
+      "icon": "Sprout",
+      "description": "PM-KISAN, crop insurance, fertilizer subsidy, and farmer welfare",
+      "tamilDescription": "பி.எம் கிசான், பயிர்க் காப்பீடு, உர மானியம், உழவர் நலன்",
+      "hindiDescription": "पीएम-किसान, फसल बीमा, उर्वरक सब्सिडी, किसान कल्याण",
+      "color": "green"
+    },
+    {
+      "id": "pension-social",
+      "name": "Pension & Welfare",
+      "tamilName": "ஓய்வூதியம் & சமூக நலன்",
+      "hindiName": "पेंशन एवं समाज कल्याण",
+      "icon": "ShieldCheck",
+      "description": "Old age pension, widow pension, and social security funds",
+      "tamilDescription": "முதியோர் உதவித்தொகை, விதவை ஓய்வூதியம், சமூகப் பாதுகாப்பு",
+      "hindiDescription": "वृद्धावस्था पेंशन, विधवा पेंशन एवं सामाजिक सुरक्षा",
+      "color": "amber"
+    },
+    {
+      "id": "edistrict-revenue",
+      "name": "e-District & Revenue",
+      "tamilName": "வருவாய் & இ-சேவை",
+      "hindiName": "ई-डिस्ट्रिक्ट एवं राजस्व",
+      "icon": "Building2",
+      "description": "Patta/Chitta land records, encumbrance, and taluk certificates",
+      "tamilDescription": "பட்டா/சிட்டா நில ஆவணங்கள், வில்லங்கச் சான்று, தாலுகா சான்றிதழ்கள்",
+      "hindiDescription": "पट्टा/चिट्टा भूमि अभिलेख, भारमुक्त प्रमाण पत्र, तहसील सेवाएं",
+      "color": "indigo"
+    },
+    {
+      "id": "transport-travel",
+      "name": "Transport & Travel",
+      "tamilName": "போக்குவரத்து & பயணம்",
+      "hindiName": "परिवहन एवं यात्रा",
+      "icon": "Car",
+      "description": "Driving licence, vehicle RC, bus passes, and transport services",
+      "tamilDescription": "ஓட்டுநர் உரிமம், வாகன ஆர்.சி, பேருந்து சலுகை பாஸ்",
+      "hindiDescription": "ड्राइविंग लाइसेंस, वाहन आरसी, बस पास एवं परिवहन सेवाएं",
+      "color": "cyan"
+    },
+    {
+      "id": "utilities-bills",
+      "name": "Utility & Bill Payments",
+      "tamilName": "மின்கட்டணம் & பயன்பாடுகள்",
+      "hindiName": "बिजली बिल एवं जनोपयोगी सेवाएं",
+      "icon": "Zap",
+      "description": "Electricity bills (TANGEDCO), water tax, and municipal services",
+      "tamilDescription": "மின் கட்டணம், குடிநீர் வரி மற்றும் நகராட்சி சேவைகள்",
+      "hindiDescription": "बिजली बिल भुगतान, जल कर एवं नगरपालिका सेवाएं",
+      "color": "orange"
+    },
+    {
+      "id": "police-legal",
+      "name": "Police & Legal",
+      "tamilName": "காவல்துறை & சட்டம்",
+      "hindiName": "पुलिस एवं कानूनी सेवाएं",
+      "icon": "Scale",
+      "description": "Lost document reports, police verification, and legal aid",
+      "tamilDescription": "தொலைந்த ஆவண அறிக்கை, சான்றிதழ் சரிபார்ப்பு, சட்ட உதவி",
+      "hindiDescription": "खोया दस्तावेज़ रिपोर्ट, पुलिस सत्यापन एवं कानूनी सहायता",
+      "color": "rose"
+    }
+  ],
+  "citizenCategories": [
+    {
+      "id": "all",
+      "name": "All Citizens",
+      "tamilName": "அனைத்து குடிமக்கள்",
+      "hindiName": "सभी नागरिक",
+      "icon": "Users",
+      "tagline": "Services for every citizen",
+      "tamilTagline": "அனைத்து குடிமக்களுக்குமான சேவைகள்",
+      "hindiTagline": "प्रत्येक नागरिक के लिए सेवाएं"
+    },
+    {
+      "id": "farmers",
+      "name": "Farmers",
+      "tamilName": "விவசாயிகள்",
+      "hindiName": "किसान",
+      "icon": "Wheat",
+      "tagline": "Input subsidies, crop insurance & direct transfers",
+      "tamilTagline": "உர மானியம், பயிர்க் காப்பீடு & நேரடி பணப்பரிமாற்றம்",
+      "hindiTagline": "कृषि इनपुट सब्सिडी, फसल बीमा एवं प्रत्यक्ष अंतरण",
+      "description": "Dedicated agricultural welfare, equipment schemes and land record assistance",
+      "tamilDescription": "விவசாய நலத்திட்டங்கள், வேளாண் கருவிகள் மற்றும் நில ஆவண உதவி",
+      "hindiDescription": "समर्पित कृषि कल्याण, उपकरण योजनाएं एवं भूमि अभिलेख सहायता"
+    },
+    {
+      "id": "senior-citizens",
+      "name": "Senior Citizens",
+      "tamilName": "மூத்த குடிமக்கள்",
+      "hindiName": "वरिष्ठ नागरिक",
+      "icon": "UserCheck",
+      "tagline": "Pension, healthcare & transport concessions",
+      "tamilTagline": "ஓய்வூதியம், இலவச சிகிச்சை & பயண சலுகைகள்",
+      "hindiTagline": "पेंशन, स्वास्थ्य सेवा एवं यात्रा रियायतें",
+      "description": "Social security, monthly old age pensions and accessible healthcare",
+      "tamilDescription": "சமூக பாதுகாப்பு, மாதாந்திர முதியோர் ஓய்வூதியம் மற்றும் இலவச மருத்துவம்",
+      "hindiDescription": "सामाजिक सुरक्षा, मासिक वृद्धावस्था पेंशन एवं सुलभ स्वास्थ्य सेवाएं"
+    },
+    {
+      "id": "students",
+      "name": "Students",
+      "tamilName": "மாணவர்கள்",
+      "hindiName": "छात्र",
+      "icon": "GraduationCap",
+      "tagline": "Scholarships, free laptops & hostel schemes",
+      "tamilTagline": "கல்வி உதவித்தொகை, மடிக்கணினி & விடுதி திட்டங்கள்",
+      "hindiTagline": "छात्रवृत्ति, लैपटॉप एवं छात्रावास योजनाएं",
+      "description": "Pre/Post matric aid, higher education incentives and exam services",
+      "tamilDescription": "பள்ளி/கல்லூரி கல்வி உதவித்தொகை மற்றும் உயர்கல்வி ஊக்கத்தொகை",
+      "hindiDescription": "मैट्रिकोत्तर सहायता, उच्च शिक्षा प्रोत्साहन एवं परीक्षा सेवाएं"
+    },
+    {
+      "id": "women-children",
+      "name": "Women & Children",
+      "tamilName": "பெண்கள் & குழந்தைகள்",
+      "hindiName": "महिलाएं एवं बच्चे",
+      "icon": "HeartHandshake",
+      "tagline": "Maternity benefits, basic income & girl-child aid",
+      "tamilTagline": "மகளிர் உரிமைத் தொகை, புதுமைப் பெண் & மகப்பேறு உதவி",
+      "hindiTagline": "मातृत्व लाभ, बुनियादी आय एवं बालिका सहायता",
+      "description": "Pudhumai Penn, Magalir Urimai Thogai, and maternal nutrition assistance",
+      "tamilDescription": "கலைஞர் மகளிர் உரிமைத் திட்டம் மற்றும் பெண் கல்வி திட்டங்கள்",
+      "hindiDescription": "पुधुमई पेन्न, महिला अधिकार योजना एवं पोषण सहायता"
+    },
+    {
+      "id": "pwd",
+      "name": "Persons with Disabilities",
+      "tamilName": "மாற்றுத்திறனாளிகள்",
+      "hindiName": "दिव्यांगजन",
+      "icon": "Accessibility",
+      "tagline": "UDID card, assistive devices & special allowance",
+      "tamilTagline": "UDID அடையாள அட்டை, உதவி உபகரணங்கள் & மாதாந்திர உதவி",
+      "hindiTagline": "UDID कार्ड, सहायक उपकरण एवं विशेष भत्ता",
+      "description": "Unique disability ID, motorized vehicle schemes and monthly allowances",
+      "tamilDescription": "தனித்துவ அடையாள அட்டை, இணைப்பு சக்கர வாகனம் மற்றும் பராமரிப்பு உதவித்தொகை",
+      "hindiDescription": "विशिष्ट दिव्यांग पहचान, मोटराइज्ड वाहन योजनाएं एवं मासिक भत्ते"
+    },
+    {
+      "id": "workers",
+      "name": "Workers & Labourers",
+      "tamilName": "தொழிலாளர்கள்",
+      "hindiName": "श्रमिक एवं कामगार",
+      "icon": "HardHat",
+      "tagline": "e-Shram card, accident cover & unorganized welfare",
+      "tamilTagline": "இ-ஷ்ராம் அட்டை, விபத்துக் காப்பீடு & நலவாரிய உதவிகள்",
+      "hindiTagline": "ई-श्रम कार्ड, दुर्घटना बीमा एवं असंगठित कल्याण",
+      "description": "Construction welfare boards, pension safety nets and skill upskilling",
+      "tamilDescription": "கட்டுமான நலவாரியம், சமூக பாதுகாப்பு மற்றும் தொழில் திறன் பயிற்சி",
+      "hindiDescription": "निर्माण कल्याण बोर्ड, पेंशन सुरक्षा एवं कौशल उन्नयन"
+    },
+    {
+      "id": "small-business",
+      "name": "Small Business Owners",
+      "tamilName": "சிறு வணிகர்கள்",
+      "hindiName": "छोटे व्यवसायी",
+      "icon": "Store",
+      "tagline": "MUDRA loans, PM SVANidhi & MSME registration",
+      "tamilTagline": "முத்ரா கடன், பி.எம் ஸ்வநிதி & உத்யம் பதிவு",
+      "hindiTagline": "मुद्रा ऋण, पीएम स्वनिधि एवं एमएसएमई पंजीकरण",
+      "description": "Collateral-free micro loans, street vendor credit and Udyam certification",
+      "tamilDescription": "பிணையில்லா சிறுதொழில் கடன்கள், தெருவோர வியாபாரிகள் கடன்",
+      "hindiDescription": "जमानत-मुक्त सूक्ष्म ऋण, स्ट्रीट वेंडर क्रेडिट एवं उद्यम प्रमाणन"
+    }
+  ],
+  "departments": [
+    "All Departments",
+    "Revenue & Disaster Management",
+    "Agriculture & Farmers Welfare",
+    "Health & Family Welfare",
+    "Higher Education",
+    "Social Welfare & Women Empowerment",
+    "Electronics & Information Technology (MeitY)",
+    "Unique Identification Authority of India (UIDAI)",
+    "Income Tax Department",
+    "Labour & Employment",
+    "Ministry of Road Transport and Highways",
+    "Rural Development & Panchayat Raj"
+  ]
+}
