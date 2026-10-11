@@ -19,6 +19,7 @@ import { SavedItemsPage } from './pages/SavedItemsPage';
 import { ChatHistoryPage } from './pages/ChatHistoryPage';
 import { HelpPage } from './pages/HelpPage';
 import { NotFoundPage } from './pages/NotFoundPage';
+import { RecommendationPage } from './pages/RecommendationPage';
 
 export function App() {
   return (
@@ -41,6 +42,7 @@ export function App() {
                   <Route path="/saved" element={<SavedItemsPage />} />
                   <Route path="/chat-history" element={<ChatHistoryPage />} />
                   <Route path="/help" element={<HelpPage />} />
+                  <Route path="/recommend" element={<RecommendationPage />} />
                   <Route path="*" element={<NotFoundPage />} />
                 </Route>
               </Routes>

@@ -8,4 +8,14 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
+  server: {
+    proxy: {
+      // Forward /api/* requests to the FastAPI backend during development
+      '/api': {
+        target: 'http://127.0.0.1:8001',
+        changeOrigin: true,
+        secure: false,
+      },
+    },
+  },
 })

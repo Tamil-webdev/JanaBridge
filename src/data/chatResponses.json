@@ -1,10 +1,11 @@
 [
   {
     "id": "resp-income-cert",
-    "matchedKeywords": ["income certificate", "apply income", "வருமானச் சான்றிதழ்", "வருமான சான்றிதழ்", "வருமானம்", "आय प्रमाण पत्र", "आय प्रमाण", "income cert"],
+    "matchedKeywords": ["income certificate", "apply income", "வருமானச் சான்றிதழ்", "வருமான சான்றிதழ்", "வருமானம்", "आय प्रमाण पत्र", "आय प्रमाण", "income cert", "income certificate epdi", "income cert epdi", "income certificate apply panradhu", "varumana certificate epdi"],
     "directAnswer": "In Tamil Nadu and most Indian states, Income Certificates are issued by the Revenue Department through the digital e-Sevai / e-District platform or local Common Service Centers (CSC). The certificate serves as legal proof of your household's annual earnings for scholarships, fee concessions, and government welfare benefits.",
     "tamilDirectAnswer": "தமிழ்நாடு மற்றும் பெரும்பாலான மாநிலங்களில், வருமானச் சான்றிதழ் வருவாய்த் துறையினால் இ-சேவை தளம் அல்லது பொது சேவை மையங்கள் (CSC) மூலமாக வழங்கப்படுகிறது. இது கல்வி உதவித்தொகை, கட்டணச் சலுகைகள் மற்றும் அரசு நலத்திட்டங்களுக்கு குடும்பத்தின் ஆண்டு வருமானத்திற்கான சட்டப்பூர்வ சான்றாகும்.",
     "hindiDirectAnswer": "तमिलनाडु और अधिकांश भारतीय राज्यों में, आय प्रमाण पत्र राजस्व विभाग द्वारा ई-सेवा / ई-डिस्ट्रिक्ट पोर्टल या कॉमन सर्विस सेंटर (CSC) के माध्यम से जारी किया जाता है। यह छात्रवृत्ति, शुल्क रियायत और सरकारी कल्याणकारी लाभों के लिए पारिवारिक आय का वैध प्रमाण है।",
+    "tanglishDirectAnswer": "Income certificate apply panna, Tamil Nadu e-Sevai portal-ku ponga. Login pannitu Income Certificate service select pannunga. Required documents upload panni application submit pannunga. Acknowledgement number save pannikonga.",
     "benefits": [
       "Access to college tuition fee waivers and First Graduate concessions",
       "Prerequisite for Post-Matric & Higher Education scholarships",
@@ -20,6 +21,11 @@
       "मैट्रिकोत्तर एवं उच्च शिक्षा छात्रवृत्ति के लिए अनिवार्य",
       "स्वास्थ्य बीमा (CMCHIS/आयुष्मान भारत) एवं आवास योजना पात्रता"
     ],
+    "tanglishBenefits": [
+      "College tuition fee waivers and First Graduate concessions vaangalaam",
+      "Post-Matric and Higher Education scholarships-ku mandatory proof",
+      "CMCHIS medical insurance and subsidized housing apply panna mudiyum"
+    ],
     "eligibility": [
       "Applicant must be a permanent resident of the respective taluk / state",
       "Family income from all sources (agriculture, salary, trade, investments) must be reported transparently",
@@ -34,6 +40,11 @@
       "आवेदक संबंधित तहसील/राज्य का स्थायी निवासी होना चाहिए",
       "परिवार के सभी स्रोतों (कृषि, वेतन, व्यापार) से प्राप्त वार्षिक आय दर्शानी होगी",
       "वेतनभोगी कर्मचारी वेतन पर्ची प्रस्तुत करेंगे; ग्रामीण नागरिक स्व-घोषणा पत्र देंगे"
+    ],
+    "tanglishEligibility": [
+      "Applicant respective taluk / Tamil Nadu-la permanent resident-aa irukkanum",
+      "Family income-oda ella components-um accurately declare pannanum",
+      "Salaried person salary slip submit pannanum; matravanga VAO endorsement vanganum"
     ],
     "requiredDocuments": [
       "Applicant & parent Aadhaar Card copies",
@@ -55,6 +66,13 @@
       "वेतन पर्ची / फॉर्म 16 या स्व-घोषणा शपथ पत्र",
       "बैंक पासबुक विवरण (पिछले 6 महीने)",
       "पासपोर्ट साइज फोटो"
+    ],
+    "tanglishRequiredDocuments": [
+      "Applicant and parent Aadhaar Card copy",
+      "Smart Ration Card copy",
+      "Salary Slip (or Form 16) or Self-Declaration Affidavit",
+      "Bank passbook statement (last 6 months)",
+      "Passport size photo"
     ],
     "applicationSteps": [
       "Register or log in with your CAN (Citizen Access Number) at tnesevai.tn.gov.in or your local e-Sevai centre.",
@@ -83,9 +101,17 @@
       "ग्राम प्रशासनिक अधिकारी (VAO) एवं राजस्व निरीक्षक सत्यापन करेंगे।",
       "7 से 15 दिनों में डिजिटल रूप से हस्ताक्षरित प्रमाण पत्र डाउनलोड करें।"
     ],
+    "tanglishApplicationSteps": [
+      "tnesevai.tn.gov.in portal-ku ponga or nearest e-Sevai centre-ku ponga.",
+      "Revenue Department -> 'Income Certificate' select pannunga.",
+      "Family details and annual income components fill pannunga.",
+      "Required documents upload panni ₹60 statutory fee pay pannunga.",
+      "VAO and RI verify pannitu 7 to 15 days-la digitally signed certificate download pannikonga."
+    ],
     "importantNotes": "The Income Certificate is typically valid for 1 financial year from the date of issue. Ensure that the spelling of names matches your Aadhaar Card exactly to avoid rejection during online verification.",
     "tamilImportantNotes": "வருமானச் சான்றிதழ் வழங்கப்பட்ட தேதியிலிருந்து 1 நிதியாண்டிற்கு மட்டுமே செல்லுபடியாகும். இணையதள நிராகரிப்பைத் தவிர்க்க பெயரின் எழுத்துப்பிழை ஆதார் அட்டையுடன் ஒத்துப்போவதை உறுதி செய்யவும்.",
     "hindiImportantNotes": "आय प्रमाण पत्र जारी होने की तिथि से 1 वित्तीय वर्ष के लिए वैध होता है। नाम की वर्तनी आधार कार्ड से मेल खानी चाहिए।",
+    "tanglishImportantNotes": "Income Certificate 1 financial year-ku valid-aa irukkum. Aadhaar card-la irukura per spelling match aaguratha verify pannikonga.",
     "citations": [
       {
         "title": "Tamil Nadu e-Governance Agency (TNeGA) e-District Citizen Charter",

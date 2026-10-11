@@ -25,6 +25,7 @@ from app.rag.generator import generate_answer
 from app.rag.pdf_loader import load_all_pdfs
 from app.rag.retriever import hybrid_retrieve
 from app.rag.vector_store import VectorStore
+from app.utils.language_detector import detect_language
 
 logger = logging.getLogger(__name__)
 
@@ -43,6 +44,7 @@ class QueryResult:
     answer: str
     status: str  # "answered" | "insufficient_evidence"
     citations: list[dict]
+    response_language: str = "english"
 
 
 class RAGPipeline:
@@ -50,7 +52,10 @@ class RAGPipeline:
 
     def __init__(self, settings: Settings) -> None:
         self.settings = settings
-        self._vector_store = VectorStore(settings.chroma_path)
+        self._vector_store = VectorStore(
+            api_key=settings.pinecone_api_key,
+            index_name=settings.pinecone_index_name
+        )
         self._bm25_index = BM25Index()
 
         # Try to load a persisted BM25 index if one exists
@@ -98,9 +103,7 @@ class RAGPipeline:
             timeout=self.settings.ollama_timeout,
         )
 
-        # 4. Clear and rebuild both stores atomically
-        self._vector_store.clear()
-
+        # 4. Upsert into vector store (idempotent via stable chunk IDs)
         ids = [c.chunk_id for c in chunks]
         metadatas = [
             {
@@ -112,7 +115,7 @@ class RAGPipeline:
         ]
         self._vector_store.upsert(ids, embeddings, metadatas, texts)
 
-        # 5. Rebuild BM25
+        # 5. Rebuild BM25 preserving catalogue entries
         bm25_entries = [
             BM25Entry(
                 chunk_id=c.chunk_id,
@@ -122,6 +125,15 @@ class RAGPipeline:
             )
             for c in chunks
         ]
+        
+        try:
+            old_bm25 = BM25Index()
+            old_bm25.load(self.settings.bm25_path)
+            catalogue_entries = [e for e in old_bm25._entries if e.chunk_id.startswith("esv-")]
+            bm25_entries.extend(catalogue_entries)
+        except Exception:
+            pass
+            
         self._bm25_index.build(bm25_entries)
         self._bm25_index.save(self.settings.bm25_path)
 
@@ -140,15 +152,25 @@ class RAGPipeline:
     # Query
     # ------------------------------------------------------------------
 
-    def query(self, question: str) -> QueryResult:
+    def query(self, question: str, response_language: str | None = None) -> QueryResult:
         """Answer a question using the indexed corpus."""
+        target_lang = response_language or detect_language(question)
+
         if self._vector_store.count == 0:
+            if target_lang == "tamil":
+                ans = "ஆவணங்கள் இன்னும் அட்டவணைப்படுத்தப்படவில்லை. தயவுசெய்து ஆவணங்களைப் பதிவேற்றவும்."
+            elif target_lang == "hindi":
+                ans = "दस्तावेज अभी तक अनुक्रमित नहीं किए गए हैं। कृपया पहले दस्तावेज अपलोड करें।"
+            elif target_lang == "tanglish":
+                ans = "Documents innum index aagala. Please /api/v1/documents/index use panni index pannunga."
+            else:
+                ans = "No documents have been indexed yet. Please index documents first using the /api/v1/documents/index endpoint."
+
             return QueryResult(
-                answer="No documents have been indexed yet. "
-                       "Please index documents first using the "
-                       "/api/v1/documents/index endpoint.",
+                answer=ans,
                 status="insufficient_evidence",
                 citations=[],
+                response_language=target_lang,
             )
 
         # 1. Embed the question
@@ -174,11 +196,20 @@ class RAGPipeline:
         )
 
         if not chunks or not is_relevant:
+            if target_lang == "tamil":
+                ans = "இந்தக் கேள்விக்கு பதிலளிக்க போதுமான தகவல்கள் அட்டவணைப்படுத்தப்பட்ட ஆவணங்களில் இல்லை."
+            elif target_lang == "hindi":
+                ans = "इस प्रश्न का उत्तर देने के लिए अनुक्रमित दस्तावेजों में पर्याप्त जानकारी उपलब्ध नहीं है।"
+            elif target_lang == "tanglish":
+                ans = "Indha kelvikku answer panna thevaiyana evidence indexed documents-la illa."
+            else:
+                ans = "I do not have sufficient evidence in the indexed documents to answer this question."
+
             return QueryResult(
-                answer="I do not have sufficient evidence in the "
-                       "indexed documents to answer this question.",
+                answer=ans,
                 status="insufficient_evidence",
                 citations=[],
+                response_language=target_lang,
             )
 
         # 3. Generate answer with citation validation
@@ -188,7 +219,9 @@ class RAGPipeline:
             model=self.settings.generation_model,
             base_url=self.settings.ollama_base_url,
             timeout=self.settings.ollama_timeout,
+            target_language=target_lang,
         )
+        resp_lang = detect_language(answer, fallback=target_lang)
 
         # 4. Determine final status
         # If the model itself declares insufficient evidence, honour that
@@ -198,6 +231,9 @@ class RAGPipeline:
             "not enough information",
             "cannot answer",
             "no relevant information",
+            "போதுமான தகவல்கள் இல்லை",
+            "पर्याप्त जानकारी",
+            "evidence indexed documents-la illa"
         ]
         answer_lower = answer.lower()
         is_insufficient = any(m in answer_lower for m in insufficient_markers)
@@ -210,4 +246,5 @@ class RAGPipeline:
             answer=answer,
             status=status,
             citations=citations,
+            response_language=resp_lang,
         )

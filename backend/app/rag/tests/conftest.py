@@ -14,8 +14,15 @@ from pathlib import Path
 import sys
 from unittest.mock import MagicMock
 
-# Create a mock chromadb module
+# Create a mock chromadb module and its problematic submodules
+# This prevents chromadb 1.x Rust bindings from loading during tests
 mock_chromadb = MagicMock()
+
+# Block the deep import chain that causes RustBindingsAPI class-level failures
+mock_rust = MagicMock()
+mock_rust.RustBindingsAPI = MagicMock()
+sys.modules['chromadb.api.rust'] = mock_rust
+sys.modules['chromadb.api.shared_system_client'] = MagicMock()
 
 # Mock the PersistentClient class
 class MockClient:
@@ -67,11 +74,76 @@ mock_chromadb.PersistentClient = MockClient
 # Inject it into sys.modules
 sys.modules['chromadb'] = mock_chromadb
 
+# Mock Pinecone for unit tests
+class MockPineconeIndex:
+    def __init__(self, name):
+        self.name = name
+        self.vectors = {}
+
+    def upsert(self, vectors):
+        for v in vectors:
+            self.vectors[v["id"]] = v
+
+    def query(self, vector=None, top_k=10, include_metadata=True):
+        matches = []
+        for vid, v in list(self.vectors.items())[:top_k]:
+            match_obj = MagicMock()
+            match_obj.id = vid
+            match_obj.metadata = v.get("metadata", {})
+            match_obj.score = 0.9  # distance = 0.1
+            matches.append(match_obj)
+        res = MagicMock()
+        res.matches = matches
+        return res
+
+    def describe_index_stats(self):
+        stats = MagicMock()
+        stats.total_vector_count = len(self.vectors)
+        return stats
+
+class MockPinecone:
+    _indexes = {}
+
+    def __init__(self, api_key=None):
+        self.api_key = api_key
+
+    def list_indexes(self):
+        return [{"name": name} for name in self._indexes.keys()]
+
+    def create_index(self, name, dimension=None, metric="cosine", spec=None):
+        self._indexes[name] = MockPineconeIndex(name)
+
+    def describe_index(self, name):
+        idx_mock = MagicMock()
+        idx_mock.status = {'ready': True}
+        return idx_mock
+
+    def delete_index(self, name):
+        if name in self._indexes:
+            del self._indexes[name]
+
+    def Index(self, name):
+        if name not in self._indexes:
+            self._indexes[name] = MockPineconeIndex(name)
+        return self._indexes[name]
+
+import pinecone
+pinecone.Pinecone = MockPinecone
+import app.rag.vector_store
+app.rag.vector_store.Pinecone = MockPinecone
+
 
 import fitz  # PyMuPDF
 import pytest
 
 from app.rag.config import Settings
+
+
+@pytest.fixture(autouse=True)
+def reset_mock_pinecone():
+    MockPinecone._indexes.clear()
+    yield
+    MockPinecone._indexes.clear()
 
 
 @pytest.fixture()

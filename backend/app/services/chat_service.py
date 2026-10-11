@@ -8,11 +8,27 @@ logger = logging.getLogger(__name__)
 
 class ChatService:
     def __init__(self):
-        self.rag = RAGPipeline(settings)
+        # Lazily initialized to avoid ChromaDB import at module load time
+        # (which breaks tests before the mock is applied)
+        self._rag: RAGPipeline | None = None
 
-    def answer_question(self, request: ChatRequest, db: Session) -> ChatResponse:
-        logger.info(f"Received chat request: {request.message}")
-        result = self.rag.query(request.message)
+    @property
+    def rag(self) -> RAGPipeline:
+        if self._rag is None:
+            self._rag = RAGPipeline(settings)
+        return self._rag
+
+    def answer_question(self, request: ChatRequest, db: Session, history: list = None) -> ChatResponse:
+        logger.info(f"Received chat request: {request.message} (lang: {request.language})")
+        from app.utils.language_detector import detect_language
+        detected_lang = detect_language(request.message, fallback=request.language or "english")
+
+        from app.rag.faq import faq_system
+        faq_match = faq_system.match(request.message, history, requested_language=detected_lang)
+        if faq_match:
+            return faq_match
+
+        result = self.rag.query(request.message, response_language=detected_lang)
 
         citations = []
         for c in result.citations:
@@ -30,6 +46,7 @@ class ChatService:
             citations=citations,
             needs_clarification=False,
             limitations=[],
+            response_language=result.response_language or detected_lang,
         )
 
 chat_service = ChatService()

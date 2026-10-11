@@ -28,5 +28,6 @@ class Message(Base):
     created_at = Column(DateTime(timezone=True), default=lambda: datetime.now(timezone.utc))
     revision = Column(Integer, nullable=False, default=1)
     citations = Column(JSON, nullable=True)
+    response_language = Column(String, nullable=True)
 
     conversation = relationship("Conversation", back_populates="messages")

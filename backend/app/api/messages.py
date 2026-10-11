@@ -17,7 +17,8 @@ def edit_message(message_id: str, edit_request: MessageEditRequest, db: Session 
         content=msg.content,
         created_at=msg.created_at,
         revision=msg.revision,
-        citations=msg.citations if msg.citations else []
+        citations=msg.citations if msg.citations else [],
+        response_language=msg.response_language,
     )
 
 @router.post("/{message_id}/regenerate", response_model=MessageResponse)
@@ -30,5 +31,6 @@ def regenerate_message(message_id: str, chat_request: ChatRequest, db: Session =
         content=msg.content,
         created_at=msg.created_at,
         revision=msg.revision,
-        citations=msg.citations if msg.citations else []
+        citations=msg.citations if msg.citations else [],
+        response_language=msg.response_language,
     )

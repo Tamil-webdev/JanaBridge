@@ -71,8 +71,10 @@ export const VoiceModal = ({ isOpen, onClose, initialQuery = '' }) => {
           setTranscribedText(currentText);
         };
 
-        recognition.onerror = () => {
-          simulateDemoVoiceInput();
+        recognition.onerror = (event) => {
+          setTranscribedText('Recognition error: ' + (event.error || 'unknown') + '. Please type your query.');
+          setIsEditing(true);
+          setIsListening(false);
         };
 
         recognition.onend = () => {
@@ -83,11 +85,15 @@ export const VoiceModal = ({ isOpen, onClose, initialQuery = '' }) => {
         recognition.start();
         return;
       } catch (err) {
-        console.warn('Speech recognition start failed; falling back to simulated prototype audio', err);
+        console.warn('Speech recognition start failed', err);
+        setTranscribedText('Speech recognition error. Please type your query.');
+        setIsEditing(true);
       }
+    } else {
+      setBrowserSupport(false);
+      setTranscribedText('Speech recognition not supported in this browser. Please type your query.');
+      setIsEditing(true);
     }
-
-    simulateDemoVoiceInput();
   };
 
   const simulateDemoVoiceInput = () => {

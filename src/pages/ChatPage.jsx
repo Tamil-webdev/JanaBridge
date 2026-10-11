@@ -142,7 +142,7 @@ export const ChatPage = () => {
     setLoading(true);
 
     try {
-      const responseData = await chatService.generateResponse(text, language);
+      const responseData = await chatService.generateResponse(text, language, targetConv.id);
 
       const assistantMsg = {
         id: `msg-assistant-${Date.now()}`,

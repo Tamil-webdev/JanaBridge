@@ -44,17 +44,24 @@ class ConversationService:
 
         conv = ConversationService.get_conversation(db, conversation_id)
 
+        # Fetch history before adding the new message
+        history_msgs = sorted(conv.messages[-10:], key=lambda m: m.created_at) if conv.messages else []
+        history = [{"role": m.role, "content": m.content} for m in history_msgs]
+
         # 1. Save User Message
+        from app.utils.language_detector import detect_language
+        user_lang = detect_language(chat_request.message, fallback=chat_request.language or "english")
         user_msg = Message(
             conversation_id=conversation_id,
             role="user",
-            content=chat_request.message
+            content=chat_request.message,
+            response_language=user_lang,
         )
         db.add(user_msg)
         db.commit()
 
         # 2. Call Chat Service Stub
-        chat_response = chat_service.answer_question(chat_request, db)
+        chat_response = chat_service.answer_question(chat_request, db, history=history)
 
         # 3. Save Assistant Message
         citations_json = [c.model_dump() for c in chat_response.citations]
@@ -62,7 +69,8 @@ class ConversationService:
             conversation_id=conversation_id,
             role="assistant",
             content=chat_response.answer,
-            citations=citations_json
+            citations=citations_json,
+            response_language=chat_response.response_language or user_lang,
         )
         db.add(assistant_msg)
 
@@ -98,15 +106,22 @@ class ConversationService:
         if not user_msg:
             raise BaseAppException(code="MESSAGE_NOT_FOUND", message="Message not found", status_code=404)
 
+        conv = db.query(Conversation).filter(Conversation.id == user_msg.conversation_id).first()
+        history_msgs = sorted(conv.messages[-10:], key=lambda m: m.created_at) if conv and conv.messages else []
+        history = [{"role": m.role, "content": m.content} for m in history_msgs]
+
         # Call Chat Service Stub
-        chat_response = chat_service.answer_question(chat_request, db)
+        chat_response = chat_service.answer_question(chat_request, db, history=history)
 
         citations_json = [c.model_dump() for c in chat_response.citations]
+        from app.utils.language_detector import detect_language
+        regen_lang = chat_response.response_language or detect_language(chat_request.message, fallback=chat_request.language or "english")
         new_assistant_msg = Message(
             conversation_id=user_msg.conversation_id,
             role="assistant",
             content=chat_response.answer,
-            citations=citations_json
+            citations=citations_json,
+            response_language=regen_lang,
         )
         db.add(new_assistant_msg)
 

@@ -2,8 +2,15 @@ import sys
 from unittest.mock import MagicMock
 import tempfile
 
-# Create a mock chromadb module
+# Create a mock chromadb module and its problematic submodules
+# This prevents chromadb 1.x Rust bindings from loading during tests
 mock_chromadb = MagicMock()
+
+# Block the deep import chain that causes RustBindingsAPI class-level failures
+mock_rust = MagicMock()
+mock_rust.RustBindingsAPI = MagicMock()
+sys.modules['chromadb.api.rust'] = mock_rust
+sys.modules['chromadb.api.shared_system_client'] = MagicMock()
 
 # Mock the PersistentClient class
 class MockClient:

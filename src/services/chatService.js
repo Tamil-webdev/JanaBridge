@@ -2,8 +2,13 @@ import chatResponsesData from '../data/chatResponses.json';
 import initialConversations from '../data/conversations.json';
 import schemesData from '../data/schemes.json';
 import documentsData from '../data/documents.json';
+import * as apiClient from './apiClient';
+import { detectLanguage } from '../utils/languageDetector';
 
 const STORAGE_KEY = 'janabridge_conversations_v1';
+// Separate storage key for backend conversation IDs (UUID → local conv ID mapping)
+const BACKEND_CONV_KEY = 'janabridge_backend_conv_v1';
+
 
 export const chatService = {
   /**
@@ -13,14 +18,38 @@ export const chatService = {
     try {
       const stored = localStorage.getItem(STORAGE_KEY);
       if (stored) {
-        return JSON.parse(stored);
+        const parsed = JSON.parse(stored);
+        return parsed.map(conv => ({
+          ...conv,
+          messages: (conv.messages || []).map(msg => {
+            if (msg.responseId && !msg.data) {
+              const matched = chatResponsesData.find(r => r.id === msg.responseId);
+              if (matched) {
+                return { ...msg, data: { ...matched, response_language: 'english' } };
+              }
+            }
+            return msg;
+          })
+        }));
       }
     } catch (e) {
       console.warn('Failed to read chat conversations from localStorage', e);
     }
-    // Seed initial mock conversations
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(initialConversations));
-    return initialConversations;
+    // Seed initial mock conversations with hydration
+    const hydrated = initialConversations.map(conv => ({
+      ...conv,
+      messages: (conv.messages || []).map(msg => {
+        if (msg.responseId && !msg.data) {
+          const matched = chatResponsesData.find(r => r.id === msg.responseId);
+          if (matched) {
+            return { ...msg, data: { ...matched, response_language: 'english' } };
+          }
+        }
+        return msg;
+      })
+    }));
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(hydrated));
+    return hydrated;
   },
 
   saveConversations: (conversations) => {
@@ -32,16 +61,111 @@ export const chatService = {
   },
 
   /**
-   * Mock RAG Engine: Matches user question against indexed responses,
-   * schemes, and documents to assemble structured multilingual response.
+   * Get or create a persistent backend conversation ID for the given local conv ID.
    */
-  generateResponse: async (query, language = 'en') => {
-    // Simulate realistic asynchronous network & processing delay (500ms)
+  getBackendConvId: async (localConvId, title = 'New Inquiry') => {
+    let mapping = {};
+    try {
+      mapping = JSON.parse(localStorage.getItem(BACKEND_CONV_KEY) || '{}');
+    } catch (_) {}
+
+    if (mapping[localConvId]) {
+      return mapping[localConvId];
+    }
+
+    // Create a new conversation on the backend
+    const backendConv = await apiClient.createConversation(title);
+    mapping[localConvId] = backendConv.id;
+    localStorage.setItem(BACKEND_CONV_KEY, JSON.stringify(mapping));
+    return backendConv.id;
+  },
+
+  /**
+   * Generate a response.
+   *
+   * Priority:
+   *   1. Real backend (FastAPI → RAG → qwen3.5:0.8b via Ollama) — labeled isMock: false
+   *   2. Demo Mode fallback if backend unreachable — labeled isMock: true, demoMode: true
+   *
+   * The backend response is mapped to the same shape as the mock responses
+   * so the ChatMessage component renders correctly without changes.
+   */
+  generateResponse: async (query, language = 'en', convId = null) => {
+    // --- Attempt real backend inference ---
+    try {
+      // Get or create a backend conversation
+      let backendConvId;
+      if (convId) {
+        backendConvId = await chatService.getBackendConvId(convId, query.slice(0, 48));
+      } else {
+        const backendConv = await apiClient.createConversation(query.slice(0, 48));
+        backendConvId = backendConv.id;
+      }
+
+      const msg = await apiClient.sendMessage(backendConvId, query, language);
+
+      // Map backend citation format to the frontend citation format
+      const citations = (msg.citations || []).map(c => ({
+        title: c.source_title || c.document_id || 'Source Document',
+        page: c.page != null ? String(c.page) : '—',
+        snippet: c.snippet || '',
+        sourceType: 'Government Document',
+        verificationStatus: 'verified',
+        citation_id: c.citation_id,
+      }));
+
+      const isInsufficient =
+        msg.status === 'insufficient_evidence' ||
+        (msg.content || msg.answer || '').toLowerCase().includes('insufficient evidence');
+
+      const detectedLang = detectLanguage(msg.content || msg.answer || '', 'english');
+      const responseLang = msg.response_language || detectedLang || 'english';
+
+      return {
+        id: `resp-${Date.now()}`,
+        query,
+        directAnswer: msg.content || msg.answer || '',
+        benefits: [],
+        eligibility: [],
+        requiredDocuments: [],
+        applicationSteps: [],
+        importantNotes: null,
+        citations,
+        insufficientEvidence: isInsufficient,
+        isMock: false,        // ← real local Ollama inference
+        demoMode: false,
+        backendConvId,
+        backendMsgId: msg.id,
+        response_language: responseLang,
+      };
+    } catch (backendErr) {
+      console.warn(
+        '[JanaBridge] Backend unavailable, switching to Demo Mode.',
+        backendErr.message
+      );
+      // Fall through to Demo Mode below
+    }
+
+    // --- Demo Mode fallback ---
+    return chatService._generateDemoResponse(query, language);
+  },
+
+  /**
+   * Mock/Demo Mode response — clearly labeled.
+   * Used ONLY when the backend is unreachable.
+   */
+  _generateDemoResponse: async (query, language = 'en') => {
     await new Promise(resolve => setTimeout(resolve, 500));
 
     const clean = query.trim().toLowerCase();
-    const isTa = language === 'ta';
-    const isHi = language === 'hi';
+    const fallbackLang = language === 'ta' ? 'tamil' : language === 'hi' ? 'hindi' : 'english';
+    const detectedLang = detectLanguage(query, fallbackLang);
+
+    const isTanglish = detectedLang === 'tanglish';
+    const isTa = detectedLang === 'tamil' || language === 'ta';
+    const isHi = detectedLang === 'hindi' || language === 'hi';
+
+    const respLang = isTanglish ? 'tanglish' : isTa ? 'tamil' : isHi ? 'hindi' : 'english';
 
     // 1. Check pre-indexed chat responses
     for (const item of chatResponsesData) {
@@ -49,15 +173,52 @@ export const chatService = {
         return {
           id: `resp-${Date.now()}`,
           query,
-          directAnswer: isTa ? (item.tamilDirectAnswer || item.directAnswer) : isHi ? (item.hindiDirectAnswer || item.directAnswer) : item.directAnswer,
-          benefits: isTa ? (item.tamilBenefits || item.benefits || []) : isHi ? (item.hindiBenefits || item.benefits || []) : (item.benefits || []),
-          eligibility: isTa ? (item.tamilEligibility || item.eligibility || []) : isHi ? (item.hindiEligibility || item.eligibility || []) : (item.eligibility || []),
-          requiredDocuments: isTa ? (item.tamilRequiredDocuments || item.requiredDocuments || []) : isHi ? (item.hindiRequiredDocuments || item.requiredDocuments || []) : (item.requiredDocuments || []),
-          applicationSteps: isTa ? (item.tamilApplicationSteps || item.applicationSteps || []) : isHi ? (item.hindiApplicationSteps || item.applicationSteps || []) : (item.applicationSteps || []),
-          importantNotes: isTa ? (item.tamilImportantNotes || item.importantNotes) : isHi ? (item.hindiImportantNotes || item.importantNotes) : item.importantNotes,
+          directAnswer: isTanglish
+            ? (item.tanglishDirectAnswer || item.directAnswer)
+            : isTa
+            ? (item.tamilDirectAnswer || item.directAnswer)
+            : isHi
+            ? (item.hindiDirectAnswer || item.directAnswer)
+            : item.directAnswer,
+          benefits: isTanglish
+            ? (item.tanglishBenefits || item.benefits || [])
+            : isTa
+            ? (item.tamilBenefits || item.benefits || [])
+            : isHi
+            ? (item.hindiBenefits || item.benefits || [])
+            : (item.benefits || []),
+          eligibility: isTanglish
+            ? (item.tanglishEligibility || item.eligibility || [])
+            : isTa
+            ? (item.tamilEligibility || item.eligibility || [])
+            : isHi
+            ? (item.hindiEligibility || item.eligibility || [])
+            : (item.eligibility || []),
+          requiredDocuments: isTanglish
+            ? (item.tanglishRequiredDocuments || item.requiredDocuments || [])
+            : isTa
+            ? (item.tamilRequiredDocuments || item.requiredDocuments || [])
+            : isHi
+            ? (item.hindiRequiredDocuments || item.requiredDocuments || [])
+            : (item.requiredDocuments || []),
+          applicationSteps: isTanglish
+            ? (item.tanglishApplicationSteps || item.applicationSteps || [])
+            : isTa
+            ? (item.tamilApplicationSteps || item.applicationSteps || [])
+            : isHi
+            ? (item.hindiApplicationSteps || item.applicationSteps || [])
+            : (item.applicationSteps || []),
+          importantNotes: isTanglish
+            ? (item.tanglishImportantNotes || item.importantNotes)
+            : isTa
+            ? (item.tamilImportantNotes || item.importantNotes)
+            : isHi
+            ? (item.hindiImportantNotes || item.importantNotes)
+            : item.importantNotes,
           citations: item.citations || [],
           insufficientEvidence: !!item.insufficientEvidence,
-          isMock: !!item.isMock
+          isMock: !!item.isMock,
+          response_language: respLang
         };
       }
     }
@@ -79,7 +240,9 @@ export const chatService = {
       return {
         id: `resp-${Date.now()}`,
         query,
-        directAnswer: isTa
+        directAnswer: isTanglish
+          ? `${matchedScheme.name} Department of ${matchedScheme.department} moolama implement panranga. ${matchedScheme.description}`
+          : isTa
           ? `${schemeName} என்பது ${schemeDept} துறையின் கீழ் செயல்படுத்தப்படும் ${matchedScheme.governmentLevel === 'Central' ? 'மத்திய அரசு' : 'மாநில அரசு'} திட்டமாகும். ${schemeDesc}`
           : isHi
           ? `${schemeName} ${schemeDept} विभाग के अंतर्गत एक ${matchedScheme.governmentLevel === 'Central' ? 'केंद्रीय' : 'राज्य'} सरकारी योजना है। ${schemeDesc}`
@@ -103,7 +266,8 @@ export const chatService = {
           }
         ],
         insufficientEvidence: false,
-        isMock: matchedScheme.isMock
+        isMock: matchedScheme.isMock,
+        response_language: respLang
       };
     }
 
@@ -123,7 +287,9 @@ export const chatService = {
       return {
         id: `resp-${Date.now()}`,
         query,
-        directAnswer: isTa
+        directAnswer: isTanglish
+          ? `${matchedDoc.name} ${matchedDoc.issuingAuthority} moolama issue panranga. Purpose: ${matchedDoc.purpose}`
+          : isTa
           ? `${docName} என்பது ${docAuth} ஆல் வழங்கப்படுகிறது. நோக்கம்: ${docPurpose}`
           : isHi
           ? `${docName} ${docAuth} द्वारा जारी किया जाता है। उद्देश्य: ${docPurpose}`
@@ -151,7 +317,8 @@ export const chatService = {
           }
         ],
         insufficientEvidence: false,
-        isMock: matchedDoc.isMock
+        isMock: matchedDoc.isMock,
+        response_language: respLang
       };
     }
 
@@ -159,7 +326,9 @@ export const chatService = {
     return {
       id: `resp-${Date.now()}`,
       query,
-      directAnswer: isTa
+      directAnswer: isTanglish
+        ? "Unga kelvikku official government welfare schemes or records JanaBridge knowledge index-la kedaikkala."
+        : isTa
         ? "உங்கள் கேள்விக்குரிய அதிகாரப்பூர்வ அரசு நலத்திட்டங்கள் அல்லது சட்டப்பூர்வ பதிவுகள் ஜனபிரிட்ஜ் வழிகாட்டி பதிவேட்டில் கண்டறியப்படவில்லை."
         : isHi
         ? "जनब्रिज ज्ञानकोष में आपके प्रश्न से संबंधित कोई सत्यापित सरकारी रिकॉर्ड या कल्याणकारी योजना नहीं मिली।"
@@ -167,7 +336,13 @@ export const chatService = {
       benefits: [],
       eligibility: [],
       requiredDocuments: [],
-      applicationSteps: isTa
+      applicationSteps: isTanglish
+        ? [
+            "'Income certificate', 'PM KISAN', 'Old age pension', 'Ration card' mathiri standard terms use panni thedunga.",
+            "Sidebar-la irukkira Government Schemes page or Services directory-ai paarunga.",
+            "Official state e-Sevai portal-la check pannunga."
+          ]
+        : isTa
         ? [
             "'வருமானச் சான்றிதழ்', 'பி.எம் கிசான்', 'முதியோர் ஓய்வூதியம்', 'ரேஷன் கார்டு' போன்ற பொதுவான சொற்களைப் பயன்படுத்தி தேடவும்.",
             "பக்கவாட்டு மெனுவில் உள்ள அரசு நலத்திட்டங்கள் அல்லது சேவைகள் பக்கத்தைப் பார்வையிடவும்.",
@@ -184,14 +359,17 @@ export const chatService = {
             "Browse the Government Schemes page or Services directory from the sidebar.",
             "Check official state e-Sevai or national government portals."
           ],
-      importantNotes: isTa
+      importantNotes: isTanglish
+        ? "JanaBridge central and state government verified notifications mattume provide pannum."
+        : isTa
         ? "ஜனபிரிட்ஜ் மத்திய மற்றும் மாநில அரசு அறிவிப்புகளின் அடிப்படையில் சரிபார்க்கப்பட்ட தகவல்களை மட்டுமே வழங்குகிறது."
         : isHi
         ? "जनब्रिज केवल आधिकारिक सरकारी अधिसूचनाओं के आधार पर सत्यापित जानकारी प्रदान करता है।"
         : "JanaBridge strictly enforces evidence-based guidelines. We only present information verified against central and state government notifications.",
       citations: [],
       insufficientEvidence: true,
-      isMock: true
+      isMock: true,
+      response_language: respLang
     };
   }
 };

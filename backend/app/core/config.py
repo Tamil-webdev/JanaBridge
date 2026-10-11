@@ -18,12 +18,21 @@ class Settings(BaseSettings):
     documents_dir: str | None = None
     bm25_index_path: str = str(_PROJECT_ROOT / "data" / "bm25_index.pkl")
 
+    # Pinecone
+    pinecone_api_key: str = ""
+    pinecone_index_name: str = "janabridge"
+
     # Ollama
     ollama_base_url: str = "http://localhost:11434"
-    chat_model: str = "qwen2.5:3b-instruct"
+    # Generation model: used for chatbot answer generation only.
+    # Change this to any Ollama-compatible chat model.
+    chat_model: str = "qwen3.5:0.8b"
+    generation_model: str = "qwen3.5:0.8b"
+    # Embedding model: used for document/query embeddings only.
+    # Must NOT be changed unless all indexed vectors are reindexed.
     embedding_model: str = "qwen3-embedding:0.6b"
-    generation_model: str = "qwen2.5:3b-instruct"
-    ollama_timeout: float = 120.0
+    # Generous timeout for local model loading (first request is slow)
+    ollama_timeout: float = 180.0
 
     # Misc API settings
     request_timeout: int = 60

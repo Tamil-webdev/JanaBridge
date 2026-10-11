@@ -24,8 +24,82 @@ export const ChatMessage = ({ message, onEditPrompt }) => {
   };
 
   const handleSpeakToggle = () => {
-    setSpeaking(true);
-    setTimeout(() => setSpeaking(false), 3000);
+    if (!window.speechSynthesis) {
+      alert("Text-to-speech is not supported in your browser.");
+      return;
+    }
+    if (speaking) {
+      window.speechSynthesis.cancel();
+      setSpeaking(false);
+      return;
+    }
+
+    window.speechSynthesis.cancel();
+
+    let fullText = data.directAnswer || '';
+    if (data.benefits?.length) fullText += '. ' + data.benefits.join('. ');
+    if (data.applicationSteps?.length) fullText += '. ' + data.applicationSteps.join('. ');
+
+    if (!fullText.trim()) return;
+
+    const respLang = data.response_language || 'english';
+
+    // Tanglish text is Latin-script; always use en-IN for readability
+    let langCode = 'en-IN';
+    if (respLang === 'tamil') {
+      langCode = 'ta-IN';
+    } else if (respLang === 'hindi') {
+      langCode = 'hi-IN';
+    }
+    // tanglish or english → 'en-IN'
+
+    const speak = (voices) => {
+      const utterance = new SpeechSynthesisUtterance(fullText);
+      utterance.lang = langCode;
+
+      // Try exact match → then language prefix → then any available
+      let voice = voices.find(v => v.lang === langCode);
+      if (!voice) {
+        const prefix = langCode.split('-')[0];
+        voice = voices.find(v => v.lang.startsWith(prefix));
+      }
+      if (!voice && (respLang === 'tamil' || respLang === 'hindi')) {
+        // Last resort: fall back to en-IN so at least audio plays
+        voice = voices.find(v => v.lang === 'en-IN') || voices.find(v => v.lang.startsWith('en'));
+        utterance.lang = 'en-IN';
+      }
+      if (voice) utterance.voice = voice;
+
+      utterance.onstart = () => setSpeaking(true);
+      utterance.onend = () => setSpeaking(false);
+      utterance.onerror = (e) => {
+        console.error("Speech synthesis error", e);
+        setSpeaking(false);
+        if (e.error !== 'interrupted' && e.error !== 'canceled') {
+          alert('Error playing audio: ' + e.error);
+        }
+      };
+
+      window.speechSynthesis.speak(utterance);
+    };
+
+    const voices = window.speechSynthesis.getVoices();
+    if (voices.length > 0) {
+      speak(voices);
+    } else {
+      // Voices not yet loaded — wait for the event (fires once on most browsers)
+      const onVoicesChanged = () => {
+        window.speechSynthesis.removeEventListener('voiceschanged', onVoicesChanged);
+        speak(window.speechSynthesis.getVoices());
+      };
+      window.speechSynthesis.addEventListener('voiceschanged', onVoicesChanged);
+      // Safety timeout: speak anyway after 500ms even if event never fires
+      setTimeout(() => {
+        window.speechSynthesis.removeEventListener('voiceschanged', onVoicesChanged);
+        const v = window.speechSynthesis.getVoices();
+        speak(v);
+      }, 500);
+    }
   };
 
   const formattedTime = message.timestamp
@@ -92,11 +166,20 @@ export const ChatMessage = ({ message, onEditPrompt }) => {
               {t('chat.assistantTitle')}
             </span>
             <span className="text-[11px] text-slate-400">• {formattedTime}</span>
-            {data.isMock && (
-              <span className="px-1.5 py-0.2 rounded text-[10px] bg-amber-100 text-amber-800 dark:bg-amber-950/40 dark:text-amber-300 font-medium">
-                {t('common.mockDemo')}
+            {/* Real local Ollama inference badge */}
+            {!data.isMock && !data.demoMode && (
+              <span className="px-1.5 py-0.5 rounded text-[10px] bg-emerald-100 text-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-300 font-medium flex items-center gap-0.5">
+                <ShieldCheck className="w-3 h-3" />
+                AI Grounded
               </span>
             )}
+            {/* Demo Mode fallback badge */}
+            {(data.isMock || data.demoMode) && (
+              <span className="px-1.5 py-0.5 rounded text-[10px] bg-amber-100 text-amber-800 dark:bg-amber-950/40 dark:text-amber-300 font-medium">
+                {t('common.mockDemo', 'Demo Mode')}
+              </span>
+            )}
+
           </div>
 
           <div className="flex items-center gap-1.5">

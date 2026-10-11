@@ -12,7 +12,8 @@ import {
   HelpCircle,
   ChevronLeft,
   ChevronRight,
-  ExternalLink
+  ExternalLink,
+  Sparkles
 } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import { useSavedItems } from '../../context/SavedItemsContext';
@@ -27,6 +28,7 @@ export const Sidebar = ({ isCollapsed, onToggleCollapse }) => {
     { to: '/schemes', label: t('navSchemes'), icon: Award },
     { to: '/documents', label: t('navDocuments'), icon: FileText },
     { to: '/chat', label: t('navChat'), icon: MessageSquare, badge: t('aiRagBadge', 'AI RAG') },
+    { to: '/recommend', label: t('navRecommend', 'Scheme Advisor'), icon: Sparkles, badge: 'NEW' },
     { to: '/tamil-nadu', label: t('navTamilNadu'), icon: Landmark, badge: t('focusBadge', 'Focus') },
     { to: '/saved', label: t('navSaved'), icon: Bookmark, count: savedCount },
     { to: '/chat-history', label: t('navHistory'), icon: History },

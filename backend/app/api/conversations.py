@@ -51,7 +51,8 @@ def get_conversation(conversation_id: str, db: Session = Depends(get_db)):
             content=msg.content,
             created_at=msg.created_at,
             revision=msg.revision,
-            citations=msg.citations if msg.citations else []
+            citations=msg.citations if msg.citations else [],
+            response_language=msg.response_language,
         ) for msg in conv.messages
     ]
     return ConversationDetailResponse(
@@ -82,5 +83,6 @@ def add_message(conversation_id: str, chat_request: ChatRequest, db: Session = D
         content=msg.content,
         created_at=msg.created_at,
         revision=msg.revision,
-        citations=msg.citations if msg.citations else []
+        citations=msg.citations if msg.citations else [],
+        response_language=msg.response_language,
     )

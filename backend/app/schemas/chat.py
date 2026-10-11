@@ -21,3 +21,4 @@ class ChatResponse(BaseModel):
     citations: List[ChatCitation] = Field(default_factory=list)
     needs_clarification: bool = False
     limitations: List[str] = Field(default_factory=list)
+    response_language: Optional[str] = None

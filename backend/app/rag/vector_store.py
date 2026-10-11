@@ -1,5 +1,5 @@
 """
-ChromaDB persistent vector store for the BOOKMARK RAG pipeline.
+Pinecone vector store for the BOOKMARK RAG pipeline.
 
 Stores chunk embeddings with metadata (source file, page number, text).
 Uses deterministic ``chunk_id`` values so re-indexing upserts cleanly.
@@ -9,15 +9,12 @@ from __future__ import annotations
 
 import logging
 from dataclasses import dataclass
-from pathlib import Path
 from typing import Sequence
+import time
 
-import chromadb
+from pinecone import Pinecone, ServerlessSpec
 
 logger = logging.getLogger(__name__)
-
-COLLECTION_NAME = "bookmark_chunks"
-
 
 @dataclass(frozen=True)
 class VectorResult:
@@ -30,15 +27,36 @@ class VectorResult:
 
 
 class VectorStore:
-    """Thin wrapper around a persistent ChromaDB collection."""
+    """Thin wrapper around a Pinecone index."""
 
-    def __init__(self, persist_dir: Path) -> None:
-        persist_dir.mkdir(parents=True, exist_ok=True)
-        self._client = chromadb.PersistentClient(path=str(persist_dir))
-        self._collection = self._client.get_or_create_collection(
-            name=COLLECTION_NAME,
-            metadata={"hnsw:space": "cosine"},
-        )
+    def __init__(self, api_key: str, index_name: str) -> None:
+        self.api_key = api_key
+        self.index_name = index_name
+        self.pc = Pinecone(api_key=api_key)
+        self._index = None
+
+    def _get_index(self, dimension: int = None):
+        if self._index is not None:
+            return self._index
+            
+        existing_indexes = [info["name"] for info in self.pc.list_indexes()]
+        
+        if self.index_name not in existing_indexes:
+            if dimension is None:
+                raise ValueError("Index does not exist and no dimension provided to create it.")
+            logger.info("Creating Pinecone index '%s' with dimension %d", self.index_name, dimension)
+            self.pc.create_index(
+                name=self.index_name,
+                dimension=dimension,
+                metric="cosine",
+                spec=ServerlessSpec(cloud="aws", region="us-east-1")
+            )
+            # Wait for index to be ready
+            while not self.pc.describe_index(self.index_name).status['ready']:
+                time.sleep(1)
+            
+        self._index = self.pc.Index(self.index_name)
+        return self._index
 
     # ------------------------------------------------------------------
     # Mutation
@@ -52,22 +70,36 @@ class VectorStore:
         documents: Sequence[str],
     ) -> None:
         """Insert or update chunks by ID."""
-        self._collection.upsert(
-            ids=list(ids),
-            embeddings=list(embeddings),
-            metadatas=list(metadatas),
-            documents=list(documents),
-        )
-        logger.info("Upserted %d chunks into ChromaDB", len(ids))
+        if not ids:
+            return
+            
+        dimension = len(embeddings[0])
+        index = self._get_index(dimension)
+        
+        vectors = []
+        for i in range(len(ids)):
+            meta = dict(metadatas[i]) if metadatas[i] else {}
+            meta["text"] = documents[i]  # Pinecone metadata must hold the text
+            vectors.append({
+                "id": ids[i],
+                "values": embeddings[i],
+                "metadata": meta
+            })
+            
+        # Upsert in batches of 100 to avoid Pinecone limits
+        batch_size = 100
+        for i in range(0, len(vectors), batch_size):
+            index.upsert(vectors=vectors[i:i+batch_size])
+            
+        logger.info("Upserted %d chunks into Pinecone", len(ids))
 
     def clear(self) -> None:
         """Delete the collection and recreate it (full rebuild)."""
-        self._client.delete_collection(COLLECTION_NAME)
-        self._collection = self._client.get_or_create_collection(
-            name=COLLECTION_NAME,
-            metadata={"hnsw:space": "cosine"},
-        )
-        logger.info("Cleared ChromaDB collection '%s'", COLLECTION_NAME)
+        existing_indexes = [info["name"] for info in self.pc.list_indexes()]
+        if self.index_name in existing_indexes:
+            self.pc.delete_index(self.index_name)
+            logger.info("Cleared Pinecone index '%s'", self.index_name)
+        self._index = None
 
     # ------------------------------------------------------------------
     # Query
@@ -79,30 +111,34 @@ class VectorStore:
         n_results: int = 10,
     ) -> list[VectorResult]:
         """Return the *n_results* nearest chunks to *query_embedding*."""
-        count = self._collection.count()
-        if count == 0:
+        try:
+            index = self._get_index()
+        except ValueError:
             return []
-
-        # Don't request more results than exist
-        n = min(n_results, count)
-        results = self._collection.query(
-            query_embeddings=[query_embedding],
-            n_results=n,
-            include=["metadatas", "documents", "distances"],
+            
+        results = index.query(
+            vector=query_embedding,
+            top_k=n_results,
+            include_metadata=True
         )
 
         items: list[VectorResult] = []
-        for i in range(len(results["ids"][0])):
-            meta = results["metadatas"][0][i]
+        for match in results.matches:
+            meta = match.metadata or {}
             items.append(VectorResult(
-                chunk_id=results["ids"][0][i],
-                source_file=meta["source_file"],
-                page_number=int(meta["page_number"]),
-                text=results["documents"][0][i],
-                distance=results["distances"][0][i],
+                chunk_id=match.id,
+                source_file=meta.get("source_file", ""),
+                page_number=int(meta.get("page_number", 0)),
+                text=meta.get("text", ""),
+                distance=1.0 - match.score,
             ))
         return items
 
     @property
     def count(self) -> int:
-        return self._collection.count()
+        try:
+            index = self._get_index()
+            stats = index.describe_index_stats()
+            return stats.total_vector_count
+        except ValueError:
+            return 0

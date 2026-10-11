@@ -7,6 +7,7 @@ class MessageBase(BaseModel):
     role: str
     content: str
     citations: Optional[List[ChatCitation]] = Field(default_factory=list)
+    response_language: Optional[str] = None
 
 class MessageResponse(MessageBase):
     id: str
