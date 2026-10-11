@@ -1,0 +1,250 @@
+"""
+RAG pipeline orchestrator.
+
+Coordinates the full ingestion and query flows:
+
+- **Indexing**: load PDFs → chunk → embed → upsert into ChromaDB +
+  rebuild BM25.  Both stores are rebuilt atomically from the current
+  corpus so they always represent the same set of chunks.
+
+- **Query**: embed question → hybrid retrieve → relevance gate →
+  generate answer → validate citations → return structured response.
+"""
+
+from __future__ import annotations
+
+import logging
+from dataclasses import dataclass
+from pathlib import Path
+
+from app.rag.config import Settings
+from app.rag.bm25_retriever import BM25Entry, BM25Index
+from app.rag.chunker import Chunk, chunk_pages
+from app.rag.embedder import embed_single, embed_texts
+from app.rag.generator import generate_answer
+from app.rag.pdf_loader import load_all_pdfs
+from app.rag.retriever import hybrid_retrieve
+from app.rag.vector_store import VectorStore
+from app.utils.language_detector import detect_language
+
+logger = logging.getLogger(__name__)
+
+
+@dataclass
+class IndexResult:
+    """Summary of an indexing run."""
+    documents_found: int
+    total_pages: int
+    total_chunks: int
+
+
+@dataclass
+class QueryResult:
+    """Structured result of a RAG query."""
+    answer: str
+    status: str  # "answered" | "insufficient_evidence"
+    citations: list[dict]
+    response_language: str = "english"
+
+
+class RAGPipeline:
+    """Stateful pipeline that holds the vector store and BM25 index."""
+
+    def __init__(self, settings: Settings) -> None:
+        self.settings = settings
+        self._vector_store = VectorStore(
+            api_key=settings.pinecone_api_key,
+            index_name=settings.pinecone_index_name
+        )
+        self._bm25_index = BM25Index()
+
+        # Try to load a persisted BM25 index if one exists
+        if settings.bm25_path.exists():
+            try:
+                self._bm25_index.load(settings.bm25_path)
+            except Exception:
+                logger.warning(
+                    "Could not load BM25 index from %s; "
+                    "re-index to rebuild.", settings.bm25_path,
+                )
+
+    # ------------------------------------------------------------------
+    # Indexing
+    # ------------------------------------------------------------------
+
+    def index_documents(self, documents_dir: Path | None = None) -> IndexResult:
+        """Full rebuild: load all PDFs, chunk, embed, store.
+
+        Both ChromaDB and BM25 are cleared and rebuilt from the same
+        chunk list so they are always consistent.
+        """
+        doc_dir = documents_dir or self.settings.documents_path
+
+        # 1. Load PDFs
+        pages = load_all_pdfs(doc_dir)
+
+        # 2. Chunk
+        chunks = chunk_pages(
+            pages,
+            chunk_size=self.settings.chunk_size,
+            chunk_overlap=self.settings.chunk_overlap,
+        )
+
+        if not chunks:
+            raise RuntimeError("Chunking produced zero chunks.")
+
+        # 3. Embed (batched)
+        texts = [c.text for c in chunks]
+        embeddings = embed_texts(
+            texts,
+            model=self.settings.embedding_model,
+            base_url=self.settings.ollama_base_url,
+            batch_size=self.settings.embedding_batch_size,
+            timeout=self.settings.ollama_timeout,
+        )
+
+        # 4. Upsert into vector store (idempotent via stable chunk IDs)
+        ids = [c.chunk_id for c in chunks]
+        metadatas = [
+            {
+                "source_file": c.source_file,
+                "page_number": c.page_number,
+                "chunk_index": c.chunk_index,
+            }
+            for c in chunks
+        ]
+        self._vector_store.upsert(ids, embeddings, metadatas, texts)
+
+        # 5. Rebuild BM25 preserving catalogue entries
+        bm25_entries = [
+            BM25Entry(
+                chunk_id=c.chunk_id,
+                source_file=c.source_file,
+                page_number=c.page_number,
+                text=c.text,
+            )
+            for c in chunks
+        ]
+        
+        try:
+            old_bm25 = BM25Index()
+            old_bm25.load(self.settings.bm25_path)
+            catalogue_entries = [e for e in old_bm25._entries if e.chunk_id.startswith("esv-")]
+            bm25_entries.extend(catalogue_entries)
+        except Exception:
+            pass
+            
+        self._bm25_index.build(bm25_entries)
+        self._bm25_index.save(self.settings.bm25_path)
+
+        unique_files = {c.source_file for c in chunks}
+        logger.info(
+            "Indexed %d chunks from %d pages across %d documents",
+            len(chunks), len(pages), len(unique_files),
+        )
+        return IndexResult(
+            documents_found=len(unique_files),
+            total_pages=len(pages),
+            total_chunks=len(chunks),
+        )
+
+    # ------------------------------------------------------------------
+    # Query
+    # ------------------------------------------------------------------
+
+    def query(self, question: str, response_language: str | None = None) -> QueryResult:
+        """Answer a question using the indexed corpus."""
+        target_lang = response_language or detect_language(question)
+
+        if self._vector_store.count == 0:
+            if target_lang == "tamil":
+                ans = "ஆவணங்கள் இன்னும் அட்டவணைப்படுத்தப்படவில்லை. தயவுசெய்து ஆவணங்களைப் பதிவேற்றவும்."
+            elif target_lang == "hindi":
+                ans = "दस्तावेज अभी तक अनुक्रमित नहीं किए गए हैं। कृपया पहले दस्तावेज अपलोड करें।"
+            elif target_lang == "tanglish":
+                ans = "Documents innum index aagala. Please /api/v1/documents/index use panni index pannunga."
+            else:
+                ans = "No documents have been indexed yet. Please index documents first using the /api/v1/documents/index endpoint."
+
+            return QueryResult(
+                answer=ans,
+                status="insufficient_evidence",
+                citations=[],
+                response_language=target_lang,
+            )
+
+        # 1. Embed the question
+        q_embedding = embed_single(
+            question,
+            model=self.settings.embedding_model,
+            base_url=self.settings.ollama_base_url,
+            timeout=self.settings.ollama_timeout,
+        )
+
+        # 2. Hybrid retrieval + relevance check
+        chunks, is_relevant = hybrid_retrieve(
+            q_embedding,
+            question,
+            vector_store=self._vector_store,
+            bm25_index=self._bm25_index,
+            top_k_semantic=self.settings.top_k_semantic,
+            top_k_bm25=self.settings.top_k_bm25,
+            top_k_final=self.settings.top_k_final,
+            rrf_k=self.settings.rrf_k,
+            max_semantic_distance=self.settings.max_semantic_distance,
+            min_relevant_fraction=self.settings.min_relevant_fraction,
+        )
+
+        if not chunks or not is_relevant:
+            if target_lang == "tamil":
+                ans = "இந்தக் கேள்விக்கு பதிலளிக்க போதுமான தகவல்கள் அட்டவணைப்படுத்தப்பட்ட ஆவணங்களில் இல்லை."
+            elif target_lang == "hindi":
+                ans = "इस प्रश्न का उत्तर देने के लिए अनुक्रमित दस्तावेजों में पर्याप्त जानकारी उपलब्ध नहीं है।"
+            elif target_lang == "tanglish":
+                ans = "Indha kelvikku answer panna thevaiyana evidence indexed documents-la illa."
+            else:
+                ans = "I do not have sufficient evidence in the indexed documents to answer this question."
+
+            return QueryResult(
+                answer=ans,
+                status="insufficient_evidence",
+                citations=[],
+                response_language=target_lang,
+            )
+
+        # 3. Generate answer with citation validation
+        answer, citations, _map = generate_answer(
+            question,
+            chunks,
+            model=self.settings.generation_model,
+            base_url=self.settings.ollama_base_url,
+            timeout=self.settings.ollama_timeout,
+            target_language=target_lang,
+        )
+        resp_lang = detect_language(answer, fallback=target_lang)
+
+        # 4. Determine final status
+        # If the model itself declares insufficient evidence, honour that
+        insufficient_markers = [
+            "insufficient evidence",
+            "do not have sufficient evidence",
+            "not enough information",
+            "cannot answer",
+            "no relevant information",
+            "போதுமான தகவல்கள் இல்லை",
+            "पर्याप्त जानकारी",
+            "evidence indexed documents-la illa"
+        ]
+        answer_lower = answer.lower()
+        is_insufficient = any(m in answer_lower for m in insufficient_markers)
+
+        status = "insufficient_evidence" if is_insufficient else "answered"
+        if is_insufficient:
+            citations = []  # Don't attach citations to a refusal
+
+        return QueryResult(
+            answer=answer,
+            status=status,
+            citations=citations,
+            response_language=resp_lang,
+        )

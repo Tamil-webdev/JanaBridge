@@ -1,0 +1,53 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+build/
+*.egg
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment variables (machine-specific — never commit)
+.env
+.env.local
+*.local
+
+# Local data (generated indexes, embeddings, databases, documents)
+# These are machine-specific and must never be committed.
+data/
+documents/
+backend/data/
+backend/documents/
+pdfs/
+*.db
+backend/temp_*.txt
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Node
+node_modules/
+dist-ssr/
+
+# Frontend build output
+dist/
+
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store

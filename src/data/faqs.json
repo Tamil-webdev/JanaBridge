@@ -1,0 +1,62 @@
+[
+  {
+    "id": "faq-1",
+    "category": "General",
+    "question": "What is JanaBridge and how does it help citizens?",
+    "tamilQuestion": "ஜனபிரிட்ஜ் என்றால் என்ன, அது குடிமக்களுக்கு எவ்வாறு உதவுகிறது?",
+    "hindiQuestion": "जनब्रिज क्या है और यह नागरिकों की किस प्रकार सहायता करता है?",
+    "answer": "JanaBridge is a multilingual, open discovery platform engineered to bridge Indian citizens to public schemes, essential certificates, and government welfare benefits. It guides users through complex eligibility criteria, lists commonly required supporting documents, and links directly to official application portals.",
+    "tamilAnswer": "ஜனபிரிட்ஜ் என்பது இந்திய குடிமக்கள் அரசு நலத்திட்டங்கள், சான்றிதழ்கள் மற்றும் பொது சேவைகளை எளிதில் கண்டறிய உதவும் பன்மொழி தகவல் தளமாகும். இது தகுதி வரம்புகளை விளக்குவதோடு, தேவையான ஆவணங்களை சரிபார்த்து அதிகாரப்பூர்வ இணையதளங்களில் விண்ணப்பிக்க வழிகாட்டுகிறது.",
+    "hindiAnswer": "जनब्रिज एक बहुभाषी, खुला खोज मंच है जो नागरिकों को सरकारी योजनाओं, प्रमाण पत्रों और कल्याणकारी लाभों से जोड़ता है। यह जटिल पात्रता मानदंडों को समझाता है, आवश्यक दस्तावेजों की सूची प्रदान करता है और सीधे आधिकारिक पोर्टलों पर जाने में मदद करता है।"
+  },
+  {
+    "id": "faq-2",
+    "category": "Schemes & Eligibility",
+    "question": "How does the 'Find schemes for my needs' discovery feature work?",
+    "tamilQuestion": "'எனக்கான திட்டங்களைக் கண்டறிக' அம்சம் எவ்வாறு செயல்படுகிறது?",
+    "hindiQuestion": "'मेरी आवश्यकताओं के अनुसार योजनाएं खोजें' सुविधा कैसे कार्य करती है?",
+    "answer": "You can select your demographic background (e.g. farmer, student, senior citizen, woman, low-income household) or enter your query. JanaBridge cross-references your profile against welfare guidelines to display matching central and state schemes. Note: These are advisory demonstration matches, not formal eligibility sanction decisions.",
+    "tamilAnswer": "உங்கள் பின்புலத்தை (விவசாயி, மாணவர், மூத்த குடிமகன், மகளிர், மாற்றுத்திறனாளி) தேர்ந்தெடுப்பதன் மூலம் உங்களுக்குப் பொருந்தும் மத்திய மற்றும் மாநில நலத்திட்டங்களை ஜனபிரிட்ஜ் உடனடியாக வடிகட்டிக் காண்பிக்கிறது.",
+    "hindiAnswer": "आप अपनी श्रेणी (किसान, छात्र, वरिष्ठ नागरिक, महिला) चुन सकते हैं। जनब्रिज आपके प्रोफाइल का मिलान सरकारी दिशा-निर्देशों से करके प्रासंगिक केंद्रीय और राज्य योजनाओं को प्रदर्शित करता है।"
+  },
+  {
+    "id": "faq-3",
+    "category": "Citations & Verification",
+    "question": "How do I read source citations in JanaBridge Assistant answers?",
+    "tamilQuestion": "ஜனபிரிட்ஜ் உதவியாளர் பதில்களில் உள்ள ஆதார மேற்கோள்களை எவ்வாறு புரிந்து கொள்வது?",
+    "hindiQuestion": "जनब्रिज सहायक के उत्तरों में साक्ष्य उद्धरणों को कैसे समझें?",
+    "answer": "Every structured response by JanaBridge Assistant includes expandable Citation Cards. Each card lists the government department's Citizen Charter or statutory manual, the specific page number or section, the exact text snippet extracted, and the verification status (e.g., 'Official Guidelines Verified'). This ensures transparency and helps you verify rules directly.",
+    "tamilAnswer": "ஜனபிரிட்ஜ் உதவியாளரின் ஒவ்வொரு பதிலிலும் மேற்கோள் அட்டைகள் உள்ளன. அவை அரசாணையின் பெயர், குறிப்பிட்ட பக்க எண், அதிகாரப்பூர்வ வரிகள் மற்றும் சரிபார்ப்பு நிலையைத் தெளிவாகக் காண்பிக்கின்றன.",
+    "hindiAnswer": "जनब्रिज सहायक के प्रत्येक उत्तर में विस्तार योग्य उद्धरण कार्ड होते हैं। प्रत्येक कार्ड सरकारी नागरिक चार्टर, पृष्ठ संख्या, सटीक पाठ उद्धरण और सत्यापन स्थिति को दर्शाता है ताकि पारदर्शिता बनी रहे।"
+  },
+  {
+    "id": "faq-4",
+    "category": "Applications & Authority",
+    "question": "Does JanaBridge issue official certificates or decide scheme approvals?",
+    "tamilQuestion": "ஜனபிரிட்ஜ் தளம் அதிகாரப்பூர்வ சான்றிதழ்களை வழங்குகிறதா அல்லது திட்டங்களுக்கு ஒப்புதல் அளிக்கிறதா?",
+    "hindiQuestion": "क्या जनब्रिज आधिकारिक प्रमाण पत्र जारी करता है या योजना स्वीकृति का निर्णय लेता है?",
+    "answer": "No. JanaBridge is purely an informational discovery and navigation portal. JanaBridge does not issue official identity cards or certificates, nor does it approve or reject government applications. All applications are processed solely by authorized government departments through their respective official portals or e-Sevai / CSC kiosks.",
+    "tamilAnswer": "இல்லை. ஜனபிரிட்ஜ் ஒரு தகவல் மற்றும் வழிகாட்டுதல் தளம் மட்டுமே. இது அதிகாரப்பூர்வ சான்றிதழ்களை வழங்குவதோ அல்லது விண்ணப்பங்களை ஏற்பதோ நிராகரிப்பதோ இல்லை. அனைத்து விண்ணப்பங்களும் சம்பந்தப்பட்ட அரசுத் துறைகளாலேயே பரிசீலிக்கப்படும்.",
+    "hindiAnswer": "नहीं। जनब्रिज केवल एक सूचनात्मक खोज और नेविगेशन पोर्टल है। यह प्रमाण पत्र जारी नहीं करता है और न ही सरकारी आवेदनों को स्वीकृत/अस्वीकृत करता है। सभी निर्णय संबंधित सरकारी विभागों द्वारा ही लिए जाते हैं।"
+  },
+  {
+    "id": "faq-5",
+    "category": "Privacy & Data",
+    "question": "Does JanaBridge store my personal Aadhaar or income details on servers?",
+    "tamilQuestion": "ஜனபிரிட்ஜ் எனது ஆதார் அல்லது வருமான விவரங்களை சர்வர்களில் சேமிக்கிறதா?",
+    "hindiQuestion": "क्या जनब्रिज मेरी व्यक्तिगत जानकारी जैसे आधार या आय विवरण को सर्वर पर संग्रहीत करता है?",
+    "answer": "No. JanaBridge operates without storing any sensitive personal identification data on external servers. All preferences, saved bookmarked items, and chat sessions are stored locally in your browser's localStorage. You can clear them at any time.",
+    "tamilAnswer": "இல்லை. ஜனபிரிட்ஜ் பயனர்களின் எந்தவொரு தனிப்பட்ட அடையாளத் தகவலையும் சேமிப்பதில்லை. உங்களின் சேமிக்கப்பட்ட திட்டங்கள் மற்றும் உரையாடல்கள் உங்கள் சொந்த சாதனத்தின் உலாவியிலேயே பாதுகாக்கப்படுகின்றன.",
+    "hindiAnswer": "नहीं। जनब्रिज किसी भी संवेदनशील व्यक्तिगत पहचान डेटा को सर्वर पर संग्रहीत नहीं करता है। सभी सहेजी गई वस्तुएं और बातचीत स्थानीय रूप से आपके ब्राउज़र में ही रहती हैं।"
+  },
+  {
+    "id": "faq-6",
+    "category": "Language & Accessibility",
+    "question": "What languages and accessibility features are supported?",
+    "tamilQuestion": "எந்தெந்த மொழிகள் மற்றும் அணுகல்தன்மை வசதிகள் ஆதரிக்கப்படுகின்றன?",
+    "hindiQuestion": "कौन सी भाषाएं और सुलभता सुविधाएं समर्थित हैं?",
+    "answer": "JanaBridge supports English, Tamil (தமிழ்), and Hindi (हिन्दी) UI localization. For users needing visual assistance, we provide font scaling options (Normal, Large, Extra Large), high-contrast toggle, dark mode, keyboard navigation, and a simulated voice inquiry assistant.",
+    "tamilAnswer": "ஜனபிரிட்ஜ் ஆங்கிலம், தமிழ் மற்றும் இந்தி மொழிகளை ஆதரிக்கிறது. மேலும் எழுத்து அளவு மாற்றம் (A/A+/A++), உயர் மாறுபாடு முறை, இருண்ட தீம் மற்றும் குரல் வழி உதவியாளரையும் வழங்குகிறது.",
+    "hindiAnswer": "जनब्रिज अंग्रेजी, तमिल और हिंदी भाषा का समर्थन करता है। साथ ही फ़ॉन्ट आकार समायोजन, उच्च कंट्रास्ट, डार्क मोड और वॉयस पूछताछ सहायक भी उपलब्ध कराता है।"
+  }
+]
